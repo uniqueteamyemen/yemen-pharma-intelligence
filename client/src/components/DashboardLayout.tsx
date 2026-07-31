@@ -21,16 +21,31 @@ import {
 } from "@/components/ui/sidebar";
 import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { LayoutDashboard, LogOut, PanelLeft, Users } from "lucide-react";
+import { Activity, Building2, FileText, Handshake, LayoutDashboard, Link2, LogOut, MessageCircle, PanelLeft, Pill, TrendingUp, UserCircle } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
-const menuItems = [
-  { icon: LayoutDashboard, label: "Page 1", path: "/" },
-  { icon: Users, label: "Page 2", path: "/some-path" },
-];
+function getMenuItems(user: any) {
+  const base = [
+    { icon: LayoutDashboard, label: "Overview", path: "/dashboard" },
+    { icon: FileText, label: "Offers", path: "/dashboard/offers" },
+    { icon: Activity, label: "Requests", path: "/dashboard/requests" },
+    { icon: Pill, label: "Drugs", path: "/dashboard/drugs" },
+    { icon: MessageCircle, label: "Messages", path: "/dashboard/messages" },
+    { icon: Handshake, label: "Matches", path: "/dashboard/matches" },
+    { icon: UserCircle, label: "Profile", path: "/dashboard/profile" },
+  ];
+  if (user?.role === "admin") {
+    base.push(
+      { icon: Building2, label: "Entities", path: "/dashboard/entities" },
+      { icon: TrendingUp, label: "Intelligence", path: "/dashboard/intelligence" },
+      { icon: Link2, label: "Alternatives", path: "/dashboard/alternatives" }
+    );
+  }
+  return base;
+}
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";
 const DEFAULT_WIDTH = 280;
@@ -110,7 +125,8 @@ function DashboardLayoutContent({
   const isCollapsed = state === "collapsed";
   const [isResizing, setIsResizing] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const activeMenuItem = menuItems.find(item => item.path === location);
+  const menuItems = getMenuItems(user);
+  const activeMenuItem = menuItems.find((item: any) => item.path === location);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -169,7 +185,7 @@ function DashboardLayoutContent({
               {!isCollapsed ? (
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="font-semibold tracking-tight truncate">
-                    Navigation
+                    PharmaYemen
                   </span>
                 </div>
               ) : null}
@@ -178,7 +194,7 @@ function DashboardLayoutContent({
 
           <SidebarContent className="gap-0">
             <SidebarMenu className="px-2 py-1">
-              {menuItems.map(item => {
+              {getMenuItems(user).map((item: any) => {
                 const isActive = location === item.path;
                 return (
                   <SidebarMenuItem key={item.path}>
