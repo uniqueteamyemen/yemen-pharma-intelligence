@@ -147,16 +147,27 @@ export const appRouter = router({
           // Create notifications for matched entities
           const matchResults = await db.getMatchesByOfferId(result.id);
           for (const match of matchResults) {
-            if (match.matchScore && parseFloat(match.matchScore) >= 0.5) {
+            // Notify on ANY drug name match (no minimum score threshold)
+            if (match.matchScore) {
               const reqEntity = await db.getRequestById(match.requestId);
               const entity = reqEntity?.entityId ? await db.getEntityById(reqEntity.entityId) : null;
               const userId = entity?.userId ?? 0;
               if (userId) {
+                const scorePercent = Math.round(parseFloat(match.matchScore) * 100);
+                const locationBonus = match.locationMatchScore ? parseFloat(match.locationMatchScore) : 0;
+                
+                let notificationBody = 'Your request matched with a new offer';
+                if (locationBonus > 0) {
+                  notificationBody += ` in the same region (${scorePercent}% match)`;
+                } else {
+                  notificationBody += ` (${scorePercent}% match)`;
+                }
+                
                 await db.createNotification({
                   userId,
                   type: 'match_found',
                   title: 'New Match Found',
-                  body: `Your request has a new potential match with score ${Math.round(parseFloat(match.matchScore) * 100)}%`,
+                  body: notificationBody,
                   relatedEntityId: entity?.id ?? undefined,
                   relatedType: 'match',
                 });
@@ -236,16 +247,27 @@ export const appRouter = router({
           // Create notifications for matched entities
           const matchResults = await db.getMatchesByRequestId(result.id);
           for (const match of matchResults) {
-            if (match.matchScore && parseFloat(match.matchScore) >= 0.5) {
+            // Notify on ANY drug name match (no minimum score threshold)
+            if (match.matchScore) {
               const offer = await db.getOfferById(match.offerId);
               const offerEntity = offer?.entityId ? await db.getEntityById(offer.entityId) : null;
               const userId = offerEntity?.userId ?? 0;
               if (userId) {
+                const scorePercent = Math.round(parseFloat(match.matchScore) * 100);
+                const locationBonus = match.locationMatchScore ? parseFloat(match.locationMatchScore) : 0;
+                
+                let notificationBody = 'Your offer matched with a new request';
+                if (locationBonus > 0) {
+                  notificationBody += ` in the same region (${scorePercent}% match)`;
+                } else {
+                  notificationBody += ` (${scorePercent}% match)`;
+                }
+                
                 await db.createNotification({
                   userId,
                   type: 'match_found',
                   title: 'New Match Found',
-                  body: `Your offer has a new potential match with score ${Math.round(parseFloat(match.matchScore) * 100)}%`,
+                  body: notificationBody,
                   relatedEntityId: offerEntity?.id ?? undefined,
                   relatedType: 'match',
                 });

@@ -443,22 +443,36 @@ export async function runMatching(offerId: number) {
   
   for (const req of openRequests) {
     let drugMatch = 0;
+    
+    // Drug name matching (primary criteria - no quantity requirement)
     if (req.drugId && offer.drugId) {
-      drugMatch = req.drugId === offer.drugId ? 100 : 0;
-      // Check alternatives
-      if (drugMatch === 0) {
+      // Exact match
+      if (req.drugId === offer.drugId) {
+        drugMatch = 100;
+      } else {
+        // Check alternatives
         const offerAlts = await getDrugAlternatives(offer.drugId);
-        if (offerAlts.some(a => a.id === req.drugId)) drugMatch = 70;
+        if (offerAlts.some(a => a.id === req.drugId)) {
+          drugMatch = 100; // Alternative counts as full match
+        }
       }
     } else if (req.isFreeText && offer.isFreeText) {
-      const reqName = (req.freeTextName || '').toLowerCase();
-      const offerName = (offer.freeTextName || '').toLowerCase();
-      if (reqName.includes(offerName) || offerName.includes(reqName)) drugMatch = 80;
+      const reqName = (req.freeTextName || '').toLowerCase().trim();
+      const offerName = (offer.freeTextName || '').toLowerCase().trim();
+      // Exact or partial match on drug name
+      if (reqName === offerName || reqName.includes(offerName) || offerName.includes(reqName)) {
+        drugMatch = 100;
+      }
+    } else if ((req.drugId && offer.isFreeText) || (req.isFreeText && offer.drugId)) {
+      // Mixed: one has drugId, other has freeText - try to match
+      // This is a weaker match but still valid
+      drugMatch = 50;
     }
     
+    // Only create match if drug names match
     if (drugMatch === 0) continue;
     
-    // Location match (same city = 100, same governorate = 70, same region = 40)
+    // Location match is secondary (bonus, not required)
     let locationMatch = 0;
     const reqEntity = await getEntityById(req.entityId);
     if (reqEntity && offerEntity) {
@@ -467,17 +481,16 @@ export async function runMatching(offerId: number) {
       else if (reqEntity.regionId === offerEntity.regionId) locationMatch = 40;
     }
     
-    // Urgency match
+    // Urgency match (secondary)
     const urgencyMap = { low: 1, medium: 2, high: 3, critical: 4 };
     const urgScore = (urgencyMap[req.urgency] / 4) * 100;
     
-    // Quantity match (offer qty >= request qty = 100, partial = proportional)
-    const qtyMatch = Math.min((offer.quantity / req.quantity) * 100, 100);
+    // NEW: Simplified scoring - drug match is primary, others are bonuses
+    // Base score is 100 for drug match, then add bonuses for location and urgency
+    const totalScore = drugMatch + (locationMatch * 0.1) + (urgScore * 0.05);
     
-    // Weighted total
-    const totalScore = (drugMatch * 0.4) + (locationMatch * 0.2) + (urgScore * 0.2) + (qtyMatch * 0.2);
-    
-    if (totalScore >= 30) {
+    // Match created if drug names match (drugMatch >= 50)
+    if (drugMatch >= 50) {
       matchesToCreate.push({
         offerId,
         requestId: req.id,
@@ -485,7 +498,7 @@ export async function runMatching(offerId: number) {
         drugMatchScore: String(drugMatch),
         locationMatchScore: String(locationMatch),
         urgencyMatchScore: String(urgScore),
-        quantityMatchScore: String(qtyMatch),
+        quantityMatchScore: String(0), // Quantity no longer affects matching
       });
     }
   }
