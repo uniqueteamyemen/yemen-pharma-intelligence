@@ -6,8 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MessagesPage() {
+  const { t } = useLanguage();
   const conversations = trpc.conversations.list.useQuery();
   const [selectedConvId, setSelectedConvId] = useState<number | null>(null);
   const [messageText, setMessageText] = useState("");
@@ -31,7 +33,7 @@ export default function MessagesPage() {
 
   const revealContact = trpc.conversations.revealContact.useMutation({
     onSuccess: () => {
-      toast.success("Contact info shared");
+      toast.success(t("Contact info shared"));
       trpc.useUtils().conversations.list.invalidate();
     },
     onError: (err) => toast.error(err.message),
@@ -40,25 +42,25 @@ export default function MessagesPage() {
   return (
     <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Messages</h1>
-        <p className="text-muted-foreground">Chat with matched entities</p>
+        <h1 className="text-2xl font-bold tracking-tight">{t("Messages")}</h1>
+        <p className="text-muted-foreground">{t("Chat with matched entities")}</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-[300px_1fr]">
         {/* Conversation List */}
         <Card>
           <CardContent className="p-4">
-            <h3 className="mb-3 font-semibold text-sm">Conversations</h3>
+            <h3 className="mb-3 font-semibold text-sm">{t("Conversations")}</h3>
             {conversations.isLoading ? (
-              <p className="text-sm text-muted-foreground">Loading...</p>
+              <p className="text-sm text-muted-foreground">{t("Loading...")}</p>
             ) : !conversations.data?.length ? (
-              <p className="text-sm text-muted-foreground">No conversations yet</p>
+              <p className="text-sm text-muted-foreground">{t("No conversations yet")}</p>
             ) : (
               <div className="space-y-2">
                 {conversations.data.map((conv) => (
                   <button
                     key={conv.id}
-                    className={`w-full text-left rounded-lg border p-3 transition-colors ${
+                    className={`w-full text-start rounded-lg border p-3 transition-colors ${
                       selectedConvId === conv.id ? "border-primary bg-primary/5" : "border-border/50 hover:bg-accent/50"
                     }`}
                     onClick={() => setSelectedConvId(conv.id)}
@@ -67,10 +69,10 @@ export default function MessagesPage() {
                       <MessageCircle className="h-4 w-4 text-muted-foreground" />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium truncate">
-                          Match #{conv.matchId}
+                          {t("Match")} <span className="ltr-value">#{conv.matchId}</span>
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          {conv.contactRevealed ? "Contact revealed" : "Contact hidden"}
+                          {conv.contactRevealed ? t("Contact revealed") : t("Contact hidden")}
                         </p>
                       </div>
                     </div>
@@ -87,9 +89,9 @@ export default function MessagesPage() {
             <>
               <div className="flex items-center justify-between border-b p-4">
                 <div>
-                  <p className="font-semibold">Match #{selectedConv.matchId}</p>
+                  <p className="font-semibold">{t("Match")} <span className="ltr-value">#{selectedConv.matchId}</span></p>
                   {selectedConv.contactRevealed && (
-                    <Badge variant="default" className="mt-1">Contact Revealed</Badge>
+                    <Badge variant="default" className="mt-1">{t("Contact Revealed")}</Badge>
                   )}
                 </div>
                 {!selectedConv.contactRevealed && (
@@ -98,16 +100,16 @@ export default function MessagesPage() {
                     size="sm"
                     onClick={() => revealContact.mutate({ conversationId: selectedConv.id })}
                   >
-                    Reveal Contact
+                    {t("Reveal Contact")}
                   </Button>
                 )}
               </div>
 
               <div className="h-[400px] overflow-y-auto p-4">
                 {messages.isLoading ? (
-                  <p className="text-muted-foreground">Loading messages...</p>
+                  <p className="text-muted-foreground">{t("Loading messages...")}</p>
                 ) : !messages.data?.length ? (
-                  <p className="text-muted-foreground text-sm">No messages yet. Start the conversation.</p>
+                  <p className="text-muted-foreground text-sm">{t("No messages yet. Start the conversation.")}</p>
                 ) : (
                   <div className="space-y-3">
                     {messages.data.map((msg) => (
@@ -115,7 +117,7 @@ export default function MessagesPage() {
                         key={msg.id}
                         className={`max-w-[80%] rounded-lg px-4 py-2 text-sm ${
                           msg.senderEntityId === (selectedConv.offerEntityId)
-                            ? "bg-primary text-primary-foreground ml-auto"
+                            ? "bg-primary text-primary-foreground ms-auto"
                             : "bg-muted"
                         }`}
                       >
@@ -129,7 +131,7 @@ export default function MessagesPage() {
               <div className="border-t p-4">
                 <div className="flex gap-2">
                   <Input
-                    placeholder="Type a message..."
+                    placeholder={t("Type a message...")}
                     value={messageText}
                     onChange={(e) => setMessageText(e.target.value)}
                     onKeyDown={(e) => {
@@ -156,7 +158,7 @@ export default function MessagesPage() {
             <CardContent className="flex items-center justify-center h-[500px]">
               <div className="text-center">
                 <MessageCircle className="mx-auto mb-3 h-10 w-10 text-muted-foreground/40" />
-                <p className="text-muted-foreground">Select a conversation to start messaging</p>
+                <p className="text-muted-foreground">{t("Select a conversation to start messaging")}</p>
               </div>
             </CardContent>
           )}

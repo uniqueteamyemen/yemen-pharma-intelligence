@@ -25,24 +25,24 @@ export default function DrugsPage() {
 
   const categories = [
     { value: "all", label: t("All Categories") },
-    { value: "antibiotics", label: "Antibiotics" },
-    { value: "analgesics", label: "Analgesics" },
-    { value: "cardiovascular", label: "Cardiovascular" },
-    { value: "endocrine", label: "Endocrine" },
-    { value: "gastrointestinal", label: "Gastrointestinal" },
-    { value: "respiratory", label: "Respiratory" },
-    { value: "antifungal", label: "Antifungal" },
-    { value: "antiviral", label: "Antiviral" },
-    { value: "vitamins", label: "Vitamins" },
-    { value: "neurological", label: "Neurological" },
-    { value: "other", label: "Other" },
+    { value: "antibiotics", label: t("Antibiotics") },
+    { value: "analgesics", label: t("Analgesics") },
+    { value: "cardiovascular", label: t("Cardiovascular") },
+    { value: "endocrine", label: t("Endocrine") },
+    { value: "gastrointestinal", label: t("Gastrointestinal") },
+    { value: "respiratory", label: t("Respiratory") },
+    { value: "antifungal", label: t("Antifungal") },
+    { value: "antiviral", label: t("Antiviral") },
+    { value: "vitamins", label: t("Vitamins") },
+    { value: "neurological", label: t("Neurological") },
+    { value: "other", label: t("Other") },
   ];
 
   return (
     <div className="space-y-6 p-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">{t("National Essential Medicines Catalog")}</h1>
-        <p className="text-muted-foreground">{t("Unified records from Yemen’s 2019 and 2022 National Essential Medicines Lists")}</p>
+        <p className="text-muted-foreground">{t("Unified national essential medicines catalog for Yemen")}</p>
       </div>
 
       <div className="flex gap-4">
@@ -69,7 +69,7 @@ export default function DrugsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>{filteredDrugs.length} {language === "ar" ? "دواء" : "Medicines"}</CardTitle>
+          <CardTitle>{filteredDrugs.length} {t("Medicines") }</CardTitle>
         </CardHeader>
         <CardContent>
           {allDrugs.isLoading ? (
@@ -96,7 +96,6 @@ export default function DrugsPage() {
                     </div>
                   </div>
                   <div className="flex flex-wrap justify-end gap-1.5">
-                    {drug.sourceYears && <Badge variant="secondary" className="text-xs">NEML {drug.sourceYears}</Badge>}
                     <Badge variant="outline" className="text-xs capitalize">{t(drug.category, drug.category)}</Badge>
                   </div>
                 </div>

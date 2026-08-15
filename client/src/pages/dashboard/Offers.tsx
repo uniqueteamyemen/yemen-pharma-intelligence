@@ -15,8 +15,10 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Plus, Search } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function OffersPage() {
+  const { language, t } = useLanguage();
   const entity = trpc.entity.getByUserId.useQuery();
   const offers = trpc.offers.list.useQuery({ status: "active", limit: 50 });
   const drugs = trpc.drugs.search.useQuery({ query: "" }, { enabled: false });
@@ -31,7 +33,7 @@ export default function OffersPage() {
 
   const createOffer = trpc.offers.create.useMutation({
     onSuccess: () => {
-      toast.success("Offer created successfully");
+      toast.success(t("Offer created successfully"));
       setCreateOpen(false);
       utils.offers.list.invalidate();
       // Reset form
@@ -39,12 +41,12 @@ export default function OffersPage() {
       setFreeTextName("");
       setQuantity("");
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => toast.error(err.message || t("Unable to create offer")),
   });
 
   const closeOffer = trpc.offers.close.useMutation({
     onSuccess: () => {
-      toast.success("Offer closed");
+      toast.success(t("Offer closed"));
       utils.offers.list.invalidate();
     },
   });
@@ -71,18 +73,18 @@ export default function OffersPage() {
     <div className="space-y-6 p-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Offers</h1>
-          <p className="text-muted-foreground">Supply offerings in the marketplace</p>
+          <h1 className="text-2xl font-bold tracking-tight">{t("Offers")}</h1>
+          <p className="text-muted-foreground">{t("Supply offerings in the marketplace")}</p>
         </div>
         <Dialog open={createOpen} onOpenChange={setCreateOpen}>
           <DialogTrigger asChild>
             <Button>
-              <Plus className="mr-2 h-4 w-4" /> New Offer
+              <Plus className="me-2 h-4 w-4" /> {t("New Offer")}
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[500px]">
             <DialogHeader>
-              <DialogTitle>Create New Offer</DialogTitle>
+              <DialogTitle>{t("Create New Offer")}</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div className="flex gap-4">
@@ -91,22 +93,22 @@ export default function OffersPage() {
                   size="sm"
                   onClick={() => setIsFreeText(false)}
                 >
-                  Official Catalog
+                  {t("Official Catalog")}
                 </Button>
                 <Button
                   variant={isFreeText ? "default" : "outline"}
                   size="sm"
                   onClick={() => setIsFreeText(true)}
                 >
-                  Free Text
+                  {t("Free Text")}
                 </Button>
               </div>
 
               {!isFreeText ? (
                 <div className="space-y-2">
-                  <Label>Select Drug</Label>
+                  <Label>{t("Select Drug")}</Label>
                   <Input
-                    placeholder="Search drugs..."
+                    placeholder={t("Search drugs...")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -115,7 +117,7 @@ export default function OffersPage() {
                       {drugSearchResults.data.map((drug) => (
                         <button
                           key={drug.id}
-                          className={`w-full text-left rounded px-2 py-1.5 text-sm hover:bg-accent ${
+                          className={`w-full text-start rounded px-2 py-1.5 text-sm hover:bg-accent ${
                             selectedDrugId === String(drug.id) ? "bg-accent" : ""
                           }`}
                           onClick={() => {
@@ -130,15 +132,15 @@ export default function OffersPage() {
                   )}
                   {selectedDrugId && (
                     <p className="text-xs text-muted-foreground">
-                      Selected: Drug #{selectedDrugId}
+                      {t("Selected drug")}: <span className="ltr-value">#{selectedDrugId}</span>
                     </p>
                   )}
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <Label>Drug Name</Label>
+                  <Label>{t("Drug Name")}</Label>
                   <Input
-                    placeholder="Enter drug name (will not be added to official catalog)"
+                    placeholder={t("Enter drug name (will not be added to official catalog)")}
                     value={freeTextName}
                     onChange={(e) => setFreeTextName(e.target.value)}
                   />
@@ -147,25 +149,25 @@ export default function OffersPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Quantity</Label>
+                  <Label>{t("Quantity")}</Label>
                   <Input
                     type="number"
-                    placeholder="Quantity"
+                    placeholder={t("Quantity")}
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label>Unit</Label>
+                  <Label>{t("Unit")}</Label>
                   <Select value={unit} onValueChange={setUnit}>
                     <SelectTrigger><SelectValue /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="boxes">Boxes</SelectItem>
-                      <SelectItem value="strips">Strips</SelectItem>
-                      <SelectItem value="vials">Vials</SelectItem>
-                      <SelectItem value="bottles">Bottles</SelectItem>
-                      <SelectItem value="ampoules">Ampoules</SelectItem>
-                      <SelectItem value="packs">Packs</SelectItem>
+                      <SelectItem value="boxes">{t("Boxes")}</SelectItem>
+                      <SelectItem value="strips">{t("Strips")}</SelectItem>
+                      <SelectItem value="vials">{t("Vials")}</SelectItem>
+                      <SelectItem value="bottles">{t("Bottles")}</SelectItem>
+                      <SelectItem value="ampoules">{t("Ampoules")}</SelectItem>
+                      <SelectItem value="packs">{t("Packs")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -176,7 +178,7 @@ export default function OffersPage() {
                 onClick={handleSubmit}
                 disabled={!entity.data || (isFreeText ? !freeTextName : !selectedDrugId) || !quantity}
               >
-                Create Offer
+                {t("Create Offer")}
               </Button>
             </div>
           </DialogContent>
@@ -185,13 +187,13 @@ export default function OffersPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Active Offers</CardTitle>
+          <CardTitle>{t("Active Offers")}</CardTitle>
         </CardHeader>
         <CardContent>
           {offers.isLoading ? (
-            <p className="text-muted-foreground">Loading...</p>
+            <p className="text-muted-foreground">{t("Loading...")}</p>
           ) : !offers.data?.length ? (
-            <p className="text-muted-foreground">No active offers found</p>
+            <p className="text-muted-foreground">{t("No active offers found")}</p>
           ) : (
             <div className="space-y-3">
               {offers.data.map((offer) => (
@@ -202,7 +204,7 @@ export default function OffersPage() {
                         {offer.isFreeText ? offer.freeTextName : `Drug #${offer.drugId}`}
                       </p>
                       {offer.isFreeText && (
-                        <Badge variant="outline" className="text-xs">Unlisted</Badge>
+                        <Badge variant="outline" className="text-xs">{t("Unlisted")}</Badge>
                       )}
                     </div>
                     <p className="text-sm text-muted-foreground">
@@ -210,7 +212,7 @@ export default function OffersPage() {
                       {offer.price && ` · ${offer.price} ${offer.currency}`}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      Expires: {new Date(offer.expiresAt).toLocaleDateString()}
+                      {t("Expires")}: <span className="ltr-value">{new Date(offer.expiresAt).toLocaleDateString(language === "ar" ? "ar-YE" : "en-US")}</span>
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -223,7 +225,7 @@ export default function OffersPage() {
                         size="sm"
                         onClick={() => closeOffer.mutate({ id: offer.id })}
                       >
-                        Close
+                        {t("Close")}
                       </Button>
                     )}
                   </div>

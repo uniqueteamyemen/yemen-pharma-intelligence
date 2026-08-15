@@ -11,8 +11,10 @@ import {
   Building2, CheckCircle, Clock,
 } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function RegisterPage() {
+  const { t } = useLanguage();
   const entity = trpc.entity.getByUserId.useQuery();
   const geography = trpc.geography.getAll.useQuery();
   const utils = trpc.useUtils();
@@ -29,10 +31,10 @@ export default function RegisterPage() {
 
   const createEntity = trpc.entity.create.useMutation({
     onSuccess: () => {
-      toast.success("Registration submitted for review");
+      toast.success(t("Registration submitted for review"));
       utils.entity.getByUserId.invalidate();
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => toast.error(err.message || t("Unable to submit registration")),
   });
 
   const handleSubmit = () => {
@@ -53,25 +55,25 @@ export default function RegisterPage() {
   if (entity.data) {
     return (
       <div className="space-y-6 p-6">
-        <h1 className="text-2xl font-bold tracking-tight">Entity Registration</h1>
+        <h1 className="text-2xl font-bold tracking-tight">{t("Entity Registration")}</h1>
         <Card>
           <CardContent className="p-8 text-center">
             {entity.data.status === "verified" ? (
               <>
                 <CheckCircle className="mx-auto mb-4 h-12 w-12 text-green-500" />
-                <h2 className="text-xl font-semibold mb-2">Entity Verified</h2>
-                <p className="text-muted-foreground">{entity.data.name} is verified and active.</p>
+                <h2 className="text-xl font-semibold mb-2">{t("Entity Verified")}</h2>
+                <p className="text-muted-foreground">{entity.data.name} {t("is verified and active.")}</p>
               </>
             ) : entity.data.status === "pending" ? (
               <>
                 <Clock className="mx-auto mb-4 h-12 w-12 text-yellow-500" />
-                <h2 className="text-xl font-semibold mb-2">Pending Verification</h2>
-                <p className="text-muted-foreground">Your registration is being reviewed by an administrator.</p>
+                <h2 className="text-xl font-semibold mb-2">{t("Pending Verification")}</h2>
+                <p className="text-muted-foreground">{t("Your registration is being reviewed by an administrator.")}</p>
               </>
             ) : (
               <>
                 <Clock className="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
-                <h2 className="text-xl font-semibold mb-2">Entity Status: {entity.data.status}</h2>
+                <h2 className="text-xl font-semibold mb-2">{t("Entity Status")}: {t(entity.data.status, entity.data.status)}</h2>
               </>
             )}
           </CardContent>
@@ -91,57 +93,57 @@ export default function RegisterPage() {
   return (
     <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Entity Registration</h1>
-        <p className="text-muted-foreground">Register your pharmacy, hospital, distributor, or clinic</p>
+        <h1 className="text-2xl font-bold tracking-tight">{t("Entity Registration")}</h1>
+        <p className="text-muted-foreground">{t("Register your pharmacy, hospital, distributor, or clinic")}</p>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Building2 className="h-5 w-5 text-primary" />
-            Registration Form
+            {t("Registration Form")}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4 max-w-xl">
             <div className="space-y-2">
-              <Label>Entity Name *</Label>
-              <Input placeholder="e.g., Al-Amal Pharmacy" value={name} onChange={(e) => setName(e.target.value)} />
+              <Label>{t("Entity Name")} *</Label>
+              <Input placeholder={t("e.g., Al-Amal Pharmacy")} value={name} onChange={(e) => setName(e.target.value)} />
             </div>
 
             <div className="space-y-2">
-              <Label>Type *</Label>
+              <Label>{t("Type")} *</Label>
               <Select value={type} onValueChange={setType}>
-                <SelectTrigger><SelectValue placeholder="Select type" /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={t("Select type")} /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="pharmacy">Pharmacy</SelectItem>
-                  <SelectItem value="hospital">Hospital</SelectItem>
-                  <SelectItem value="distributor">Distributor</SelectItem>
-                  <SelectItem value="clinic">Clinic</SelectItem>
+                  <SelectItem value="pharmacy">{t("Pharmacy")}</SelectItem>
+                  <SelectItem value="hospital">{t("Hospital")}</SelectItem>
+                  <SelectItem value="distributor">{t("Distributor")}</SelectItem>
+                  <SelectItem value="clinic">{t("Clinic")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label>License Number</Label>
-              <Input placeholder="Optional" value={licenseNumber} onChange={(e) => setLicenseNumber(e.target.value)} />
+              <Label>{t("License Number")}</Label>
+              <Input placeholder={t("Optional")} value={licenseNumber} onChange={(e) => setLicenseNumber(e.target.value)} />
             </div>
 
             <div className="space-y-2">
-              <Label>Contact Person</Label>
-              <Input placeholder="Optional" value={contactPerson} onChange={(e) => setContactPerson(e.target.value)} />
+              <Label>{t("Contact Person")}</Label>
+              <Input placeholder={t("Optional")} value={contactPerson} onChange={(e) => setContactPerson(e.target.value)} />
             </div>
 
             <div className="space-y-2">
-              <Label>Phone</Label>
-              <Input placeholder="Optional" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              <Label>{t("Phone")}</Label>
+              <Input placeholder={t("Optional")} value={phone} onChange={(e) => setPhone(e.target.value)} />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label>Region</Label>
+                <Label>{t("Region")}</Label>
                 <Select value={regionId} onValueChange={(v) => { setRegionId(v); setGovernorateId(""); }}>
-                  <SelectTrigger><SelectValue placeholder="Select region" /></SelectTrigger>
+                  <SelectTrigger><SelectValue placeholder={t("Select region")} /></SelectTrigger>
                   <SelectContent>
                     {geography.data?.regions.map((r) => (
                       <SelectItem key={r.id} value={String(r.id)}>{r.nameAr}</SelectItem>
@@ -150,9 +152,9 @@ export default function RegisterPage() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label>Governorate</Label>
+                <Label>{t("Governorate")}</Label>
                 <Select value={governorateId} onValueChange={(v) => { setGovernorateId(v); setCityId(""); }}>
-                  <SelectTrigger><SelectValue placeholder="Select governorate" /></SelectTrigger>
+                  <SelectTrigger><SelectValue placeholder={t("Select governorate")} /></SelectTrigger>
                   <SelectContent>
                     {filteredGovernorates.map((g) => (
                       <SelectItem key={g.id} value={String(g.id)}>{g.nameAr}</SelectItem>
@@ -163,9 +165,9 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label>City</Label>
+                <Label>{t("City")}</Label>
               <Select value={cityId} onValueChange={setCityId}>
-                <SelectTrigger><SelectValue placeholder="Select city" /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={t("Select city")} /></SelectTrigger>
                 <SelectContent>
                   {filteredCities.map((c) => (
                     <SelectItem key={c.id} value={String(c.id)}>{c.nameAr}</SelectItem>
@@ -175,8 +177,8 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label>Address</Label>
-              <Input placeholder="Optional" value={address} onChange={(e) => setAddress(e.target.value)} />
+              <Label>{t("Address")}</Label>
+              <Input placeholder={t("Optional")} value={address} onChange={(e) => setAddress(e.target.value)} />
             </div>
 
             <Button
@@ -184,7 +186,7 @@ export default function RegisterPage() {
               onClick={handleSubmit}
               disabled={!name || !type}
             >
-              Submit Registration
+              {t("Submit Registration")}
             </Button>
           </div>
         </CardContent>

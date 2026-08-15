@@ -14,8 +14,10 @@ import {
 } from "@/components/ui/select";
 import { Plus } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function RequestsPage() {
+  const { language, t } = useLanguage();
   const entity = trpc.entity.getByUserId.useQuery();
   const requests = trpc.requests.list.useQuery({ status: "open", limit: 50 });
   const utils = trpc.useUtils();
@@ -30,19 +32,19 @@ export default function RequestsPage() {
 
   const createRequest = trpc.requests.create.useMutation({
     onSuccess: () => {
-      toast.success("Request created successfully");
+      toast.success(t("Request created successfully"));
       setCreateOpen(false);
       utils.requests.list.invalidate();
       setSelectedDrugId("");
       setFreeTextName("");
       setQuantity("");
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => toast.error(err.message || t("Unable to create request")),
   });
 
   const closeRequest = trpc.requests.close.useMutation({
     onSuccess: () => {
-      toast.success("Request closed");
+      toast.success(t("Request closed"));
       utils.requests.list.invalidate();
     },
   });
@@ -77,18 +79,18 @@ export default function RequestsPage() {
     <div className="space-y-6 p-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Requests</h1>
-          <p className="text-muted-foreground">Demand requests in the marketplace</p>
+          <h1 className="text-2xl font-bold tracking-tight">{t("Requests")}</h1>
+          <p className="text-muted-foreground">{t("Demand requests in the marketplace")}</p>
         </div>
         <Dialog open={createOpen} onOpenChange={setCreateOpen}>
           <DialogTrigger asChild>
             <Button>
-              <Plus className="mr-2 h-4 w-4" /> New Request
+              <Plus className="me-2 h-4 w-4" /> {t("New Request")}
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[500px]">
             <DialogHeader>
-              <DialogTitle>Create New Request</DialogTitle>
+              <DialogTitle>{t("Create New Request")}</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div className="flex gap-4">
@@ -97,22 +99,22 @@ export default function RequestsPage() {
                   size="sm"
                   onClick={() => setIsFreeText(false)}
                 >
-                  Official Catalog
+                  {t("Official Catalog")}
                 </Button>
                 <Button
                   variant={isFreeText ? "default" : "outline"}
                   size="sm"
                   onClick={() => setIsFreeText(true)}
                 >
-                  Free Text
+                  {t("Free Text")}
                 </Button>
               </div>
 
               {!isFreeText ? (
                 <div className="space-y-2">
-                  <Label>Select Drug</Label>
+                  <Label>{t("Select Drug")}</Label>
                   <Input
-                    placeholder="Search drugs..."
+                    placeholder={t("Search drugs...")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -121,7 +123,7 @@ export default function RequestsPage() {
                       {drugSearchResults.data.map((drug) => (
                         <button
                           key={drug.id}
-                          className={`w-full text-left rounded px-2 py-1.5 text-sm hover:bg-accent ${
+                          className={`w-full text-start rounded px-2 py-1.5 text-sm hover:bg-accent ${
                             selectedDrugId === String(drug.id) ? "bg-accent" : ""
                           }`}
                           onClick={() => {
@@ -136,15 +138,15 @@ export default function RequestsPage() {
                   )}
                   {selectedDrugId && (
                     <p className="text-xs text-muted-foreground">
-                      Selected: Drug #{selectedDrugId}
+                      {t("Selected drug")}: <span className="ltr-value">#{selectedDrugId}</span>
                     </p>
                   )}
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <Label>Drug Name</Label>
+                  <Label>{t("Drug Name")}</Label>
                   <Input
-                    placeholder="Enter drug name (will not be added to official catalog)"
+                    placeholder={t("Enter drug name (will not be added to official catalog")}
                     value={freeTextName}
                     onChange={(e) => setFreeTextName(e.target.value)}
                   />
@@ -153,39 +155,39 @@ export default function RequestsPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Quantity</Label>
+                  <Label>{t("Quantity")}</Label>
                   <Input
                     type="number"
-                    placeholder="Quantity"
+                    placeholder={t("Quantity")}
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label>Unit</Label>
+                  <Label>{t("Unit")}</Label>
                   <Select value={unit} onValueChange={setUnit}>
                     <SelectTrigger><SelectValue /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="boxes">Boxes</SelectItem>
-                      <SelectItem value="strips">Strips</SelectItem>
-                      <SelectItem value="vials">Vials</SelectItem>
-                      <SelectItem value="bottles">Bottles</SelectItem>
-                      <SelectItem value="ampoules">Ampoules</SelectItem>
-                      <SelectItem value="packs">Packs</SelectItem>
+                      <SelectItem value="boxes">{t("Boxes")}</SelectItem>
+                      <SelectItem value="strips">{t("Strips")}</SelectItem>
+                      <SelectItem value="vials">{t("Vials")}</SelectItem>
+                      <SelectItem value="bottles">{t("Bottles")}</SelectItem>
+                      <SelectItem value="ampoules">{t("Ampoules")}</SelectItem>
+                      <SelectItem value="packs">{t("Packs")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label>Urgency</Label>
+                <Label>{t("Urgency")}</Label>
                 <Select value={urgency} onValueChange={setUrgency}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="low">Low</SelectItem>
-                    <SelectItem value="medium">Medium</SelectItem>
-                    <SelectItem value="high">High</SelectItem>
-                    <SelectItem value="critical">Critical</SelectItem>
+                    <SelectItem value="low">{t("Low")}</SelectItem>
+                    <SelectItem value="medium">{t("Medium")}</SelectItem>
+                    <SelectItem value="high">{t("High")}</SelectItem>
+                    <SelectItem value="critical">{t("Critical")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -195,7 +197,7 @@ export default function RequestsPage() {
                 onClick={handleSubmit}
                 disabled={!entity.data || (isFreeText ? !freeTextName : !selectedDrugId) || !quantity}
               >
-                Create Request
+                {t("Create Request")}
               </Button>
             </div>
           </DialogContent>
@@ -204,13 +206,13 @@ export default function RequestsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Open Requests</CardTitle>
+          <CardTitle>{t("Open Requests")}</CardTitle>
         </CardHeader>
         <CardContent>
           {requests.isLoading ? (
-            <p className="text-muted-foreground">Loading...</p>
+            <p className="text-muted-foreground">{t("Loading...")}</p>
           ) : !requests.data?.length ? (
-            <p className="text-muted-foreground">No open requests found</p>
+            <p className="text-muted-foreground">{t("No open requests found")}</p>
           ) : (
             <div className="space-y-3">
               {requests.data.map((req) => (
@@ -221,19 +223,19 @@ export default function RequestsPage() {
                         {req.isFreeText ? req.freeTextName : `Drug #${req.drugId}`}
                       </p>
                       {req.isFreeText && (
-                        <Badge variant="outline" className="text-xs">Unlisted</Badge>
+                        <Badge variant="outline" className="text-xs">{t("Unlisted")}</Badge>
                       )}
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {req.quantity} {req.unit} · {req.urgency}
+                      <span className="ltr-value">{req.quantity}</span> {t(req.unit, req.unit)} · {t(req.urgency, req.urgency)}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      Expires: {new Date(req.expiresAt).toLocaleDateString()}
+                      {t("Expires")}: <span className="ltr-value">{new Date(req.expiresAt).toLocaleDateString(language === "ar" ? "ar-YE" : "en-US")}</span>
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge variant={urgencyColors[req.urgency] as any || "default"}>
-                      {req.urgency}
+                      {t(req.urgency, req.urgency)}
                     </Badge>
                     {req.status === "open" && (
                       <Button
@@ -241,7 +243,7 @@ export default function RequestsPage() {
                         size="sm"
                         onClick={() => closeRequest.mutate({ id: req.id })}
                       >
-                        Close
+                        {t("Close")}
                       </Button>
                     )}
                   </div>

@@ -18,40 +18,43 @@ import MatchesPage from "./dashboard/Matches";
 import RegisterPage from "./dashboard/Register";
 import { startLogin } from "@/const";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function DashboardRouter() {
+  const { t } = useLanguage();
   const { user, isAuthenticated, loading } = useAuth();
   const [location, setLocation] = useLocation();
   const entity = trpc.entity.getByUserId.useQuery(undefined, {
     enabled: isAuthenticated,
   });
+  const isAdmin = user?.role === "admin";
+  const isVerified = entity.data?.status === "verified";
+  const protectedRoutes = ["/dashboard/offers", "/dashboard/requests", "/dashboard/matches", "/dashboard/overview", "/dashboard"];
 
   useEffect(() => {
     if (isAuthenticated && !entity.isLoading && !entity.data && location !== "/dashboard/register") {
-      toast.info("Please register your entity to access all features");
+      toast.info(t("Please register your entity to access all features"));
       setLocation("/dashboard/register");
     }
-  }, [isAuthenticated, entity.data, entity.isLoading, location, setLocation]);
+  }, [isAuthenticated, entity.data, entity.isLoading, location, setLocation, t]);
+
+  // Guard for non-verified users on protected routes
+  useEffect(() => {
+    if (!isAdmin && !isVerified && protectedRoutes.includes(location) && location !== "/dashboard/register") {
+      setLocation("/dashboard/register");
+    }
+  }, [isAdmin, isVerified, location, setLocation]);
 
   if (loading || (isAuthenticated && entity.isLoading)) {
-    return <div className="flex items-center justify-center h-full"><span>Loading...</span></div>;
+    return <div className="flex items-center justify-center h-full"><span>{t("Loading...")}</span></div>;
   }
 
   if (!isAuthenticated) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Button onClick={() => startLogin()}>Sign In</Button>
+        <Button onClick={() => startLogin()}>{t("Sign In")}</Button>
       </div>
     );
-  }
-
-  const isAdmin = user?.role === "admin";
-  const isVerified = entity.data?.status === "verified";
-
-  // Guard for non-verified users on protected routes
-  const protectedRoutes = ["/dashboard/offers", "/dashboard/requests", "/dashboard/matches", "/dashboard/overview", "/dashboard"];
-  if (!isAdmin && !isVerified && protectedRoutes.includes(location) && location !== "/dashboard/register") {
-    setLocation("/dashboard/register");
   }
 
   return (

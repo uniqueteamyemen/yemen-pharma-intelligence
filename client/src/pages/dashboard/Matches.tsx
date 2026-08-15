@@ -6,8 +6,10 @@ import { Progress } from "@/components/ui/progress";
 import { Handshake, Check, X, Loader2, AlertCircle, Zap } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MatchesPage() {
+  const { t, language } = useLanguage();
   const utils = trpc.useUtils();
   const [selectedOfferId, setSelectedOfferId] = useState<number | null>(null);
   const [selectedRequestId, setSelectedRequestId] = useState<number | null>(null);
@@ -29,7 +31,7 @@ export default function MatchesPage() {
 
   const runMatchingMutation = trpc.matching.run.useMutation({
     onSuccess: (data) => {
-      toast.success(`Found ${data.length} potential match${data.length !== 1 ? 'es' : ''}`);
+      toast.success(`${t("Found")} ${data.length} ${t(data.length === 1 ? "potential match" : "potential matches")}`);
       if (tab === "offers" && selectedOfferId) {
         utils.matching.byOffer.invalidate({ offerId: selectedOfferId });
       }
@@ -39,7 +41,7 @@ export default function MatchesPage() {
 
   const acceptMatch = trpc.matching.accept.useMutation({
     onSuccess: () => {
-      toast.success("Match accepted - conversation started");
+      toast.success(t("Match accepted - conversation started"));
       if (selectedOfferId) utils.matching.byOffer.invalidate({ offerId: selectedOfferId });
       if (selectedRequestId) utils.matching.byRequest.invalidate({ requestId: selectedRequestId });
       utils.notifications.list.invalidate();
@@ -49,7 +51,7 @@ export default function MatchesPage() {
 
   const rejectMatch = trpc.matching.reject.useMutation({
     onSuccess: () => {
-      toast.success("Match rejected");
+      toast.success(t("Match rejected"));
       if (selectedOfferId) utils.matching.byOffer.invalidate({ offerId: selectedOfferId });
       if (selectedRequestId) utils.matching.byRequest.invalidate({ requestId: selectedRequestId });
     },
@@ -59,12 +61,12 @@ export default function MatchesPage() {
   const drugNames = trpc.drugs.all.useQuery();
 
   const getDrugName = (drugId: number | null, isFreeText: boolean, freeTextName?: string | null) => {
-    if (isFreeText) return freeTextName || "Unknown";
+    if (isFreeText) return freeTextName || t("Unknown");
     if (drugId && drugNames.data) {
       const drug = drugNames.data.find(d => d.id === drugId);
-      return drug ? `${drug.brandName} (${drug.genericName})` : `Drug #${drugId}`;
+      return drug ? `${drug.brandName || ""} (${language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName})` : `${t("Drug")} #${drugId}`;
     }
-    return "Unknown";
+    return t("Unknown");
   };
 
   const getMatchScoreColor = (score: number) => {
@@ -86,9 +88,9 @@ export default function MatchesPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Handshake className="h-6 w-6" />
-            Matches
+            {t("Matches")}
           </h1>
-          <p className="text-muted-foreground">Automatic supply-demand matching by drug name</p>
+          <p className="text-muted-foreground">{t("Automatic supply-demand matching by drug name")}</p>
         </div>
       </div>
 
@@ -98,8 +100,8 @@ export default function MatchesPage() {
           <div className="flex gap-3">
             <AlertCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-blue-900">
-              <p className="font-semibold mb-1">How Matching Works</p>
-              <p>Matches are created automatically when a drug name matches between your offers and requests, regardless of quantity. Location and urgency add bonus points to the match score.</p>
+              <p className="font-semibold mb-1">{t("How Matching Works")}</p>
+              <p>{t("Matches are created automatically when a drug name matches between your offers and requests, regardless of quantity. Location and urgency add bonus points to the match score.")}</p>
             </div>
           </div>
         </CardContent>
@@ -111,21 +113,21 @@ export default function MatchesPage() {
           size="sm"
           onClick={() => { setTab("offers"); setSelectedRequestId(null); }}
         >
-          My Offers
+          {t("My Offers")}
         </Button>
         <Button
           variant={tab === "requests" ? "default" : "outline"}
           size="sm"
           onClick={() => { setTab("requests"); setSelectedOfferId(null); }}
         >
-          My Requests
+          {t("My Requests")}
         </Button>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle>
-            {tab === "offers" ? "Select an Offer to View Matches" : "Select a Request to View Matches"}
+            {tab === "offers" ? t("Select an Offer to View Matches") : t("Select a Request to View Matches")}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -133,7 +135,7 @@ export default function MatchesPage() {
             <>
               {!offers.data || offers.data.length === 0 ? (
                 <div className="text-center py-8">
-                  <p className="text-muted-foreground">No active offers yet. Create one to find matches.</p>
+                  <p className="text-muted-foreground">{t("No active offers yet. Create one to find matches.")}</p>
                 </div>
               ) : (
                 <>
@@ -149,7 +151,7 @@ export default function MatchesPage() {
                         onClick={() => setSelectedOfferId(offer.id)}
                       >
                         <span className="font-medium">{offer.isFreeText ? offer.freeTextName : drugNames.data?.find(d => d.id === offer.drugId)?.brandName || `Drug #${offer.drugId}`}</span>
-                        <span className="ml-2 text-xs opacity-75">({offer.quantity} {offer.unit})</span>
+                        <span className="ms-2 text-xs opacity-75">(<span className="ltr-value">{offer.quantity}</span> {t(offer.unit, offer.unit)})</span>
                       </button>
                     ))}
                   </div>
@@ -162,8 +164,8 @@ export default function MatchesPage() {
                         disabled={runMatchingMutation.isPending}
                         className="w-full sm:w-auto"
                       >
-                        {runMatchingMutation.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Zap className="mr-2 h-4 w-4" />}
-                        Find Matches
+                        {runMatchingMutation.isPending ? <Loader2 className="me-2 h-4 w-4 animate-spin" /> : <Zap className="me-2 h-4 w-4" />}
+                        {t("Find Matches")}
                       </Button>
 
                       {offerMatches.isLoading && (
@@ -176,12 +178,12 @@ export default function MatchesPage() {
                         <div className="space-y-3">
                           {offerMatches.data.length === 0 ? (
                             <div className="text-center py-8 text-muted-foreground">
-                              No matches found yet. Create more requests to find matches.
+                              {t("No matches found yet. Create more requests to find matches.")}
                             </div>
                           ) : (
                             <>
                               <h3 className="font-semibold text-lg">
-                                Found {offerMatches.data.length} match{offerMatches.data.length !== 1 ? 'es' : ''}
+                                {t("Found")} <span className="ltr-value">{offerMatches.data.length}</span> {t(offerMatches.data.length === 1 ? "match" : "matches")}
                               </h3>
                               {offerMatches.data.map((match) => {
                                 const req = requests.data?.find(r => r.id === match.requestId);
@@ -194,29 +196,29 @@ export default function MatchesPage() {
                                           {getDrugName(req?.drugId || null, req?.isFreeText || false, req?.freeTextName || null)}
                                         </p>
                                         <p className="text-sm text-muted-foreground">
-                                          Requested: {req?.quantity} {req?.unit} · Urgency: <span className="font-medium capitalize">{req?.urgency}</span>
+                                          {t("Requested")}: <span className="ltr-value">{req?.quantity}</span> {t(req?.unit || "", req?.unit || "")} · {t("Urgency")}: <span className="font-medium capitalize">{t(req?.urgency || "", req?.urgency || "")}</span>
                                         </p>
                                       </div>
                                       <Badge className={getMatchScoreBadge(score)}>
-                                        {score.toFixed(0)}% Match
+                                        <span className="ltr-value">{score.toFixed(0)}%</span> {t("Match")}
                                       </Badge>
                                     </div>
 
                                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs bg-muted/30 p-3 rounded">
                                       <div>
-                                        <p className="text-muted-foreground">Drug Match</p>
+                                        <p className="text-muted-foreground">{t("Drug Match")}</p>
                                         <p className="font-semibold">{(parseFloat(match.drugMatchScore || '0')).toFixed(0)}%</p>
                                       </div>
                                       <div>
-                                        <p className="text-muted-foreground">Location</p>
+                                        <p className="text-muted-foreground">{t("Location")}</p>
                                         <p className="font-semibold">{(parseFloat(match.locationMatchScore || '0')).toFixed(0)}%</p>
                                       </div>
                                       <div>
-                                        <p className="text-muted-foreground">Urgency</p>
+                                        <p className="text-muted-foreground">{t("Urgency")}</p>
                                         <p className="font-semibold">{(parseFloat(match.urgencyMatchScore || '0')).toFixed(0)}%</p>
                                       </div>
                                       <div>
-                                        <p className="text-muted-foreground">Total</p>
+                                        <p className="text-muted-foreground">{t("Total")}</p>
                                         <p className="font-semibold">{score.toFixed(0)}%</p>
                                       </div>
                                     </div>
@@ -230,7 +232,7 @@ export default function MatchesPage() {
                                         onClick={() => acceptMatch.mutate({ matchId: match.id })}
                                         disabled={match.status !== "suggested" || acceptMatch.isPending}
                                       >
-                                        <Check className="mr-1 h-3 w-3" /> Accept
+                                        <Check className="me-1 h-3 w-3" /> {t("Accept")}
                                       </Button>
                                       <Button
                                         size="sm"
@@ -238,13 +240,13 @@ export default function MatchesPage() {
                                         onClick={() => rejectMatch.mutate({ matchId: match.id })}
                                         disabled={match.status !== "suggested" || rejectMatch.isPending}
                                       >
-                                        <X className="mr-1 h-3 w-3" /> Reject
+                                        <X className="me-1 h-3 w-3" /> {t("Reject")}
                                       </Button>
                                       {match.status === "accepted" && (
-                                        <Badge variant="default" className="ml-auto">✓ Accepted</Badge>
+                                        <Badge variant="default" className="ms-auto">✓ {t("Accepted")}</Badge>
                                       )}
                                       {match.status === "rejected" && (
-                                        <Badge variant="destructive" className="ml-auto">✗ Rejected</Badge>
+                                        <Badge variant="destructive" className="ms-auto">✗ {t("Rejected")}</Badge>
                                       )}
                                     </div>
                                   </div>
@@ -263,7 +265,7 @@ export default function MatchesPage() {
             <>
               {!requests.data || requests.data.length === 0 ? (
                 <div className="text-center py-8">
-                  <p className="text-muted-foreground">No open requests yet. Create one to find matches.</p>
+                  <p className="text-muted-foreground">{t("No open requests yet. Create one to find matches.")}</p>
                 </div>
               ) : (
                 <>
@@ -279,7 +281,7 @@ export default function MatchesPage() {
                         onClick={() => setSelectedRequestId(req.id)}
                       >
                         <span className="font-medium">{req.isFreeText ? req.freeTextName : drugNames.data?.find(d => d.id === req.drugId)?.brandName || `Drug #${req.drugId}`}</span>
-                        <span className="ml-2 text-xs opacity-75">({req.quantity} {req.unit})</span>
+                        <span className="ms-2 text-xs opacity-75">(<span className="ltr-value">{req.quantity}</span> {t(req.unit, req.unit)})</span>
                       </button>
                     ))}
                   </div>
@@ -296,12 +298,12 @@ export default function MatchesPage() {
                         <div className="space-y-3">
                           {requestMatches.data.length === 0 ? (
                             <div className="text-center py-8 text-muted-foreground">
-                              No matches found yet. Other entities need to create offers for this drug.
+                              {t("No matches found yet. Other entities need to create offers for this drug.")}
                             </div>
                           ) : (
                             <>
                               <h3 className="font-semibold text-lg">
-                                Found {requestMatches.data.length} match{requestMatches.data.length !== 1 ? 'es' : ''}
+                                {t("Found")} <span className="ltr-value">{requestMatches.data.length}</span> {t(requestMatches.data.length === 1 ? "match" : "matches")}
                               </h3>
                               {requestMatches.data.map((match) => {
                                 const offer = offers.data?.find(o => o.id === match.offerId);
@@ -314,29 +316,29 @@ export default function MatchesPage() {
                                           {getDrugName(offer?.drugId || null, offer?.isFreeText || false, offer?.freeTextName || null)}
                                         </p>
                                         <p className="text-sm text-muted-foreground">
-                                          Available: {offer?.quantity} {offer?.unit}
+                                          {t("Available")}: <span className="ltr-value">{offer?.quantity}</span> {t(offer?.unit || "", offer?.unit || "")}
                                         </p>
                                       </div>
                                       <Badge className={getMatchScoreBadge(score)}>
-                                        {score.toFixed(0)}% Match
+                                        <span className="ltr-value">{score.toFixed(0)}%</span> {t("Match")}
                                       </Badge>
                                     </div>
 
                                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs bg-muted/30 p-3 rounded">
                                       <div>
-                                        <p className="text-muted-foreground">Drug Match</p>
+                                        <p className="text-muted-foreground">{t("Drug Match")}</p>
                                         <p className="font-semibold">{(parseFloat(match.drugMatchScore || '0')).toFixed(0)}%</p>
                                       </div>
                                       <div>
-                                        <p className="text-muted-foreground">Location</p>
+                                        <p className="text-muted-foreground">{t("Location")}</p>
                                         <p className="font-semibold">{(parseFloat(match.locationMatchScore || '0')).toFixed(0)}%</p>
                                       </div>
                                       <div>
-                                        <p className="text-muted-foreground">Urgency</p>
+                                        <p className="text-muted-foreground">{t("Urgency")}</p>
                                         <p className="font-semibold">{(parseFloat(match.urgencyMatchScore || '0')).toFixed(0)}%</p>
                                       </div>
                                       <div>
-                                        <p className="text-muted-foreground">Total</p>
+                                        <p className="text-muted-foreground">{t("Total")}</p>
                                         <p className="font-semibold">{score.toFixed(0)}%</p>
                                       </div>
                                     </div>
@@ -350,7 +352,7 @@ export default function MatchesPage() {
                                         onClick={() => acceptMatch.mutate({ matchId: match.id })}
                                         disabled={match.status !== "suggested" || acceptMatch.isPending}
                                       >
-                                        <Check className="mr-1 h-3 w-3" /> Accept
+                                        <Check className="me-1 h-3 w-3" /> {t("Accept")}
                                       </Button>
                                       <Button
                                         size="sm"
@@ -358,13 +360,13 @@ export default function MatchesPage() {
                                         onClick={() => rejectMatch.mutate({ matchId: match.id })}
                                         disabled={match.status !== "suggested" || rejectMatch.isPending}
                                       >
-                                        <X className="mr-1 h-3 w-3" /> Reject
+                                        <X className="me-1 h-3 w-3" /> {t("Reject")}
                                       </Button>
                                       {match.status === "accepted" && (
-                                        <Badge variant="default" className="ml-auto">✓ Accepted</Badge>
+                                        <Badge variant="default" className="ms-auto">✓ {t("Accepted")}</Badge>
                                       )}
                                       {match.status === "rejected" && (
-                                        <Badge variant="destructive" className="ml-auto">✗ Rejected</Badge>
+                                        <Badge variant="destructive" className="ms-auto">✗ {t("Rejected")}</Badge>
                                       )}
                                     </div>
                                   </div>

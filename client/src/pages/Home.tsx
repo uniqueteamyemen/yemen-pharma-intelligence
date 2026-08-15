@@ -40,7 +40,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {loading ? null : isAuthenticated ? (
               <Link href="/dashboard">
-                <Button size="sm">Dashboard</Button>
+                <Button size="sm">{t("Dashboard")}</Button>
               </Link>
             ) : (
               <Button onClick={() => startLogin()} size="sm">
@@ -73,13 +73,13 @@ export default function Home() {
               <Link href="/dashboard">
                 <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/20">
                   {t("Go to Dashboard")}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ms-2 h-4 w-4" />
                 </Button>
               </Link>
             ) : (
               <Button onClick={() => startLogin()} size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/20">
                 {t("Get Started")}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ms-2 h-4 w-4" />
               </Button>
             )}
             <Link href="#features">
@@ -125,48 +125,48 @@ export default function Home() {
             {[
               {
                 icon: Building2,
-                title: "Entity Verification",
-                desc: "Register as a pharmacy, hospital, distributor, or clinic with admin approval and role-based access control.",
+                title: t("Entity Verification"),
+                desc: t("Register as a pharmacy, hospital, distributor, or clinic with admin approval and role-based access control."),
               },
               {
                 icon: FileSearch,
-                title: "Official Drug Catalog",
-                desc: "Full-text search by brand name, generic name, and active ingredient. Free-text entries for unlisted drugs.",
+                title: t("Official Drug Catalog"),
+                desc: t("Full-text search by brand name, generic name, and active ingredient. Free-text entries for unlisted drugs."),
               },
               {
                 icon: Handshake,
-                title: "Supply & Demand Matching",
-                desc: "Publish offers or requests and let our intelligent matching engine connect you with the right counterpart.",
+                title: t("Supply & Demand Matching"),
+                desc: t("Publish offers or requests and let our intelligent matching engine connect you with the right counterpart."),
               },
               {
                 icon: MessageSquare,
-                title: "Secure Messaging",
-                desc: "Chat with matched entities. Contact details are only revealed after mutual consent from both parties.",
+                title: t("Secure Messaging"),
+                desc: t("Chat with matched entities. Contact details are only revealed after mutual consent from both parties."),
               },
               {
                 icon: BarChart3,
-                title: "Market Intelligence",
-                desc: "Regional shortage and surplus indices, most-demanded drugs, and supply-demand trend analysis.",
+                title: t("Market Intelligence"),
+                desc: t("Regional shortage and surplus indices, most-demanded drugs, and supply-demand trend analysis."),
               },
               {
                 icon: Globe,
-                title: "Geographic Coverage",
-                desc: "Pre-seeded with Yemen's 22 governorates and regions. Location-based filtering and matching across the country.",
+                title: t("Geographic Coverage"),
+                desc: t("Pre-seeded with Yemen's 22 governorates and regions. Location-based filtering and matching across the country."),
               },
               {
                 icon: Bell,
-                title: "Smart Notifications",
-                desc: "In-app and email alerts for new matches, messages, and market signals affecting your region.",
+                title: t("Smart Notifications"),
+                desc: t("In-app and email alerts for new matches, messages, and market signals affecting your region."),
               },
               {
                 icon: Pill,
-                title: "Drug Alternatives",
-                desc: "Link substitute drugs by active ingredient or therapeutic category for better matching.",
+                title: t("Drug Alternatives"),
+                desc: t("Link substitute drugs by active ingredient or therapeutic category for better matching."),
               },
               {
                 icon: Shield,
-                title: "Admin Dashboard",
-                desc: "Entity verification queue, drug catalog management, and platform-wide market signal review.",
+                title: t("Admin Dashboard"),
+                desc: t("Entity verification queue, drug catalog management, and platform-wide market signal review."),
               },
             ].map((feature) => (
               <Card key={feature.title} className="group border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
@@ -194,18 +194,18 @@ export default function Home() {
             {[
               {
                 step: "01",
-                title: "Register & Verify",
-                desc: "Create your entity profile as a pharmacy, hospital, distributor, or clinic. Admin verification ensures trust.",
+                title: t("Register & Verify"),
+                desc: t("Create your entity profile as a pharmacy, hospital, distributor, or clinic. Admin verification ensures trust."),
               },
               {
                 step: "02",
-                title: "Publish & Match",
-                desc: "Post your offers or requests. Our matching engine scores pairs by drug, location, urgency, and quantity.",
+                title: t("Publish & Match"),
+                desc: t("Post your offers or requests. Our matching engine scores pairs by drug, location, urgency, and quantity."),
               },
               {
                 step: "03",
-                title: "Connect & Trade",
-                desc: "Chat with matches, reveal contact info by mutual consent, and complete the transaction outside the platform.",
+                title: t("Connect & Trade"),
+                desc: t("Chat with matches, reveal contact info by mutual consent, and complete the transaction outside the platform."),
               },
             ].map((item) => (
               <div key={item.step} className="relative">

@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Bell, CheckCheck } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function NotificationsPage() {
+  const { language, t } = useLanguage();
   const notifications = trpc.notifications.list.useQuery();
   const utils = trpc.useUtils();
 
@@ -15,26 +17,25 @@ export default function NotificationsPage() {
 
   const markAllRead = trpc.notifications.markAllRead.useMutation({
     onSuccess: () => {
-      toast.success("All notifications marked as read");
+      toast.success(t("All notifications marked as read"));
       utils.notifications.list.invalidate();
     },
   });
 
   const typeIcons: Record<string, string> = {
-    match_found: "New Match",
-    message_received: "New Message",
-    market_signal: "Market Signal",
-    entity_approved: "Entity Approved",
-    offer_matched: "Offer Matched",
-    request_matched: "Request Matched",
+    match_found: t("New Match"),
+    new_message: t("New Message"),
+    offer_expired: t("Offer Expired"),
+    request_expired: t("Request Expired"),
+    signal_alert: t("Market Signal"),
   };
 
   return (
     <div className="space-y-6 p-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Notifications</h1>
-          <p className="text-muted-foreground">Your activity alerts and updates</p>
+          <h1 className="text-2xl font-bold tracking-tight">{t("Notifications")}</h1>
+          <p className="text-muted-foreground">{t("Your activity alerts and updates")}</p>
         </div>
         <Button
           variant="outline"
@@ -42,23 +43,23 @@ export default function NotificationsPage() {
           onClick={() => markAllRead.mutate()}
           disabled={!notifications.data?.some((n) => !n.isRead)}
         >
-          <CheckCheck className="mr-2 h-4 w-4" /> Mark All Read
+          <CheckCheck className="me-2 h-4 w-4" /> {t("Mark All Read")}
         </Button>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle>
-            {notifications.data?.filter((n) => !n.isRead).length ?? 0} Unread
+            <span className="ltr-value">{notifications.data?.filter((n) => !n.isRead).length ?? 0}</span> {t("Unread")}
           </CardTitle>
         </CardHeader>
         <CardContent>
           {notifications.isLoading ? (
-            <p className="text-muted-foreground">Loading...</p>
+            <p className="text-muted-foreground">{t("Loading...")}</p>
           ) : !notifications.data?.length ? (
             <div className="text-center py-8">
               <Bell className="mx-auto mb-3 h-10 w-10 text-muted-foreground/40" />
-              <p className="text-muted-foreground">No notifications yet</p>
+              <p className="text-muted-foreground">{t("No notifications yet")}</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -83,7 +84,7 @@ export default function NotificationsPage() {
                       <p className="text-xs text-muted-foreground mt-0.5">{notif.body}</p>
                     )}
                     <p className="text-xs text-muted-foreground mt-1">
-                      {new Date(notif.createdAt).toLocaleString()}
+                      <span className="ltr-value">{new Date(notif.createdAt).toLocaleString(language === "ar" ? "ar-YE" : "en-US")}</span>
                     </p>
                   </div>
                   {!notif.isRead && (
@@ -92,7 +93,7 @@ export default function NotificationsPage() {
                       size="sm"
                       onClick={() => markRead.mutate({ id: notif.id })}
                     >
-                      Mark Read
+                      {t("Mark Read")}
                     </Button>
                   )}
                 </div>
