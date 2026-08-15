@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { Activity, FileText, Handshake, Pill, TrendingUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function OverviewPage() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const entity = trpc.entity.getByUserId.useQuery();
   const offers = trpc.offers.list.useQuery({ limit: 5 });
   const requests = trpc.requests.list.useQuery({ limit: 5 });
@@ -17,8 +19,8 @@ export default function OverviewPage() {
     <div className="space-y-6 p-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back, {user?.name || "User"}</p>
+          <h1 className="text-2xl font-bold tracking-tight">{t("Dashboard")}</h1>
+          <p className="text-muted-foreground">{t("Welcome back")}, {user?.name || "User"}</p>
         </div>
       </div>
 
@@ -32,7 +34,7 @@ export default function OverviewPage() {
               </div>
               <div>
                 <p className="text-2xl font-bold">{offers.data?.length ?? 0}</p>
-                <p className="text-sm text-muted-foreground">Active Offers</p>
+                <p className="text-sm text-muted-foreground">{t("Active Offers")}</p>
               </div>
             </div>
           </CardContent>
@@ -45,7 +47,7 @@ export default function OverviewPage() {
               </div>
               <div>
                 <p className="text-2xl font-bold">{requests.data?.length ?? 0}</p>
-                <p className="text-sm text-muted-foreground">Open Requests</p>
+                <p className="text-sm text-muted-foreground">{t("Open Requests")}</p>
               </div>
             </div>
           </CardContent>

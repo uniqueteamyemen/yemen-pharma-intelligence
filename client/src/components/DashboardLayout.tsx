@@ -25,23 +25,25 @@ import { Activity, Building2, FileText, Handshake, LayoutDashboard, Link2, LogOu
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "./ui/button";
 
-function getMenuItems(user: any) {
+function getMenuItems(user: any, t: (key: string) => string) {
   const base = [
-    { icon: LayoutDashboard, label: "Overview", path: "/dashboard" },
-    { icon: FileText, label: "Offers", path: "/dashboard/offers" },
-    { icon: Activity, label: "Requests", path: "/dashboard/requests" },
-    { icon: Pill, label: "Drugs", path: "/dashboard/drugs" },
-    { icon: MessageCircle, label: "Messages", path: "/dashboard/messages" },
-    { icon: Handshake, label: "Matches", path: "/dashboard/matches" },
-    { icon: UserCircle, label: "Profile", path: "/dashboard/profile" },
+    { icon: LayoutDashboard, label: t("Overview"), path: "/dashboard" },
+    { icon: FileText, label: t("Offers"), path: "/dashboard/offers" },
+    { icon: Activity, label: t("Requests"), path: "/dashboard/requests" },
+    { icon: Pill, label: t("Drugs"), path: "/dashboard/drugs" },
+    { icon: MessageCircle, label: t("Messages"), path: "/dashboard/messages" },
+    { icon: Handshake, label: t("Matches"), path: "/dashboard/matches" },
+    { icon: UserCircle, label: t("Profile"), path: "/dashboard/profile" },
   ];
   if (user?.role === "admin") {
     base.push(
-      { icon: Building2, label: "Entities", path: "/dashboard/entities" },
-      { icon: TrendingUp, label: "Intelligence", path: "/dashboard/intelligence" },
-      { icon: Link2, label: "Alternatives", path: "/dashboard/alternatives" }
+      { icon: Building2, label: t("Entities"), path: "/dashboard/entities" },
+      { icon: TrendingUp, label: t("Intelligence"), path: "/dashboard/intelligence" },
+      { icon: Link2, label: t("Alternatives"), path: "/dashboard/alternatives" }
     );
   }
   return base;
@@ -62,6 +64,7 @@ export default function DashboardLayout({
     return saved ? parseInt(saved, 10) : DEFAULT_WIDTH;
   });
   const { loading, user } = useAuth();
+  const { t } = useLanguage();
 
   useEffect(() => {
     localStorage.setItem(SIDEBAR_WIDTH_KEY, sidebarWidth.toString());
@@ -77,10 +80,10 @@ export default function DashboardLayout({
         <div className="flex flex-col items-center gap-8 p-8 max-w-md w-full">
           <div className="flex flex-col items-center gap-6">
             <h1 className="text-2xl font-semibold tracking-tight text-center">
-              Sign in to continue
+              {t("Sign in to continue")}
             </h1>
             <p className="text-sm text-muted-foreground text-center max-w-sm">
-              Access to this dashboard requires authentication. Continue to launch the login flow.
+              {t("Access to this dashboard requires authentication. Continue to launch the login flow.")}
             </p>
           </div>
           <Button
@@ -88,7 +91,7 @@ export default function DashboardLayout({
             size="lg"
             className="w-full shadow-lg hover:shadow-xl transition-all"
           >
-            Sign in
+            {t("Sign in")}
           </Button>
         </div>
       </div>
@@ -125,7 +128,8 @@ function DashboardLayoutContent({
   const isCollapsed = state === "collapsed";
   const [isResizing, setIsResizing] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const menuItems = getMenuItems(user);
+  const { t } = useLanguage();
+  const menuItems = getMenuItems(user, t);
   const activeMenuItem = menuItems.find((item: any) => item.path === location);
   const isMobile = useIsMobile();
 
@@ -178,7 +182,7 @@ function DashboardLayoutContent({
               <button
                 onClick={toggleSidebar}
                 className="h-8 w-8 flex items-center justify-center hover:bg-accent rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring shrink-0"
-                aria-label="Toggle navigation"
+                aria-label={t("Toggle navigation")}
               >
                 <PanelLeft className="h-4 w-4 text-muted-foreground" />
               </button>
@@ -194,7 +198,7 @@ function DashboardLayoutContent({
 
           <SidebarContent className="gap-0">
             <SidebarMenu className="px-2 py-1">
-              {getMenuItems(user).map((item: any) => {
+              {getMenuItems(user, t).map((item: any) => {
                 const isActive = location === item.path;
                 return (
                   <SidebarMenuItem key={item.path}>
@@ -216,9 +220,10 @@ function DashboardLayoutContent({
           </SidebarContent>
 
           <SidebarFooter className="p-3">
-            <DropdownMenu>
+                          <LanguageSwitcher compact />
+              <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-3 rounded-lg px-1 py-1 hover:bg-accent/50 transition-colors w-full text-left group-data-[collapsible=icon]:justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <button className="flex items-center gap-3 rounded-lg px-1 py-1 hover:bg-accent/50 transition-colors w-full text-start group-data-[collapsible=icon]:justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                   <Avatar className="h-9 w-9 border shrink-0">
                     <AvatarFallback className="text-xs font-medium">
                       {user?.name?.charAt(0).toUpperCase()}
@@ -239,15 +244,15 @@ function DashboardLayoutContent({
                   onClick={logout}
                   className="cursor-pointer text-destructive focus:text-destructive"
                 >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  <span>Sign out</span>
+                  <LogOut className="me-2 h-4 w-4" />
+                  <span>{t("Sign out")}</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarFooter>
         </Sidebar>
         <div
-          className={`absolute top-0 right-0 w-1 h-full cursor-col-resize hover:bg-primary/20 transition-colors ${isCollapsed ? "hidden" : ""}`}
+          className={`absolute top-0 end-0 w-1 h-full cursor-col-resize hover:bg-primary/20 transition-colors ${isCollapsed ? "hidden" : ""}`}
           onMouseDown={() => {
             if (isCollapsed) return;
             setIsResizing(true);
@@ -264,7 +269,7 @@ function DashboardLayoutContent({
               <div className="flex items-center gap-3">
                 <div className="flex flex-col gap-1">
                   <span className="tracking-tight text-foreground">
-                    {activeMenuItem?.label ?? "Menu"}
+                      {activeMenuItem?.label ?? t("Menu")}
                   </span>
                 </div>
               </div>

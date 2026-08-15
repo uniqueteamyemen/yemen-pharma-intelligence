@@ -17,6 +17,7 @@ import {
   marketSignals, MarketSignal,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import { medicineMatchesQuery, normalizeMedicineSearch } from "../shared/medicineSearch";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -204,19 +205,18 @@ export async function verifyEntity(id: number, status: Entity['status']) {
 export async function searchDrugs(query: string, limit = 20) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(drugs)
-    .where(and(
-      eq(drugs.isDeleted, false),
-      eq(drugs.isActive, true),
-      or(
-        like(drugs.brandName, `%${query}%`),
-        like(drugs.brandNameAr, `%${query}%`),
-        like(drugs.genericName, `%${query}%`),
-        like(drugs.genericNameAr, `%${query}%`),
-      )
-    ))
-    .orderBy(desc(drugs.id))
-    .limit(limit);
+
+  // The catalog is intentionally small enough for one consistent bilingual
+  // filter. This keeps Arabic normalization identical for API and frontend
+  // callers without changing canonical keys or database records.
+  const normalizedQuery = normalizeMedicineSearch(query);
+  if (!normalizedQuery) return [];
+
+  const records = await db.select().from(drugs)
+    .where(and(eq(drugs.isDeleted, false), eq(drugs.isActive, true)))
+    .orderBy(desc(drugs.id));
+
+  return records.filter((record) => medicineMatchesQuery(record, normalizedQuery)).slice(0, limit);
 }
 
 export async function getDrugsByCategory(category: string) {

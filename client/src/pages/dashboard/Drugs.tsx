@@ -7,25 +7,24 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import { Search, Pill } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { medicineMatchesQuery } from "@shared/medicineSearch";
 
 export default function DrugsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [category, setCategory] = useState<string>("all");
+  const { language, t } = useLanguage();
 
   const allDrugs = trpc.drugs.all.useQuery();
 
   const filteredDrugs = (allDrugs.data || []).filter((drug) => {
-    const matchSearch = searchQuery === "" ||
-      drug.brandName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      drug.brandNameAr?.includes(searchQuery) ||
-      drug.genericName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      drug.genericNameAr?.includes(searchQuery);
+    const matchSearch = searchQuery === "" || medicineMatchesQuery(drug, searchQuery);
     const matchCategory = category === "all" || drug.category === category;
     return matchSearch && matchCategory;
   });
 
   const categories = [
-    { value: "all", label: "All Categories" },
+    { value: "all", label: t("All Categories") },
     { value: "antibiotics", label: "Antibiotics" },
     { value: "analgesics", label: "Analgesics" },
     { value: "cardiovascular", label: "Cardiovascular" },
@@ -42,18 +41,18 @@ export default function DrugsPage() {
   return (
     <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">National Essential Medicines Catalog</h1>
-        <p className="text-muted-foreground">Unified records from Yemen’s 2019 and 2022 National Essential Medicines Lists</p>
+        <h1 className="text-2xl font-bold tracking-tight">{t("National Essential Medicines Catalog")}</h1>
+        <p className="text-muted-foreground">{t("Unified records from Yemen’s 2019 and 2022 National Essential Medicines Lists")}</p>
       </div>
 
       <div className="flex gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Search className="absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search by brand name, generic name..."
+            placeholder={language === "ar" ? "ابحث بالعربية أو الإنجليزية أو بالتركيز..." : "Search in Arabic, English, or by strength..."}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9"
+            className="ps-9"
           />
         </div>
         <Select value={category} onValueChange={setCategory}>
@@ -70,11 +69,11 @@ export default function DrugsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>{filteredDrugs.length} Medicines</CardTitle>
+          <CardTitle>{filteredDrugs.length} {language === "ar" ? "دواء" : "Medicines"}</CardTitle>
         </CardHeader>
         <CardContent>
           {allDrugs.isLoading ? (
-            <p className="text-muted-foreground">Loading...</p>
+            <p className="text-muted-foreground">{t("Loading...")}</p>
           ) : (
             <div className="space-y-2">
               {filteredDrugs.map((drug) => (
@@ -85,11 +84,11 @@ export default function DrugsPage() {
                     </div>
                     <div>
                       <p className="font-medium text-sm">
-                        {drug.genericName}
-                        {drug.brandNameAr && <span className="ml-2 text-muted-foreground font-normal">{drug.brandNameAr}</span>}
+                        <span className="ltr-value">{language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}</span>
+                        {language === "ar" && drug.genericNameAr && <span className="ms-2 text-muted-foreground font-normal ltr-value">{drug.genericName}</span>}
                       </p>
                       <p className="text-xs text-muted-foreground">
-                        {[drug.strength, drug.dosageForm].filter(Boolean).join(" · ")}
+                        <span className="ltr-value">{[drug.strength, drug.dosageForm].filter(Boolean).join(" · ")}</span>
                       </p>
                       {drug.nemlCategory && (
                         <p className="mt-1 text-xs text-muted-foreground">{drug.nemlCategory}</p>
@@ -98,7 +97,7 @@ export default function DrugsPage() {
                   </div>
                   <div className="flex flex-wrap justify-end gap-1.5">
                     {drug.sourceYears && <Badge variant="secondary" className="text-xs">NEML {drug.sourceYears}</Badge>}
-                    <Badge variant="outline" className="text-xs capitalize">{drug.category}</Badge>
+                    <Badge variant="outline" className="text-xs capitalize">{t(drug.category, drug.category)}</Badge>
                   </div>
                 </div>
               ))}

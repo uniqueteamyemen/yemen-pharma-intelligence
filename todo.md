@@ -10,3 +10,12 @@
 - [x] Verify representative 2019 and 2022 records through the Drugs API and interface.
 - [x] Verify 2019-only, 2022-only, and shared medicines through the Drugs API and record the exact sample results.
 - [x] Fix Vite HMR WebSocket connection failure in the managed preview URL.
+
+# Localization and Bilingual Search
+
+- [ ] Inspect and extend the existing localization architecture without creating a parallel system.
+- [ ] Make Arabic the default language with persisted Arabic/English switching and RTL/LTR support.
+- [ ] Localize all visible platform UI strings, validation, notifications, authentication, dashboards, catalog, and onboarding.
+- [ ] Add Arabic medicine-name mappings without changing canonical medicine keys or duplicating catalog records.
+- [ ] Implement shared Arabic/English search normalization in API and frontend.
+- [ ] Audit catalog integrity and test Arabic/English responsive behavior before delivery.

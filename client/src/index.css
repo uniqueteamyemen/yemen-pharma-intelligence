@@ -164,3 +164,30 @@
     }
   }
 }
+
+
+/* Language-aware layout: Arabic is the default, English remains fully LTR. */
+html[dir="rtl"] body {
+  font-family: "Noto Sans Arabic", "Inter", system-ui, sans-serif;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  text-align: right;
+}
+
+html[dir="rtl"] .ltr-value {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+}
+
+html[dir="rtl"] [data-slot="sidebar"] {
+  border-left-width: 1px;
+  border-right-width: 0;
+}
+
+html[dir="rtl"] .lucide-arrow-right {
+  transform: rotate(180deg);
+}

@@ -18,9 +18,12 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Link } from "wouter";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
-  const { isAuthenticated, loading, user } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background">
@@ -32,6 +35,7 @@ export default function Home() {
               <Pill className="h-5 w-5 text-primary-foreground" />
             </div>
             <span className="text-lg font-semibold tracking-tight">PharmaYemen</span>
+            <LanguageSwitcher compact />
           </div>
           <div className="flex items-center gap-3">
             {loading ? null : isAuthenticated ? (
@@ -40,7 +44,7 @@ export default function Home() {
               </Link>
             ) : (
               <Button onClick={() => startLogin()} size="sm">
-                Sign In
+                {t("Sign in")}
               </Button>
             )}
           </div>
@@ -53,34 +57,34 @@ export default function Home() {
         <div className="relative mx-auto max-w-4xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
             <Activity className="h-4 w-4" />
-            Market Intelligence Platform
+            {t("Market Intelligence Platform")}
           </div>
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-            Connecting Yemen's
-            <span className="text-primary"> Pharmaceutical</span>
+            {t("Connecting Yemen's")}
+            <span className="text-primary"> {t("Pharmaceutical")}</span>
             <br />
-            Supply & Demand
+            {t("Supply & Demand")}
           </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            The first intelligent marketplace linking pharmacies, hospitals, distributors, and clinics across Yemen. Match supply with demand, discover alternatives, and access real-time market intelligence.
+            {t("The first intelligent marketplace linking pharmacies, hospitals, distributors, and clinics across Yemen. Match supply with demand, discover alternatives, and access real-time market intelligence.")}
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             {isAuthenticated ? (
               <Link href="/dashboard">
                 <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/20">
-                  Go to Dashboard
+                  {t("Go to Dashboard")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             ) : (
               <Button onClick={() => startLogin()} size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/20">
-                Get Started
+                {t("Get Started")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             )}
             <Link href="#features">
               <Button variant="outline" size="lg" className="h-12 px-8 text-base">
-                Learn More
+                {t("Learn More")}
               </Button>
             </Link>
           </div>
@@ -91,10 +95,10 @@ export default function Home() {
       <section className="border-y border-border/50 bg-secondary/50 py-12">
         <div className="container grid grid-cols-2 gap-8 md:grid-cols-4">
           {[
-            { label: "Governorates", value: "22", icon: MapPin },
-            { label: "Drug Categories", value: "14", icon: Pill },
-            { label: "Active Matches", value: "Real-time", icon: Handshake },
-            { label: "Market Signals", value: "Daily", icon: TrendingUp },
+            { label: t("Governorates"), value: "22", icon: MapPin },
+            { label: t("Drug Categories"), value: "14", icon: Pill },
+            { label: t("Active Matches"), value: t("Real-time"), icon: Handshake },
+            { label: t("Market Signals"), value: t("Daily"), icon: TrendingUp },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <stat.icon className="mx-auto mb-2 h-6 w-6 text-primary" />
@@ -110,10 +114,10 @@ export default function Home() {
         <div className="container">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Intelligent Pharmaceutical Marketplace
+              {t("Intelligent Pharmaceutical Marketplace")}
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Built specifically for Yemen's pharmaceutical ecosystem with features designed to address real supply chain challenges.
+              {t("Built specifically for Yemen's pharmaceutical ecosystem with features designed to address real supply chain challenges.")}
             </p>
           </div>
 
@@ -183,8 +187,8 @@ export default function Home() {
       <section className="bg-secondary/30 py-24">
         <div className="container">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">How It Works</h2>
-            <p className="text-muted-foreground">Three simple steps to connect supply with demand</p>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight">{t("How It Works")}</h2>
+            <p className="text-muted-foreground">{t("Three simple steps to connect supply with demand")}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {[
@@ -224,10 +228,10 @@ export default function Home() {
             <span className="font-semibold">PharmaYemen</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            Yemen Pharmaceutical Market Intelligence Platform
+            {t("Yemen Pharmaceutical Market Intelligence Platform")}
           </p>
           <p className="mt-2 text-xs text-muted-foreground/60">
-            Connecting supply and demand across Yemen's pharmaceutical market
+            {t("Connecting supply and demand across Yemen's pharmaceutical market")}
           </p>
         </div>
       </footer>
