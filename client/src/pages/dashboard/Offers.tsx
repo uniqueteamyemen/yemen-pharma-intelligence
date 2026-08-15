@@ -125,7 +125,7 @@ export default function OffersPage() {
                             setSearchQuery("");
                           }}
                         >
-                          {drug.brandName} ({drug.genericName}) - {drug.strength}
+                          {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
                         </button>
                       ))}
                     </div>
@@ -192,6 +192,13 @@ export default function OffersPage() {
         <CardContent>
           {offers.isLoading ? (
             <p className="text-muted-foreground">{t("Loading...")}</p>
+          ) : offers.isError ? (
+            <div className="space-y-3 text-center">
+              <p className="text-muted-foreground">{t("Unable to load offers. Please retry.")}</p>
+              <Button variant="outline" size="sm" onClick={() => offers.refetch()}>
+                {t("Retry")}
+              </Button>
+            </div>
           ) : !offers.data?.length ? (
             <p className="text-muted-foreground">{t("No active offers found")}</p>
           ) : (

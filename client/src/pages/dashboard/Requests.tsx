@@ -131,7 +131,7 @@ export default function RequestsPage() {
                             setSearchQuery("");
                           }}
                         >
-                          {drug.brandName} ({drug.genericName}) - {drug.strength}
+                          {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
                         </button>
                       ))}
                     </div>

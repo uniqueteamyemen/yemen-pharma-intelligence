@@ -159,6 +159,8 @@ const translations: Record<string, { ar: string; en: string }> = {
   "Create Offer": { ar: "إنشاء العرض", en: "Create Offer" },
   "Offer created successfully": { ar: "تم إنشاء العرض بنجاح", en: "Offer created successfully" },
   "Unable to create offer": { ar: "تعذر إنشاء العرض", en: "Unable to create offer" },
+  "Unable to load offers. Please retry.": { ar: "تعذر تحميل العروض. يرجى إعادة المحاولة.", en: "Unable to load offers. Please retry." },
+  Retry: { ar: "إعادة المحاولة", en: "Retry" },
   "Offer closed": { ar: "تم إغلاق العرض", en: "Offer closed" },
   Unlisted: { ar: "غير مدرج", en: "Unlisted" },
   Expires: { ar: "ينتهي في", en: "Expires" },

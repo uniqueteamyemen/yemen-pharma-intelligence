@@ -40,10 +40,19 @@ function DashboardRouter() {
 
   // Guard for non-verified users on protected routes
   useEffect(() => {
-    if (!isAdmin && !isVerified && protectedRoutes.includes(location) && location !== "/dashboard/register") {
+    if (
+      isAuthenticated &&
+      !loading &&
+      !entity.isLoading &&
+      entity.data &&
+      !isAdmin &&
+      !isVerified &&
+      protectedRoutes.includes(location) &&
+      location !== "/dashboard/register"
+    ) {
       setLocation("/dashboard/register");
     }
-  }, [isAdmin, isVerified, location, setLocation]);
+  }, [isAuthenticated, loading, entity.data, entity.isLoading, isAdmin, isVerified, location, setLocation]);
 
   if (loading || (isAuthenticated && entity.isLoading)) {
     return <div className="flex items-center justify-center h-full"><span>{t("Loading...")}</span></div>;

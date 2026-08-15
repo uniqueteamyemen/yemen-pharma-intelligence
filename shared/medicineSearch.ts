@@ -41,8 +41,37 @@ export function medicineSearchFields(record: {
     .join(" ");
 }
 
-export function medicineMatchesQuery(record: Parameters<typeof medicineSearchFields>[0], query: string): boolean {
+function normalizedMedicineSearchFieldValues(record: Parameters<typeof medicineSearchFields>[0]): string[] {
+  return [
+    record.brandName,
+    record.brandNameAr,
+    record.genericName,
+    record.genericNameAr,
+    record.dosageForm,
+    record.strength,
+  ]
+    .filter(Boolean)
+    .map((value) => normalizeMedicineSearch(value));
+}
+
+/**
+ * Gives prefix and exact matches priority over incidental substring matches.
+ * This is particularly important for Arabic type-ahead: e.g. "أمو" should
+ * surface "أموكسيسيلين" before a medicine that happens to contain the same
+ * three letters in the middle of its Arabic name.
+ */
+export function medicineSearchRank(record: Parameters<typeof medicineSearchFields>[0], query: string): number {
   const normalizedQuery = normalizeMedicineSearch(query);
-  if (!normalizedQuery) return false;
-  return medicineSearchFields(record).includes(normalizedQuery);
+  if (!normalizedQuery) return 0;
+
+  const fields = normalizedMedicineSearchFieldValues(record);
+  if (fields.some((field) => field === normalizedQuery)) return 4;
+  if (fields.some((field) => field.startsWith(normalizedQuery))) return 3;
+  if (fields.some((field) => field.split(" ").some((token) => token.startsWith(normalizedQuery)))) return 2;
+  if (fields.some((field) => field.includes(normalizedQuery))) return 1;
+  return 0;
+}
+
+export function medicineMatchesQuery(record: Parameters<typeof medicineSearchFields>[0], query: string): boolean {
+  return medicineSearchRank(record, query) > 0;
 }

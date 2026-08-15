@@ -17,7 +17,7 @@ import {
   marketSignals, MarketSignal,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
-import { medicineMatchesQuery, normalizeMedicineSearch } from "../shared/medicineSearch";
+import { medicineMatchesQuery, medicineSearchRank, normalizeMedicineSearch } from "../shared/medicineSearch";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -216,7 +216,12 @@ export async function searchDrugs(query: string, limit = 20) {
     .where(and(eq(drugs.isDeleted, false), eq(drugs.isActive, true)))
     .orderBy(desc(drugs.id));
 
-  return records.filter((record) => medicineMatchesQuery(record, normalizedQuery)).slice(0, limit);
+  return records
+    .map((record) => ({ record, rank: medicineSearchRank(record, normalizedQuery) }))
+    .filter(({ rank }) => rank > 0)
+    .sort((a, b) => b.rank - a.rank || b.record.id - a.record.id)
+    .slice(0, limit)
+    .map(({ record }) => record);
 }
 
 export async function getDrugsByCategory(category: string) {
@@ -473,7 +478,9 @@ export async function runMatching(offerId: number) {
     .where(and(
       eq(requests.status, 'open'),
       eq(requests.isDeleted, false),
-      ne(requests.entityId, offer.entityId) // not same entity
+      // Match supply and demand by name even when a verified entity records
+      // both sides. This supports inventory-intelligence use cases while
+      // conversation creation remains limited to two distinct entities.
     ));
   console.log(`[MATCHING] ✓ Step 3: Found ${openRequests.length} open requests`);
   if (openRequests.length === 0) {
@@ -511,8 +518,8 @@ export async function runMatching(offerId: number) {
         }
       }
     } else if (req.isFreeText && offer.isFreeText) {
-      const reqName = (req.freeTextName || '').toLowerCase().trim();
-      const offerName = (offer.freeTextName || '').toLowerCase().trim();
+      const reqName = normalizeMedicineSearch(req.freeTextName);
+      const offerName = normalizeMedicineSearch(offer.freeTextName);
       console.log(`[MATCHING]     → Free-text match: "${reqName}" vs "${offerName}"`);
       // Exact or partial match on drug name
       if (reqName === offerName || reqName.includes(offerName) || offerName.includes(reqName)) {
@@ -557,6 +564,13 @@ export async function runMatching(offerId: number) {
     
     // Match created if drug names match (drugMatch >= 50)
     if (drugMatch >= 50) {
+      const existingMatch = await db.select({ id: matches.id }).from(matches)
+        .where(and(eq(matches.offerId, offerId), eq(matches.requestId, req.id)))
+        .limit(1);
+      if (existingMatch.length > 0) {
+        console.log(`[MATCHING]     → SKIP: Existing match already recorded for offer=${offerId}, request=${req.id}`);
+        continue;
+      }
       const matchData = {
         offerId,
         requestId: req.id,
@@ -576,18 +590,21 @@ export async function runMatching(offerId: number) {
   // Insert matches
   if (matchesToCreate.length > 0) {
     try {
-      const insertResult = await db.insert(matches).values(matchesToCreate);
+      await db.insert(matches).values(matchesToCreate);
       console.log(`[MATCHING] ✓ Step 6: Inserted matches into database`);
       
-      // Create conversations for accepted matches
-      // Use sequential IDs since we can't get individual IDs easily
-      const baseId = Date.now(); // unique base
+      // Create conversations only for matches between distinct entities and
+      // reference the actual match ID instead of the request ID.
       for (let i = 0; i < matchesToCreate.length; i++) {
         const m = matchesToCreate[i];
         const matchedReq = openRequests.find(r => r.id === m.requestId);
-        if (matchedReq) {
+        const insertedMatch = await db.select({ id: matches.id }).from(matches)
+          .where(and(eq(matches.offerId, m.offerId), eq(matches.requestId, m.requestId)))
+          .orderBy(desc(matches.id))
+          .limit(1);
+        if (matchedReq && matchedReq.entityId !== offer.entityId && insertedMatch[0]) {
           await db.insert(conversations).values({
-            matchId: m.requestId, // placeholder - will be updated after insert
+            matchId: insertedMatch[0].id,
             offerEntityId: offer.entityId,
             requestEntityId: matchedReq.entityId,
           });
