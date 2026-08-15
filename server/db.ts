@@ -281,8 +281,23 @@ export async function createOffer(data: {
   if (data.expiryDate) {
     insertData.expiryDate = new Date(data.expiryDate);
   }
-  const [result] = await db.insert(offers).values(insertData);
-  return { id: result.insertId };
+  console.log(`[CREATE_OFFER] Inserting offer:`, insertData);
+  const result = await db.insert(offers).values(insertData);
+  console.log(`[CREATE_OFFER] Insert result:`, result);
+  
+  // Get the inserted offer to ensure we have the correct ID
+  const insertedOffers = await db.select().from(offers)
+    .where(eq(offers.entityId, data.entityId))
+    .orderBy(desc(offers.createdAt))
+    .limit(1);
+  
+  if (insertedOffers.length === 0) {
+    throw new Error("Failed to retrieve inserted offer");
+  }
+  
+  const offerId = insertedOffers[0].id;
+  console.log(`[CREATE_OFFER] Created offer with ID: ${offerId}`);
+  return { id: offerId };
 }
 
 export async function getOffers(filters?: {
@@ -356,12 +371,27 @@ export async function createRequest(data: {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
-  const [result] = await db.insert(requests).values({
+  console.log(`[CREATE_REQUEST] Inserting request`);
+  const result = await db.insert(requests).values({
     ...data,
     status: 'open',
     expiresAt,
   });
-  return { id: result.insertId };
+  console.log(`[CREATE_REQUEST] Insert result:`, result);
+  
+  // Get the inserted request to ensure we have the correct ID
+  const insertedRequests = await db.select().from(requests)
+    .where(eq(requests.entityId, data.entityId))
+    .orderBy(desc(requests.createdAt))
+    .limit(1);
+  
+  if (insertedRequests.length === 0) {
+    throw new Error("Failed to retrieve inserted request");
+  }
+  
+  const requestId = insertedRequests[0].id;
+  console.log(`[CREATE_REQUEST] Created request with ID: ${requestId}`);
+  return { id: requestId };
 }
 
 export async function getRequests(filters?: {
@@ -422,11 +452,21 @@ export async function expireRequests() {
 // ============================================================
 
 export async function runMatching(offerId: number) {
+  console.log(`\n[MATCHING] ===== START: runMatching for offerId=${offerId} =====`);
+  
   const db = await getDb();
-  if (!db) return [];
+  if (!db) {
+    console.error(`[MATCHING] FAIL Step 1: Database not available`);
+    return [];
+  }
+  console.log(`[MATCHING] ✓ Step 1: Database connected`);
   
   const offer = await getOfferById(offerId);
-  if (!offer) return [];
+  if (!offer) {
+    console.error(`[MATCHING] FAIL Step 2: Offer not found for offerId=${offerId}`);
+    return [];
+  }
+  console.log(`[MATCHING] ✓ Step 2: Offer found - id=${offer.id}, drugId=${offer.drugId}, entityId=${offer.entityId}, isFreeText=${offer.isFreeText}, freeTextName=${offer.freeTextName}`);
   
   // Get open requests
   const openRequests = await db.select().from(requests)
@@ -435,13 +475,24 @@ export async function runMatching(offerId: number) {
       eq(requests.isDeleted, false),
       ne(requests.entityId, offer.entityId) // not same entity
     ));
+  console.log(`[MATCHING] ✓ Step 3: Found ${openRequests.length} open requests`);
+  if (openRequests.length === 0) {
+    console.log(`[MATCHING] No open requests to match against`);
+    return [];
+  }
   
   const offerEntity = await getEntityById(offer.entityId);
-  if (!offerEntity) return [];
+  if (!offerEntity) {
+    console.error(`[MATCHING] FAIL Step 4: Offer entity not found for entityId=${offer.entityId}`);
+    return [];
+  }
+  console.log(`[MATCHING] ✓ Step 4: Offer entity found - id=${offerEntity.id}, cityId=${offerEntity.cityId}`);
   
   const matchesToCreate = [];
   
   for (const req of openRequests) {
+    console.log(`\n[MATCHING]   Checking request id=${req.id}, drugId=${req.drugId}, isFreeText=${req.isFreeText}, freeTextName=${req.freeTextName}`);
+    
     let drugMatch = 0;
     
     // Drug name matching (primary criteria - no quantity requirement)
@@ -449,28 +500,39 @@ export async function runMatching(offerId: number) {
       // Exact match
       if (req.drugId === offer.drugId) {
         drugMatch = 100;
+        console.log(`[MATCHING]     → Exact drug ID match: ${req.drugId} === ${offer.drugId}`);
       } else {
         // Check alternatives
         const offerAlts = await getDrugAlternatives(offer.drugId);
+        console.log(`[MATCHING]     → Checking alternatives for offer drugId=${offer.drugId}, found ${offerAlts.length} alternatives`);
         if (offerAlts.some(a => a.id === req.drugId)) {
           drugMatch = 100; // Alternative counts as full match
+          console.log(`[MATCHING]     → Alternative match found`);
         }
       }
     } else if (req.isFreeText && offer.isFreeText) {
       const reqName = (req.freeTextName || '').toLowerCase().trim();
       const offerName = (offer.freeTextName || '').toLowerCase().trim();
+      console.log(`[MATCHING]     → Free-text match: "${reqName}" vs "${offerName}"`);
       // Exact or partial match on drug name
       if (reqName === offerName || reqName.includes(offerName) || offerName.includes(reqName)) {
         drugMatch = 100;
+        console.log(`[MATCHING]     → Free-text match SUCCESS`);
       }
     } else if ((req.drugId && offer.isFreeText) || (req.isFreeText && offer.drugId)) {
       // Mixed: one has drugId, other has freeText - try to match
       // This is a weaker match but still valid
       drugMatch = 50;
+      console.log(`[MATCHING]     → Mixed type match (drugId + freeText): drugMatch=50`);
     }
     
+    console.log(`[MATCHING]     → drugMatch=${drugMatch}`);
+    
     // Only create match if drug names match
-    if (drugMatch === 0) continue;
+    if (drugMatch === 0) {
+      console.log(`[MATCHING]     → SKIP: No drug match`);
+      continue;
+    }
     
     // Location match is secondary (bonus, not required)
     let locationMatch = 0;
@@ -479,19 +541,23 @@ export async function runMatching(offerId: number) {
       if (reqEntity.cityId === offerEntity.cityId) locationMatch = 100;
       else if (reqEntity.governorateId === offerEntity.governorateId) locationMatch = 70;
       else if (reqEntity.regionId === offerEntity.regionId) locationMatch = 40;
+      console.log(`[MATCHING]     → locationMatch=${locationMatch}`);
     }
     
     // Urgency match (secondary)
     const urgencyMap = { low: 1, medium: 2, high: 3, critical: 4 };
     const urgScore = (urgencyMap[req.urgency] / 4) * 100;
+    console.log(`[MATCHING]     → urgency="${req.urgency}", urgScore=${urgScore}`);
     
     // NEW: Simplified scoring - drug match is primary, others are bonuses
     // Base score is 100 for drug match, then add bonuses for location and urgency
     const totalScore = drugMatch + (locationMatch * 0.1) + (urgScore * 0.05);
     
+    console.log(`[MATCHING]     → totalScore = ${drugMatch} + (${locationMatch} * 0.1) + (${urgScore} * 0.05) = ${totalScore}`);
+    
     // Match created if drug names match (drugMatch >= 50)
     if (drugMatch >= 50) {
-      matchesToCreate.push({
+      const matchData = {
         offerId,
         requestId: req.id,
         matchScore: String(Math.round(totalScore * 100) / 100),
@@ -499,30 +565,44 @@ export async function runMatching(offerId: number) {
         locationMatchScore: String(locationMatch),
         urgencyMatchScore: String(urgScore),
         quantityMatchScore: String(0), // Quantity no longer affects matching
-      });
+      };
+      matchesToCreate.push(matchData);
+      console.log(`[MATCHING]     → MATCH CREATED: ${JSON.stringify(matchData)}`);
     }
   }
+  
+  console.log(`\n[MATCHING] ✓ Step 5: Prepared ${matchesToCreate.length} matches to insert`);
   
   // Insert matches
   if (matchesToCreate.length > 0) {
-    const insertResult = await db.insert(matches).values(matchesToCreate);
-    
-    // Create conversations for accepted matches
-    // Use sequential IDs since we can't get individual IDs easily
-    const baseId = Date.now(); // unique base
-    for (let i = 0; i < matchesToCreate.length; i++) {
-      const m = matchesToCreate[i];
-      const matchedReq = openRequests.find(r => r.id === m.requestId);
-      if (matchedReq) {
-        await db.insert(conversations).values({
-          matchId: m.requestId, // placeholder - will be updated after insert
-          offerEntityId: offer.entityId,
-          requestEntityId: matchedReq.entityId,
-        });
+    try {
+      const insertResult = await db.insert(matches).values(matchesToCreate);
+      console.log(`[MATCHING] ✓ Step 6: Inserted matches into database`);
+      
+      // Create conversations for accepted matches
+      // Use sequential IDs since we can't get individual IDs easily
+      const baseId = Date.now(); // unique base
+      for (let i = 0; i < matchesToCreate.length; i++) {
+        const m = matchesToCreate[i];
+        const matchedReq = openRequests.find(r => r.id === m.requestId);
+        if (matchedReq) {
+          await db.insert(conversations).values({
+            matchId: m.requestId, // placeholder - will be updated after insert
+            offerEntityId: offer.entityId,
+            requestEntityId: matchedReq.entityId,
+          });
+        }
       }
+      console.log(`[MATCHING] ✓ Step 7: Created conversations`);
+    } catch (err) {
+      console.error(`[MATCHING] FAIL Step 6: Error inserting matches:`, err);
+      throw err;
     }
+  } else {
+    console.log(`[MATCHING] ✓ Step 6: No matches to insert`);
   }
   
+  console.log(`[MATCHING] ===== END: runMatching returned ${matchesToCreate.length} matches =====\n`);
   return matchesToCreate;
 }
 

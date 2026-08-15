@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-08-15T17:16:10.656Z",
+  "totalRecords": 742,
+  "invalidGenericCount": 0,
+  "malformedStrengthCount": 0,
+  "malformedCategoryCount": 0,
+  "exactDuplicateGroupCount": 0,
+  "samples": {
+    "invalidGeneric": [],
+    "malformedStrength": [],
+    "malformedCategory": [],
+    "exactDuplicateGroups": []
+  }
+}

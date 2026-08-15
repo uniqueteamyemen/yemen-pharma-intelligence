@@ -1,0 +1,4682 @@
+[
+  {
+    "sourceYear": 2022,
+    "sourceLine": 258,
+    "category": "Anaesthetics",
+    "genericName": "Halothane",
+    "dosageForm": "Inhalation",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 259,
+    "category": "Anaesthetics",
+    "genericName": "Isoflurane",
+    "dosageForm": "Inhalation",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 260,
+    "category": "Anaesthetics",
+    "genericName": "Ketamine HCL",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 261,
+    "category": "Anaesthetics",
+    "genericName": "Nitrous Oxide",
+    "dosageForm": "Inhalation",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 262,
+    "category": "Anaesthetics",
+    "genericName": "Oxygen (medical gas)",
+    "dosageForm": "Inhalation",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 263,
+    "category": "Anaesthetics",
+    "genericName": "Propofol",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 264,
+    "category": "Anaesthetics",
+    "genericName": "Thiopental sodium",
+    "dosageForm": "Pow. Injection",
+    "strength": "1g"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 266,
+    "category": "Anaesthetics",
+    "genericName": "Bupivacaine HCL, spinal",
+    "dosageForm": "Injection",
+    "strength": "0.5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 267,
+    "category": "Anaesthetics",
+    "genericName": "Ephedrine",
+    "dosageForm": "Injection",
+    "strength": "30mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 268,
+    "category": "Anaesthetics",
+    "genericName": "Lidocaine HCL",
+    "dosageForm": "Injection",
+    "strength": "2%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 272,
+    "category": "Anaesthetics",
+    "genericName": "Atropine Sulfate",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 273,
+    "category": "Anaesthetics",
+    "genericName": "Chloralhydrate",
+    "dosageForm": "syrup",
+    "strength": "300mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 274,
+    "category": "Anaesthetics",
+    "genericName": "Diazepam",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 275,
+    "category": "Anaesthetics",
+    "genericName": "Midazolam HCL",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 276,
+    "category": "Anaesthetics",
+    "genericName": "Morphine",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 277,
+    "category": "Anaesthetics",
+    "genericName": "Promethazine HCL",
+    "dosageForm": "syrup",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 282,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Acetylsalicylic Acid",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 283,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Allopurinol",
+    "dosageForm": "Tablet",
+    "strength": "300mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 284,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Diclofenac Sodium",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 285,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Ibuprofen",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 286,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Meloxicam",
+    "dosageForm": "Tablet",
+    "strength": "7.5 mg-15mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 287,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Meloxicam",
+    "dosageForm": "Injection",
+    "strength": "7.5 mg-15mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 288,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Meloxicam",
+    "dosageForm": "Supp",
+    "strength": "7.5 mg-15mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 289,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Paracetamol",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 290,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Paracetamol",
+    "dosageForm": "Supp",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 291,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Paracetamol",
+    "dosageForm": "syrup",
+    "strength": "24mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 292,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Paracetamol",
+    "dosageForm": "Infusion",
+    "strength": "500mg/100ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 294,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Codeine",
+    "dosageForm": "Tablet",
+    "strength": "30mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 295,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Fentanyl",
+    "dosageForm": "Injection",
+    "strength": "50mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 296,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Fentanyl",
+    "dosageForm": "Patch",
+    "strength": "100mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 297,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Methadone HCL",
+    "dosageForm": "Oral Liquid",
+    "strength": "5mg, 10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 298,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Morphine Sulfate",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 299,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Morphine Sulfate",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 300,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Pethidine HCL",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 301,
+    "category": "Analgesics, Antipyretics, NS Anti-inflammatory and Medicines to Treat Go",
+    "genericName": "Tramadol HCL",
+    "dosageForm": "Injection",
+    "strength": "100mg/2ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 311,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Adrenaline (Epinephrine)",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 312,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Cetirizine",
+    "dosageForm": "Tablet",
+    "strength": "10mg-20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 313,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Chlorpheniramine Maleate",
+    "dosageForm": "Tablet",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 314,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Chlorpheniramine Maleate",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 315,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Desloratadine",
+    "dosageForm": "syrup",
+    "strength": "5mg-10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 316,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Dexamethasone (sodium phosphate)",
+    "dosageForm": "Injection",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 317,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Hydrocortisone (sodium succinate)",
+    "dosageForm": "Pow. Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 318,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Loratadine",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 319,
+    "category": "Antiallergics and Medicines used in Anaphylaxis",
+    "genericName": "Prednisolone",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 323,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Acetylcystine",
+    "dosageForm": "Injection",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 324,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Activated Charcoal",
+    "dosageForm": "Powder",
+    "strength": "0.14%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 325,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Atropine Sulfate",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 326,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Dantrolene",
+    "dosageForm": "Pow. Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 327,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Deferasirox",
+    "dosageForm": "Disp. Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 328,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Deferiprone",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 329,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Desferoxamine Mesilate",
+    "dosageForm": "Pow. Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 330,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Dimercaprol",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 331,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Flumazenil",
+    "dosageForm": "Injection",
+    "strength": "100mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 332,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Fomepizole",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 333,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Ipecacuanha",
+    "dosageForm": "syrup",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 334,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Naloxone",
+    "dosageForm": "Injection",
+    "strength": "0.4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 335,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Neostigmine Methylsulphate",
+    "dosageForm": "Injection",
+    "strength": "2.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 336,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Penicillamine",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 337,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Phytomenadione (Vit.K1)",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 338,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Pralidoxime Mesilate",
+    "dosageForm": "Injection",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 339,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Protamine Sulphate",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 340,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Sodium Calcium Edetate",
+    "dosageForm": "Injection",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 341,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Sodium Nitrite",
+    "dosageForm": "Injection",
+    "strength": "30mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 342,
+    "category": "Antidotes and other Sub stances used in Poisonings",
+    "genericName": "Sodium Thiosulfate",
+    "dosageForm": "Injection",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 347,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Carbamazepine",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 348,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Carbamazepine",
+    "dosageForm": "syrup",
+    "strength": "100mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 349,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Clonazepam",
+    "dosageForm": "Oral Drop",
+    "strength": "2.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 350,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Clonazepam",
+    "dosageForm": "Tablet",
+    "strength": "2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 351,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Diazepam",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 352,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Diazepam",
+    "dosageForm": "Rectal",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 353,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Fosphenytoin",
+    "dosageForm": "Injection",
+    "strength": "400mg-1200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 354,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Lamotrigine",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 355,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Levetiracetam",
+    "dosageForm": "Injection",
+    "strength": "500 mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 356,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Levetiracetam",
+    "dosageForm": "Tablet",
+    "strength": "500 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 357,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Levetiracetam",
+    "dosageForm": "Syrup",
+    "strength": "500 mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 358,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Lorazepam",
+    "dosageForm": "Injection",
+    "strength": "2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 366,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Magnesium Sulphate",
+    "dosageForm": "Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 367,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Midazolam",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 368,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Phenobarbital",
+    "dosageForm": "Tablet",
+    "strength": "60mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 369,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Phenobarbital Sodium",
+    "dosageForm": "Injection",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 370,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Phenytoin Sodium",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 371,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Phenytoin Sodium",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 372,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Sodium Valproate",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 373,
+    "category": "Anticonvulsants / Antiepileptics",
+    "genericName": "Sodium Valproate",
+    "dosageForm": "syrup",
+    "strength": "200mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 379,
+    "category": "Anti-infective Medicines",
+    "genericName": "Albendazole",
+    "dosageForm": "Chew.Table",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 380,
+    "category": "Anti-infective Medicines",
+    "genericName": "Levamisole",
+    "dosageForm": "Tablet",
+    "strength": "50mg-150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 381,
+    "category": "Anti-infective Medicines",
+    "genericName": "Mebendazole",
+    "dosageForm": "Chew.Table",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 382,
+    "category": "Anti-infective Medicines",
+    "genericName": "Niclosamide",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 383,
+    "category": "Anti-infective Medicines",
+    "genericName": "Praziquantel",
+    "dosageForm": "Tablet",
+    "strength": "600mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 384,
+    "category": "Anti-infective Medicines",
+    "genericName": "Pyrantel Embonate",
+    "dosageForm": "Chew.Table",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 389,
+    "category": "Anti-infective Medicines",
+    "genericName": "Albendazole",
+    "dosageForm": "Chew.Table",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 390,
+    "category": "Anti-infective Medicines",
+    "genericName": "Diethylcarbamazine",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 391,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ivermectin",
+    "dosageForm": "Tablet",
+    "strength": "3mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 397,
+    "category": "Anti-infective Medicines",
+    "genericName": "Amoxicillin",
+    "dosageForm": "Capsule",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 398,
+    "category": "Anti-infective Medicines",
+    "genericName": "Amoxicillin",
+    "dosageForm": "Suspension",
+    "strength": "250mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 399,
+    "category": "Anti-infective Medicines",
+    "genericName": "Amoxicillin+Clavulanic Acid",
+    "dosageForm": "Tablet",
+    "strength": "625MG ,1000MG"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 400,
+    "category": "Anti-infective Medicines",
+    "genericName": "Amoxicillin+Clavulanic Acid",
+    "dosageForm": "Injection",
+    "strength": "600MG , 1200MG"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 401,
+    "category": "Anti-infective Medicines",
+    "genericName": "Amoxicillin+Clavulanic Acid",
+    "dosageForm": "Suspension",
+    "strength": "156MG , 312MG"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 402,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ampicillin",
+    "dosageForm": "Injection",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 403,
+    "category": "Anti-infective Medicines",
+    "genericName": "Benzathine Benzyl Penicillin",
+    "dosageForm": "Pow. Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 404,
+    "category": "Anti-infective Medicines",
+    "genericName": "Benzyl Penicillin (Crystalline Penicillin)",
+    "dosageForm": "Pow. Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 405,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefadroxil",
+    "dosageForm": "Capsule",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 406,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefadroxil",
+    "dosageForm": "Suspension",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 407,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefalexin",
+    "dosageForm": "Suspension",
+    "strength": "125mg-250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 408,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefazolin Sodium",
+    "dosageForm": "Injection",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 409,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefotaxime, I.V/I.M",
+    "dosageForm": "Pow. Injection",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 410,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ceftriaxone, I.V/I.M",
+    "dosageForm": "Pow. Injection",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 411,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefuroxime Sodium",
+    "dosageForm": "Injection",
+    "strength": "1500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 412,
+    "category": "Anti-infective Medicines",
+    "genericName": "Phenoxymethyl Penicillin",
+    "dosageForm": "Tablet",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 413,
+    "category": "Anti-infective Medicines",
+    "genericName": "Phenoxymethyl Penicillin",
+    "dosageForm": "Suspension",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 414,
+    "category": "Anti-infective Medicines",
+    "genericName": "Procaine Benzyl Penicillin",
+    "dosageForm": "Pow. Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 427,
+    "category": "Anti-infective Medicines",
+    "genericName": "Azithromycin",
+    "dosageForm": "Suspension",
+    "strength": "200mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 428,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ciprofloxacin",
+    "dosageForm": "Infusion",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 429,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ciprofloxacin",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 430,
+    "category": "Anti-infective Medicines",
+    "genericName": "Clarithromycin",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 431,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cotrimoxazole",
+    "dosageForm": "Suspension",
+    "strength": "8 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 432,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cotrimoxazole",
+    "dosageForm": "Tablet",
+    "strength": "80mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 433,
+    "category": "Anti-infective Medicines",
+    "genericName": "Doxycycline HCL (or hyclate)",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 434,
+    "category": "Anti-infective Medicines",
+    "genericName": "Erythromycin",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 435,
+    "category": "Anti-infective Medicines",
+    "genericName": "Erythromycin",
+    "dosageForm": "Suspension",
+    "strength": "250mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 436,
+    "category": "Anti-infective Medicines",
+    "genericName": "Gentamycin sulfate",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 437,
+    "category": "Anti-infective Medicines",
+    "genericName": "Metronidazole",
+    "dosageForm": "Suspension",
+    "strength": "200mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 438,
+    "category": "Anti-infective Medicines",
+    "genericName": "Metronidazole",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 439,
+    "category": "Anti-infective Medicines",
+    "genericName": "Metronidazole I.V.",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 440,
+    "category": "Anti-infective Medicines",
+    "genericName": "Nalidixic Acid",
+    "dosageForm": "Suspension",
+    "strength": "300mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 441,
+    "category": "Anti-infective Medicines",
+    "genericName": "Nitrofurantoin",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 442,
+    "category": "Anti-infective Medicines",
+    "genericName": "Nitrofurantoin",
+    "dosageForm": "Syrup",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 443,
+    "category": "Anti-infective Medicines",
+    "genericName": "Vancomycin HCL",
+    "dosageForm": "Pow. Injection",
+    "strength": "1g"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 448,
+    "category": "Anti-infective Medicines",
+    "genericName": "Clofazimine",
+    "dosageForm": "Capsule",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 449,
+    "category": "Anti-infective Medicines",
+    "genericName": "Dapsone",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 450,
+    "category": "Anti-infective Medicines",
+    "genericName": "Rifampicin",
+    "dosageForm": "Tablet",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 454,
+    "category": "Anti-infective Medicines",
+    "genericName": "Bedaquiline",
+    "dosageForm": "Tablet",
+    "strength": "50mg-100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 455,
+    "category": "Anti-infective Medicines",
+    "genericName": "Capreomycin Sulphate",
+    "dosageForm": "Injection",
+    "strength": "1g"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 456,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cefazimine",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 457,
+    "category": "Anti-infective Medicines",
+    "genericName": "Cycloserine",
+    "dosageForm": "Capsule",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 458,
+    "category": "Anti-infective Medicines",
+    "genericName": "Delamanid",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 459,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ethambutol",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 462,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ethionamide",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 463,
+    "category": "Anti-infective Medicines",
+    "genericName": "Isoniazid",
+    "dosageForm": "Tablet",
+    "strength": "300mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 464,
+    "category": "Anti-infective Medicines",
+    "genericName": "Isoniazid+Pyrazinamide+Rifampicin",
+    "dosageForm": "Tablet",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 465,
+    "category": "Anti-infective Medicines",
+    "genericName": "Isoniazid+Pyrazinamide+Rifampicin",
+    "dosageForm": "Tablet",
+    "strength": "75mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 466,
+    "category": "Anti-infective Medicines",
+    "genericName": "Isoniazid+Rifampicin",
+    "dosageForm": "Tablet",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 467,
+    "category": "Anti-infective Medicines",
+    "genericName": "Isoniazid+Rifampicin",
+    "dosageForm": "Tablet",
+    "strength": "75mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 468,
+    "category": "Anti-infective Medicines",
+    "genericName": "Levofloxacine",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 469,
+    "category": "Anti-infective Medicines",
+    "genericName": "Linezolid",
+    "dosageForm": "Oral liquid",
+    "strength": "100mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 470,
+    "category": "Anti-infective Medicines",
+    "genericName": "Linezolid",
+    "dosageForm": "Tablet",
+    "strength": "600mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 471,
+    "category": "Anti-infective Medicines",
+    "genericName": "Linezolid + rifapentine",
+    "dosageForm": "Tablet",
+    "strength": "300 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 472,
+    "category": "Anti-infective Medicines",
+    "genericName": "Moxifloxacin",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 475,
+    "category": "Anti-infective Medicines",
+    "genericName": "Pretomanid",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 476,
+    "category": "Anti-infective Medicines",
+    "genericName": "Pyrazinamide",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 477,
+    "category": "Anti-infective Medicines",
+    "genericName": "Rifabutin",
+    "dosageForm": "Capsule",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 487,
+    "category": "Anti-infective Medicines",
+    "genericName": "Pretomanid",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 488,
+    "category": "Anti-infective Medicines",
+    "genericName": "Pyrazinamide",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 489,
+    "category": "Anti-infective Medicines",
+    "genericName": "Rifabutin",
+    "dosageForm": "Capsule",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 494,
+    "category": "Anti-infective Medicines",
+    "genericName": "Amphotericin B",
+    "dosageForm": "Pow. Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 500,
+    "category": "Anti-infective Medicines",
+    "genericName": "Fluconazole",
+    "dosageForm": "Capsule",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 502,
+    "category": "Anti-infective Medicines",
+    "genericName": "Fluconazole",
+    "dosageForm": "Injection",
+    "strength": "2 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 504,
+    "category": "Anti-infective Medicines",
+    "genericName": "Flucytosine",
+    "dosageForm": "Infusion",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 505,
+    "category": "Anti-infective Medicines",
+    "genericName": "Glycerin borax",
+    "dosageForm": "Oral liquid",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 506,
+    "category": "Anti-infective Medicines",
+    "genericName": "Griseofulvin",
+    "dosageForm": "Tablet",
+    "strength": "125mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 507,
+    "category": "Anti-infective Medicines",
+    "genericName": "Itraconazole",
+    "dosageForm": "Capsule",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 508,
+    "category": "Anti-infective Medicines",
+    "genericName": "Itraconazole",
+    "dosageForm": "Syrup",
+    "strength": "100mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 509,
+    "category": "Anti-infective Medicines",
+    "genericName": "Ketoconazole",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 510,
+    "category": "Anti-infective Medicines",
+    "genericName": "Miconazole (or equiv.)",
+    "dosageForm": "gel",
+    "strength": "24mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 512,
+    "category": "Anti-infective Medicines",
+    "genericName": "Miconazole Nitrate",
+    "dosageForm": "Cream",
+    "strength": "2%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 513,
+    "category": "Anti-infective Medicines",
+    "genericName": "Nystatin",
+    "dosageForm": "Tablet",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 514,
+    "category": "Anti-infective Medicines",
+    "genericName": "Nystatin",
+    "dosageForm": "Oral liquid",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 520,
+    "category": "Anti-infective Medicines",
+    "genericName": "Diloxanide Furoate",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 543,
+    "category": "Anti-infective Medicines",
+    "genericName": "Metronidazole I.V.",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 569,
+    "category": "Anti-infective Medicines",
+    "genericName": "Artemether + Lumefantrine",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 573,
+    "category": "Anti-infective Medicines",
+    "genericName": "Artesunate",
+    "dosageForm": "Injection",
+    "strength": "80mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 619,
+    "category": "Anti-infective Medicines",
+    "genericName": "Primaquine Phosphate",
+    "dosageForm": "Tablet",
+    "strength": "7.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 621,
+    "category": "Antimigraine",
+    "genericName": "Quinine",
+    "dosageForm": "Tablet",
+    "strength": "300mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 622,
+    "category": "Antimigraine",
+    "genericName": "Acetylsalicylic Acid",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 623,
+    "category": "Antimigraine",
+    "genericName": "Quinine",
+    "dosageForm": "Injection",
+    "strength": "300mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 624,
+    "category": "Antimigraine",
+    "genericName": "Paracetamol",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 628,
+    "category": "Antimigraine Medicines",
+    "genericName": "Acetylsalicylic Acid",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 629,
+    "category": "Antimigraine Medicines",
+    "genericName": "Sumatriptan",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 630,
+    "category": "Antimigraine Medicines",
+    "genericName": "Paracetamol",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 634,
+    "category": "Antimigraine Medicines",
+    "genericName": "Sumatriptan",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 635,
+    "category": "Antimigraine Medicines",
+    "genericName": "Azathioprine",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 637,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cyclosporin",
+    "dosageForm": "Capsule",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 640,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Mycophenolate Mofetile",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 661,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Azathioprine",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 666,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cyclosporin",
+    "dosageForm": "Capsule",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 671,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Mycophenolate",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 674,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Mycophenolate",
+    "dosageForm": "Tablet",
+    "strength": "360mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 677,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Prednisolone",
+    "dosageForm": "Tablet",
+    "strength": "5mg ,20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 681,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Sirolimus",
+    "dosageForm": "Tablet",
+    "strength": "1mg, 2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 684,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Tacrolimus",
+    "dosageForm": "Capsule",
+    "strength": "0.5mg, 1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 685,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Tacrolimus",
+    "dosageForm": "Capsule",
+    "strength": "0.5mg, 1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 694,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Abiraterone",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 699,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Afatinib",
+    "dosageForm": "Tablet",
+    "strength": "40mg- 40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 714,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Bevacizumab",
+    "dosageForm": "Injection",
+    "strength": "400MG"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 715,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Bleomycin sulfate",
+    "dosageForm": "Injection",
+    "strength": "15 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 716,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Bortezomib",
+    "dosageForm": "Injection",
+    "strength": "3.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 717,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Calcium folinate",
+    "dosageForm": "Injection",
+    "strength": "3mg, 10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 718,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Capecitabine",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 719,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Carboplatin",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 720,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cetuximib",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 721,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Chlorambucil",
+    "dosageForm": "Tablet",
+    "strength": "2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 722,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cisplatin",
+    "dosageForm": "Pow. Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 723,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cyclophosphamide",
+    "dosageForm": "Pow. Injection",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 724,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cyclophosphamide",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 725,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Cytarabine, preservative free",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 726,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Dacarbazine",
+    "dosageForm": "Pow. Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 727,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Dactinomycin",
+    "dosageForm": "Pow. Injection",
+    "strength": "0.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 728,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Dasatinib",
+    "dosageForm": "Tablet",
+    "strength": "140mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 729,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Daunorubicin",
+    "dosageForm": "Pow. Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 730,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Denosumab",
+    "dosageForm": "Injection",
+    "strength": "60mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 732,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Doxorubicin HCL",
+    "dosageForm": "Pow. Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 733,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Epirubicin",
+    "dosageForm": "Injection",
+    "strength": "100 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 734,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Erlotinib",
+    "dosageForm": "Tablet",
+    "strength": "100 mg, 150 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 735,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Etoposide",
+    "dosageForm": "Capsule",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 736,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Etoposide",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 737,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Everolimus",
+    "dosageForm": "Tablet",
+    "strength": "5 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 738,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Filgrastim",
+    "dosageForm": "Injection",
+    "strength": "300mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 739,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Fluconazole",
+    "dosageForm": "Infusion",
+    "strength": "2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 740,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Fludarabine Phosphate",
+    "dosageForm": "Pow. Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 742,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Fluorouracil",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 743,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Gefitinib",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 744,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Gemcitabine HCL",
+    "dosageForm": "Pow. Injection",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 745,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Human Recombinant Erythropoietin",
+    "dosageForm": "Injection",
+    "strength": "000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 746,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Hydroxyurea",
+    "dosageForm": "Capsule",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 747,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Ifosfamide",
+    "dosageForm": "Pow. Injection",
+    "strength": "2g"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 748,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Imatinib",
+    "dosageForm": "Capsule",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 749,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Irinotecan",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 750,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "L-Asparaginase (Crisantaspase)",
+    "dosageForm": "Pow. Injection",
+    "strength": "000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 758,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Hydroxyurea",
+    "dosageForm": "Capsule",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 759,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Ifosfamide",
+    "dosageForm": "Pow. Injection",
+    "strength": "2g"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 760,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Imatinib",
+    "dosageForm": "Capsule",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 761,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Irinotecan",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 762,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "L-Asparaginase (Crisantaspase)",
+    "dosageForm": "Pow. Injection",
+    "strength": "000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 763,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Lenograstim",
+    "dosageForm": "Pow. Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 764,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Liposomal Doxorubicin",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 765,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Melphalan",
+    "dosageForm": "Tablet",
+    "strength": "2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 766,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Mercaptopurine",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 767,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Mesna",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 768,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Mesna",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 769,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Methotrexate",
+    "dosageForm": "Tablet",
+    "strength": "2.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 770,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Methotrexate, preserv. free",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 771,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Nilotinib",
+    "dosageForm": "Capsule",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 772,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Oxaliplatin",
+    "dosageForm": "Pow. Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 773,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Paclitaxel",
+    "dosageForm": "Infusion",
+    "strength": "6mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 774,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Paclitaxel Protein Bound",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 775,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Pazopanib",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 776,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Pegfilgrastim",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 777,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Pemetrexed",
+    "dosageForm": "Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 778,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Procarbazine",
+    "dosageForm": "Capsule",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 779,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Regorafinib",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 780,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Rituximab",
+    "dosageForm": "Infusion",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 781,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Sorafenib",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 782,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Sunitinib",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 783,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Temozolomide",
+    "dosageForm": "Capsule",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 784,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Thalidomide",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 785,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Tioguanine",
+    "dosageForm": "Tablet",
+    "strength": "40 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 786,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Trastuzumab",
+    "dosageForm": "Injection",
+    "strength": "45mg/0.5ml, 80mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 787,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Vinblastine",
+    "dosageForm": "Pow. Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 788,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Vincristine Sulphate",
+    "dosageForm": "Pow. Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 789,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Vinorelbine",
+    "dosageForm": "Infusion",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 790,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Vinorelbine Tartrate",
+    "dosageForm": "Tablet",
+    "strength": "30mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 791,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Zoledronic Acid",
+    "dosageForm": "Infusion",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 796,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Anastrozole",
+    "dosageForm": "Tablet",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 797,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Bicalutamide",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 798,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Dexamethasone",
+    "dosageForm": "Oral liquid",
+    "strength": "2 mg/5 mL"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 799,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Dexamethasone",
+    "dosageForm": "Tablet",
+    "strength": "2 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 800,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Dexamethasone (as disodium phosphate",
+    "dosageForm": "Injection",
+    "strength": "4 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 801,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Exemestane",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 802,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Goserelin",
+    "dosageForm": "Implant",
+    "strength": "3.6mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 803,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Hydrocortisone as sodium succinate",
+    "dosageForm": "Pow. Injection",
+    "strength": "100 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 804,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Letrozole",
+    "dosageForm": "Tablet",
+    "strength": "2.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 805,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Megestrol Acetate",
+    "dosageForm": "Tablet",
+    "strength": "160mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 806,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Methylprednisolone",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 807,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Prednisolone",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 808,
+    "category": "Antineoplastic and Immunosuppressives",
+    "genericName": "Tamoxifen Citrate",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 813,
+    "category": "Antiparkinsonism Medicines",
+    "genericName": "Benzhexol",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 819,
+    "category": "Antiparkinsonism Medicines",
+    "genericName": "Methylprednisolone",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 820,
+    "category": "Antiparkinsonism Medicines",
+    "genericName": "Prednisolone",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 821,
+    "category": "Antiparkinsonism Medicines",
+    "genericName": "Tamoxifen Citrate",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 828,
+    "category": "Antiparkinsonism Medicines",
+    "genericName": "Benzhexol",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 832,
+    "category": "Antiparkinsonism Medicines",
+    "genericName": "Levodopa + Carbidopa",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 840,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Ferrous Sulfate (65mg iron)",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 841,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Ferrous Sulhate+Folic acid",
+    "dosageForm": "Tablet",
+    "strength": "400mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 842,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Folic acid",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 843,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Human Recombinant Erythropoietin",
+    "dosageForm": "Injection",
+    "strength": "4000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 844,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Hydroxocobalamin (Vit B12)",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 845,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Iron sucrose",
+    "dosageForm": "Injection",
+    "strength": "100mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 848,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Acetylsalicylic Acid",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 849,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Apixaban",
+    "dosageForm": "Tablet",
+    "strength": "5 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 850,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Clopidogril",
+    "dosageForm": "Tablet",
+    "strength": "75mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 851,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Enoxaparin",
+    "dosageForm": "Injection",
+    "strength": "80mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 852,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Ethamsylate",
+    "dosageForm": "Injection",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 853,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Ethamsylate",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 854,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Heparin Sodium",
+    "dosageForm": "Injection",
+    "strength": "000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 855,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Phytomenadione (vit k1)",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 856,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Phytomenadione (vit k1)",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 857,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Protamine Sulphate",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 858,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Rivaroxaban",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 859,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Tranexamic Acid",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 860,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Tranexamic Acid",
+    "dosageForm": "Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 861,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Warfarin Sodium",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 864,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Deferasirox",
+    "dosageForm": "Disp. Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 865,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Desferoxamine Mesilate",
+    "dosageForm": "Pow. Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 866,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Hydroxyurea",
+    "dosageForm": "Capsule",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 869,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Albumin, Human",
+    "dosageForm": "Injection",
+    "strength": "20%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 870,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Dextran 70",
+    "dosageForm": "Solution",
+    "strength": "6%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 873,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Polygeline",
+    "dosageForm": "solution",
+    "strength": "3.5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 874,
+    "category": "Medicines Affecting the Blood",
+    "genericName": "Polyoxifumarinum",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 882,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Adenosine",
+    "dosageForm": "Injection",
+    "strength": "6mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 883,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Amiodarone HCL",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 893,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Polyoxifumarinum",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 901,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Adenosine",
+    "dosageForm": "Injection",
+    "strength": "6mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 902,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Amiodarone HCL",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 903,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Amiodarone HCL",
+    "dosageForm": "Tablet",
+    "strength": "300mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 904,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Bisoprolol",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 905,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Carvedilol",
+    "dosageForm": "Tablet",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 906,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Glyceryl Trinitrate",
+    "dosageForm": "Tablet",
+    "strength": "0.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 907,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Isosorbide Dinitrate",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 908,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Lidocaine HCL, preserv. free",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 909,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Metoprolol",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 910,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Propranolol",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 911,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Propranolol",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 912,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Verapamil HCL",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 916,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Amlodipine",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 917,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Atenolol",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 918,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Captopril",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 919,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Diltiazem HCL",
+    "dosageForm": "Tablet",
+    "strength": "120mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 920,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Enalapril hydrogen maleate",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 921,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Hydralazine HCL",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 922,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Hydralazine HCL",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 923,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Lisinopril",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 924,
+    "category": "Cardiovascular Medicines",
+    "genericName": "lisinopril + amlodipine",
+    "dosageForm": "Tablet",
+    "strength": "10 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 926,
+    "category": "Cardiovascular Medicines",
+    "genericName": "lisinopril + hydrochlorothiazide",
+    "dosageForm": "Tablet",
+    "strength": "10 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 928,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Losartan",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 929,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Magnesium Sulphate",
+    "dosageForm": "Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 930,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Methyldopa",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 931,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Nifedipine",
+    "dosageForm": "Capsule",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 932,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Propranolol",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 933,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Sodium nitroprusside",
+    "dosageForm": "Powder",
+    "strength": "50 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 934,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Spironolactone",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 935,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Telmisartan",
+    "dosageForm": "Tablet",
+    "strength": "80 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 940,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Digoxin",
+    "dosageForm": "Tablet",
+    "strength": "0.25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 942,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Digoxin",
+    "dosageForm": "syrup",
+    "strength": "0.05mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 943,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Digoxin",
+    "dosageForm": "Injection",
+    "strength": "0.25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 946,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Adrenaline (Epinephrine)",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 948,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Dobutamine",
+    "dosageForm": "Injection",
+    "strength": "250mg/29ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 954,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Digoxin",
+    "dosageForm": "Tablet",
+    "strength": "0.25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 956,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Digoxin",
+    "dosageForm": "syrup",
+    "strength": "0.05mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 957,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Digoxin",
+    "dosageForm": "Injection",
+    "strength": "0.25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 960,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Adrenaline (Epinephrine)",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 962,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Dobutamine",
+    "dosageForm": "Injection",
+    "strength": "250mg/29ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 964,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Dopamine HCL",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 966,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Noradrenalin",
+    "dosageForm": "Injection",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 972,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Acetylsalicylic Acid, (EC)",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 973,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Clopidogrel",
+    "dosageForm": "Tablet",
+    "strength": "75 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 976,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Alteplase",
+    "dosageForm": "Injection",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 984,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Atorvastatin",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 985,
+    "category": "Cardiovascular Medicines",
+    "genericName": "Fenofibrate",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 993,
+    "category": "Dermatological Medicines",
+    "genericName": "Miconazole Nitrate (or eq.)",
+    "dosageForm": "Cream",
+    "strength": "2%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 997,
+    "category": "Dermatological Medicines",
+    "genericName": "Fusidic Acid",
+    "dosageForm": "Cream",
+    "strength": "2%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 998,
+    "category": "Dermatological Medicines",
+    "genericName": "Gentian Violet",
+    "dosageForm": "Powder",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1000,
+    "category": "Dermatological Medicines",
+    "genericName": "Potassium Permanganate",
+    "dosageForm": "Powder",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1001,
+    "category": "Dermatological Medicines",
+    "genericName": "Silver Sulfadiazine",
+    "dosageForm": "Cream",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1006,
+    "category": "Dermatological Medicines",
+    "genericName": "Betamethasone Valerate",
+    "dosageForm": "Cream",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1008,
+    "category": "Dermatological Medicines",
+    "genericName": "Calamine",
+    "dosageForm": "lotion",
+    "strength": "5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1010,
+    "category": "Dermatological Medicines",
+    "genericName": "Hydrocortisone Acetate",
+    "dosageForm": "Cream",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1013,
+    "category": "Dermatological Medicines",
+    "genericName": "Calcipotriol",
+    "dosageForm": "Cream",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1014,
+    "category": "Dermatological Medicines",
+    "genericName": "Coal Tar",
+    "dosageForm": "Ointment",
+    "strength": "6%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1015,
+    "category": "Dermatological Medicines",
+    "genericName": "Podophyllum Resin",
+    "dosageForm": "solution",
+    "strength": "25%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1021,
+    "category": "Dermatological Medicines",
+    "genericName": "Betamethasone Valerate",
+    "dosageForm": "Cream",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1023,
+    "category": "Dermatological Medicines",
+    "genericName": "Calamine",
+    "dosageForm": "lotion",
+    "strength": "5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1025,
+    "category": "Dermatological Medicines",
+    "genericName": "Hydrocortisone Acetate",
+    "dosageForm": "Cream",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1028,
+    "category": "Dermatological Medicines",
+    "genericName": "Calcipotriol",
+    "dosageForm": "Cream",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1029,
+    "category": "Dermatological Medicines",
+    "genericName": "Coal Tar",
+    "dosageForm": "Ointment",
+    "strength": "6%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1030,
+    "category": "Dermatological Medicines",
+    "genericName": "Podophyllum Resin",
+    "dosageForm": "solution",
+    "strength": "25%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1033,
+    "category": "Dermatological Medicines",
+    "genericName": "Urea",
+    "dosageForm": "Cream",
+    "strength": "40%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1034,
+    "category": "Dermatological Medicines",
+    "genericName": "Zinc Oxide",
+    "dosageForm": "Cream",
+    "strength": "10%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1037,
+    "category": "Dermatological Medicines",
+    "genericName": "Benzyl Benzoate",
+    "dosageForm": "lotion",
+    "strength": "25%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1038,
+    "category": "Dermatological Medicines",
+    "genericName": "Permethrin",
+    "dosageForm": "Cream",
+    "strength": "5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1039,
+    "category": "Dermatological Medicines",
+    "genericName": "Permethrin",
+    "dosageForm": "Lotion",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1042,
+    "category": "Diagnostic Agents",
+    "genericName": "Amidotrizoate Sodium",
+    "dosageForm": "Injection",
+    "strength": "76%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1043,
+    "category": "Diagnostic Agents",
+    "genericName": "Barium Sulfate",
+    "dosageForm": "Powder",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1045,
+    "category": "Diagnostic Agents",
+    "genericName": "Fluorescein Sodium",
+    "dosageForm": "Drops",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1055,
+    "category": "Disinfectants and Antiseptics",
+    "genericName": "Chlorhexidine Digluconate",
+    "dosageForm": "Solution",
+    "strength": "5 %"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1056,
+    "category": "Disinfectants and Antiseptics",
+    "genericName": "Ethanol Absolute",
+    "dosageForm": "Solution",
+    "strength": "99 %"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1060,
+    "category": "Disinfectants and Antiseptics",
+    "genericName": "Povidone Iodine",
+    "dosageForm": "Solution",
+    "strength": "10%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1063,
+    "category": "Disinfectants and Antiseptics",
+    "genericName": "Chlorine base compounds",
+    "dosageForm": "Powder",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1065,
+    "category": "Disinfectants and Antiseptics",
+    "genericName": "Chloroxylenol",
+    "dosageForm": "Solution",
+    "strength": "4.8%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1069,
+    "category": "Diuretics",
+    "genericName": "Furosemide",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1070,
+    "category": "Diuretics",
+    "genericName": "Furosemide",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1071,
+    "category": "Diuretics",
+    "genericName": "Hydrochlorothiazide",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1073,
+    "category": "Diuretics",
+    "genericName": "Indapamide",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1074,
+    "category": "Diuretics",
+    "genericName": "Mannitol",
+    "dosageForm": "Solution",
+    "strength": "20%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1076,
+    "category": "Diuretics",
+    "genericName": "Spironolactone",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1081,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Al/Mg Hydroxide/Simethicone",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1085,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Indapamide",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1086,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Mannitol",
+    "dosageForm": "Solution",
+    "strength": "20%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1088,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Spironolactone",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1093,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Al/Mg Hydroxide/Simethicone",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1095,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Omeprazole",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1096,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Omeprazole",
+    "dosageForm": "Capsule",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1097,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Ranitidine HCL",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1098,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Pantoprazole",
+    "dosageForm": "Injection",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1099,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Pantoprazole",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1102,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Aprepitant",
+    "dosageForm": "capsule",
+    "strength": "165mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1103,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Domperidone Maleate",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1104,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Granisetron HCL",
+    "dosageForm": "Injection",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1105,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Metoclopramide HCL",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1106,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Ondansetron HCL",
+    "dosageForm": "Injection",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1107,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Ondansetron HCL",
+    "dosageForm": "Tablet",
+    "strength": "8mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1109,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Promethazine sugar coated",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1115,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Antihaemorrhoidal+Hydrocortisone",
+    "dosageForm": "Supp",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1118,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Sulfasalazine",
+    "dosageForm": "Tablet",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1119,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Sulfasalazine",
+    "dosageForm": "Enema",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1122,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Hyoscine Butylbromide",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1123,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Hyoscine Butylbromide",
+    "dosageForm": "Injection",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1125,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Drotaverine",
+    "dosageForm": "Tablet",
+    "strength": "40mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1128,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Bisacodyl",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1129,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Lactulose",
+    "dosageForm": "Oral Liquid",
+    "strength": "3.7g/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1130,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Senna",
+    "dosageForm": "Tablet",
+    "strength": "7.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1133,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Oral Rehydration Salts",
+    "dosageForm": "Powder",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1136,
+    "category": "Gastrointestinal Medicines",
+    "genericName": "Zinc Sulphate",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1146,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Senna",
+    "dosageForm": "Tablet",
+    "strength": "7.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1149,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Oral Rehydration Salts",
+    "dosageForm": "Powder",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1152,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Zinc Sulphate",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1156,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Dexamethasone (sodium phosphate)",
+    "dosageForm": "Injection",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1157,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Fludrocortisone Acetate",
+    "dosageForm": "Tablet",
+    "strength": "100mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1158,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Hydrocortisone",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1159,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Hydrocortisone (sodium succinate)",
+    "dosageForm": "Pow. Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1160,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Prednisolone",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1164,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Estrogen inj. (Estradiol valerate + Prasterone enanthate)",
+    "dosageForm": "Injection",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1166,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Estrogen cream",
+    "dosageForm": "Cream",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1167,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Ethinylestradiol+Levonorgestrel",
+    "dosageForm": "Tablet",
+    "strength": "150mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1169,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Levonorgestrel-Releasing implant",
+    "dosageForm": "Implant",
+    "strength": "75mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1171,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Norethisterone Enanthate",
+    "dosageForm": "Solution",
+    "strength": "350mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1175,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Ethinylestradiol",
+    "dosageForm": "Tablet",
+    "strength": "50mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1180,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Medroxyprogesterone Acetate",
+    "dosageForm": "Injection",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1181,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Norethisterone",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1185,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Dapagliflozin",
+    "dosageForm": "Tablet",
+    "strength": "10 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1186,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Desmopressin Acetate",
+    "dosageForm": "Tablet",
+    "strength": "0.2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1187,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Empagliflozin",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1188,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Glibenclamide",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1189,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Gliclazide",
+    "dosageForm": "Tablet",
+    "strength": "80mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1190,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Insulin (Intermediate-Acting)",
+    "dosageForm": "Injection",
+    "strength": "100 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1191,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Insulin (Soluble)",
+    "dosageForm": "Injection",
+    "strength": "100 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1192,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Insulin Mixtard (30/70)",
+    "dosageForm": "Injection",
+    "strength": "100 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1193,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Metformin HCL",
+    "dosageForm": "Tablet",
+    "strength": "1000mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1196,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Carbimazole",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1197,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Levothyroxine (sodium)",
+    "dosageForm": "Tablet",
+    "strength": "0.1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1198,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Propylthiouracil",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1199,
+    "category": "Hormones, other Endocrine Medicines and Contraceptives",
+    "genericName": "Potassium Iodide",
+    "dosageForm": "Tablet",
+    "strength": "60mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1204,
+    "category": "Immunologicals",
+    "genericName": "Tuberculin (PPD)",
+    "dosageForm": "Injection",
+    "strength": "10 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1207,
+    "category": "Immunologicals",
+    "genericName": "Antitetanus Immunoglobulin",
+    "dosageForm": "Injection",
+    "strength": "500 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1208,
+    "category": "Immunologicals",
+    "genericName": "Diphtheria Antitoxin",
+    "dosageForm": "Injection",
+    "strength": "000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1214,
+    "category": "Immunologicals",
+    "genericName": "Tuberculin (PPD)",
+    "dosageForm": "Injection",
+    "strength": "10 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1217,
+    "category": "Immunologicals",
+    "genericName": "Antitetanus Immunoglobulin",
+    "dosageForm": "Injection",
+    "strength": "500 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1218,
+    "category": "Immunologicals",
+    "genericName": "Diphtheria Antitoxin",
+    "dosageForm": "Injection",
+    "strength": "000 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1219,
+    "category": "Immunologicals",
+    "genericName": "Hepatitis B immunoglobulin",
+    "dosageForm": "Injection",
+    "strength": "200IU-500IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1220,
+    "category": "Immunologicals",
+    "genericName": "Rabies Immunoserum (hours)",
+    "dosageForm": "Injection",
+    "strength": "200 IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1221,
+    "category": "Immunologicals",
+    "genericName": "Snake Venom Antiserum",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1225,
+    "category": "Immunologicals",
+    "genericName": "BCG Vaccine (Dried)",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1226,
+    "category": "Immunologicals",
+    "genericName": "Cholera vaccine",
+    "dosageForm": "Oral drop",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1227,
+    "category": "Immunologicals",
+    "genericName": "Covid 19 vaccines",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1228,
+    "category": "Immunologicals",
+    "genericName": "Dengue vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1229,
+    "category": "Immunologicals",
+    "genericName": "Diphtheria anti toxin",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1230,
+    "category": "Immunologicals",
+    "genericName": "Diphth-Pertussis-Tetanus Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1231,
+    "category": "Immunologicals",
+    "genericName": "Diphtheria-Tetanus Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1232,
+    "category": "Immunologicals",
+    "genericName": "Human papilloma vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1233,
+    "category": "Immunologicals",
+    "genericName": "Influenzas vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1234,
+    "category": "Immunologicals",
+    "genericName": "Measles and Rubella Virus Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1235,
+    "category": "Immunologicals",
+    "genericName": "Measles Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1236,
+    "category": "Immunologicals",
+    "genericName": "Meningococcal Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1237,
+    "category": "Immunologicals",
+    "genericName": "Penta Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1238,
+    "category": "Immunologicals",
+    "genericName": "Pneumococcal Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1239,
+    "category": "Immunologicals",
+    "genericName": "Poliomyelitis Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1240,
+    "category": "Immunologicals",
+    "genericName": "Poliomyelitis Vaccine, live att.",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1241,
+    "category": "Immunologicals",
+    "genericName": "Retinol (Vit A)",
+    "dosageForm": "Capsule",
+    "strength": "000IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1242,
+    "category": "Immunologicals",
+    "genericName": "Rota Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1243,
+    "category": "Immunologicals",
+    "genericName": "Tetanus Toxoid Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1244,
+    "category": "Immunologicals",
+    "genericName": "Typhoid vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1249,
+    "category": "Immunologicals",
+    "genericName": "Hepatitis B Vaccine",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1250,
+    "category": "Immunologicals",
+    "genericName": "Rabies Vaccine (verocell)",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1256,
+    "category": "Muscle Relaxants and Antagonists",
+    "genericName": "Atracurium Besylate",
+    "dosageForm": "Injection",
+    "strength": "10 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1257,
+    "category": "Muscle Relaxants and Antagonists",
+    "genericName": "Neostigmine Methylsulphate",
+    "dosageForm": "Injection",
+    "strength": "2.5 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1258,
+    "category": "Muscle Relaxants and Antagonists",
+    "genericName": "Rocuronium Br,",
+    "dosageForm": "Injection",
+    "strength": "10 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1259,
+    "category": "Muscle Relaxants and Antagonists",
+    "genericName": "Suxamethonium CL or Br",
+    "dosageForm": "Injection",
+    "strength": "50 mg/2ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1260,
+    "category": "Muscle Relaxants and Antagonists",
+    "genericName": "Vecuronium Br.",
+    "dosageForm": "Pow. Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1267,
+    "category": "Ophthalmological7thPreparations",
+    "genericName": "Rocuronium Br,",
+    "dosageForm": "Injection",
+    "strength": "10 mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1268,
+    "category": "Ophthalmological7thPreparations",
+    "genericName": "Suxamethonium CL or Br",
+    "dosageForm": "Injection",
+    "strength": "50 mg/2ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1269,
+    "category": "Ophthalmological7thPreparations",
+    "genericName": "Vecuronium Br.",
+    "dosageForm": "Pow. Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1274,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Ciprofloxacin",
+    "dosageForm": "Eye Drops",
+    "strength": "0.3%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1276,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Gentamycin sulfate",
+    "dosageForm": "Eye Drops",
+    "strength": "0.3%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1277,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Moxifloxacin",
+    "dosageForm": "Eye Drops",
+    "strength": "0.5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1278,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Ofloxacin",
+    "dosageForm": "Eye Drops",
+    "strength": "0.3%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1279,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Tobramycin",
+    "dosageForm": "Eye Drops",
+    "strength": "0.3%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1282,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Dexamethasone",
+    "dosageForm": "Eye Drops",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1283,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Diclofenac Sodium",
+    "dosageForm": "Eye Drops",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1284,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Naphazoline",
+    "dosageForm": "Eye Drops",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1286,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Nepafenac",
+    "dosageForm": "Eye Drops",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1287,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Olopatadines",
+    "dosageForm": "Eye Drops",
+    "strength": "0.1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1288,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Prednisolone sodium phosphate",
+    "dosageForm": "Eye Drops",
+    "strength": "0.5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1289,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Sodium Cromoglicate",
+    "dosageForm": "Eye Drops",
+    "strength": "2% - 4%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1292,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Econazole",
+    "dosageForm": "Eye Drops",
+    "strength": "2%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1293,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Voriconazole",
+    "dosageForm": "Eye Drops",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1295,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Tetracaine/Amethocaine",
+    "dosageForm": "Eye Drops",
+    "strength": "0.5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1298,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Acetazolamide",
+    "dosageForm": "Tablet",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1299,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Latanoprost",
+    "dosageForm": "Drop",
+    "strength": "0.005%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1300,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Pilocarpine",
+    "dosageForm": "Drop",
+    "strength": "2%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1301,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Timolol",
+    "dosageForm": "Drop",
+    "strength": "0.5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1304,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Atropine Sulfate",
+    "dosageForm": "Drop",
+    "strength": "0.5 %"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1306,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Cyclopentolate",
+    "dosageForm": "Drop",
+    "strength": "1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1307,
+    "category": "Ophthalmological Preparations",
+    "genericName": "Tropicamide",
+    "dosageForm": "Drop",
+    "strength": "0.5%-1%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1314,
+    "category": "Oxytocics and Antioxytocics",
+    "genericName": "Methylergometrine Maleate",
+    "dosageForm": "Tablet",
+    "strength": "0.2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1315,
+    "category": "Oxytocics and Antioxytocics",
+    "genericName": "Methylergometrine Maleate",
+    "dosageForm": "Injection",
+    "strength": "0.2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1316,
+    "category": "Oxytocics and Antioxytocics",
+    "genericName": "Mifepristone",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1317,
+    "category": "Oxytocics and Antioxytocics",
+    "genericName": "Misoprostol",
+    "dosageForm": "Tablet",
+    "strength": "200mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1318,
+    "category": "Oxytocics and Antioxytocics",
+    "genericName": "Nifedipine",
+    "dosageForm": "Capsule",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1321,
+    "category": "Oxytocics and Antioxytocics",
+    "genericName": "Salbutamol",
+    "dosageForm": "Tablet",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1328,
+    "category": "Dialysis 7th Edition , 6-5 th of Oct . 2022 22",
+    "genericName": "Salbutamol",
+    "dosageForm": "Tablet",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1333,
+    "category": "Dialysis",
+    "genericName": "Acid Bicarbonate",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1338,
+    "category": "Dialysis",
+    "genericName": "Dialysis Machine Disinfectant",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1347,
+    "category": "Dialysis",
+    "genericName": "Sodium Chloride",
+    "dosageForm": "Solution",
+    "strength": "0.9%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1350,
+    "category": "Dialysis",
+    "genericName": "Water Treatment Unit Disinfectant",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1355,
+    "category": "Dialysis",
+    "genericName": "Haemofilteration Solution",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1364,
+    "category": "Dialysis",
+    "genericName": "Peritoneal Dialysis Solution",
+    "dosageForm": "Solution",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1367,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Amisulpride",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1368,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Amitriptyline HCL",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1369,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Aripiprazole tab",
+    "dosageForm": "Tablet",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1370,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Chlorpromazine HCL",
+    "dosageForm": "Tablet",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1371,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Chlorpromazine HCL",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1372,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Clomipramine HCL",
+    "dosageForm": "Capsule",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1373,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Clozapine",
+    "dosageForm": "Tablet",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1374,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Diazepam",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1375,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Diazepam",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1376,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Fluoxetine HCL",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1377,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Flupenthixol + Melitracen",
+    "dosageForm": "Tablet",
+    "strength": "0.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1378,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Fluphenazine Decanoate",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1379,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Haloperidol",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1380,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Mirtazapine",
+    "dosageForm": "Tablet",
+    "strength": "15mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1386,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Diazepam",
+    "dosageForm": "Injection",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1387,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Fluoxetine HCL",
+    "dosageForm": "Tablet",
+    "strength": "20mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1388,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Flupenthixol + Melitracen",
+    "dosageForm": "Tablet",
+    "strength": "0.5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1389,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Fluphenazine Decanoate",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1390,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Haloperidol",
+    "dosageForm": "Tablet",
+    "strength": "5mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1391,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Mirtazapine",
+    "dosageForm": "Tablet",
+    "strength": "15mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1392,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Olanzapine",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1393,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Promethazine",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1394,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Risperidone",
+    "dosageForm": "Tablet",
+    "strength": "3mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1395,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Sertraline",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1396,
+    "category": "Psychotherapeutic Medicines",
+    "genericName": "Trihexyphenidyl",
+    "dosageForm": "Tablet",
+    "strength": "2mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1401,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Aminophylline",
+    "dosageForm": "Injection",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1402,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Beclomethasone Dipropionate",
+    "dosageForm": "Inhalation",
+    "strength": "50mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1403,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Budesonide + Formoterol",
+    "dosageForm": "inhaler",
+    "strength": "100mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1404,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Ketotifen fumarate",
+    "dosageForm": "Tablet",
+    "strength": "1mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1405,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Salbutamol",
+    "dosageForm": "syrup",
+    "strength": "2mg/5ml"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1406,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Salbutamol",
+    "dosageForm": "Tablet",
+    "strength": "4mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1410,
+    "category": "Medicines Acting on the Respiratory Tract",
+    "genericName": "Theophylline SR",
+    "dosageForm": "Tablet",
+    "strength": "200mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1413,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Glucose",
+    "dosageForm": "Solution",
+    "strength": "50%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1414,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Glucose",
+    "dosageForm": "Solution",
+    "strength": "10 %"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1415,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Glucose+Sodium Chloride",
+    "dosageForm": "Solution",
+    "strength": "5%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1416,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Hypertonic Solution (Sodium chloride)",
+    "dosageForm": "Solution",
+    "strength": "3%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1417,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Oral Rehydration Salt",
+    "dosageForm": "Powder",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1420,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Sodium Bicarbonate",
+    "dosageForm": "Injection",
+    "strength": "8.4%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1421,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Sodium Chloride",
+    "dosageForm": "Solution",
+    "strength": "0.9%"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1423,
+    "category": "Solutions Correcting Water, Electrolyte and Acid-base Disturbances",
+    "genericName": "Water for Injection",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1426,
+    "category": "Vitamins and Minerals",
+    "genericName": "Alfacalcidol",
+    "dosageForm": "Capsule",
+    "strength": "1mcg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1427,
+    "category": "Vitamins and Minerals",
+    "genericName": "Ascorbic Acid",
+    "dosageForm": "Tablet",
+    "strength": "50mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1428,
+    "category": "Vitamins and Minerals",
+    "genericName": "Ascorbic Acid",
+    "dosageForm": "Injection",
+    "strength": "500mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1429,
+    "category": "Vitamins and Minerals",
+    "genericName": "Calcium Carbonate",
+    "dosageForm": "Tablet",
+    "strength": "600mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1430,
+    "category": "Vitamins and Minerals",
+    "genericName": "Calcium Gluconate",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1431,
+    "category": "Vitamins and Minerals",
+    "genericName": "Multivitamin",
+    "dosageForm": "Tablet",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1432,
+    "category": "Vitamins and Minerals",
+    "genericName": "Phytomenadione (vit k1)",
+    "dosageForm": "Tablet",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1433,
+    "category": "Vitamins and Minerals",
+    "genericName": "Phytomenadione (vit k1)",
+    "dosageForm": "Injection",
+    "strength": "10mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1434,
+    "category": "Vitamins and Minerals",
+    "genericName": "Pyridoxine HCL",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1435,
+    "category": "Vitamins and Minerals",
+    "genericName": "Pyridoxine HCL",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1436,
+    "category": "Vitamins and Minerals",
+    "genericName": "Retinol (Vit A)",
+    "dosageForm": "Capsule",
+    "strength": "000IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1437,
+    "category": "Vitamins and Minerals",
+    "genericName": "Vitamin B Complex",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1444,
+    "category": "Antiviral Medicines",
+    "genericName": "Pyridoxine HCL",
+    "dosageForm": "Injection",
+    "strength": "100mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1445,
+    "category": "Antiviral Medicines",
+    "genericName": "Pyridoxine HCL",
+    "dosageForm": "Tablet",
+    "strength": "25mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1446,
+    "category": "Antiviral Medicines",
+    "genericName": "Retinol (Vit A)",
+    "dosageForm": "Capsule",
+    "strength": "000IU"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1447,
+    "category": "Antiviral Medicines",
+    "genericName": "Vitamin B Complex",
+    "dosageForm": "Injection",
+    "strength": null
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1451,
+    "category": "Antiviral Medicines",
+    "genericName": "Acyclovir",
+    "dosageForm": "Tablet",
+    "strength": "800mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1472,
+    "category": "Antiviral Medicines",
+    "genericName": "Lamivudine (3TC)",
+    "dosageForm": "Tablet",
+    "strength": "150mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1474,
+    "category": "Antiviral Medicines",
+    "genericName": "Zidovudine (ZDV or AZT)",
+    "dosageForm": "Capsule",
+    "strength": "250mg"
+  },
+  {
+    "sourceYear": 2022,
+    "sourceLine": 1479,
+    "category": "Antiviral Medicines",
+    "genericName": "Zidovudine (ZDV or AZT)",
+    "dosageForm": "Tablet",
+    "strength": "300mg"
+  }
+]

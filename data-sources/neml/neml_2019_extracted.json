@@ -1,0 +1,2042 @@
+[
+  {
+    "sourceYear": 2019,
+    "sourceLine": 223,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "halothane",
+    "dosageForm": "Inhalation",
+    "strength": "(in 250 mL bottle)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 224,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "isoflurane",
+    "dosageForm": "Inhalation",
+    "strength": "(in 250 mL bottle)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 226,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "oxygen",
+    "dosageForm": "Inhalation",
+    "strength": "(medical gas in cylinder)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 228,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "thiopental",
+    "dosageForm": "Powder for injection",
+    "strength": ": 1 g vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 231,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "ketamine",
+    "dosageForm": "Injection",
+    "strength": ": 50 mg (as hydrochloride)/ mL in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 233,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "propofol",
+    "dosageForm": "Injection",
+    "strength": ": 10 mg/ mL; 20 mg/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 246,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "lidocaine +",
+    "dosageForm": "Dental cartridge",
+    "strength": ": 2% (hydrochloride) +"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 252,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "atropine",
+    "dosageForm": "Injection",
+    "strength": ": 1 mg (sulfate) in 1- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 254,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "diazepam",
+    "dosageForm": "Injection",
+    "strength": ": 5 mg/mL (in 2- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 255,
+    "category": "ANAESTHETICS, PREOPERATIVE MEDICINES AND MEDICAL GASES",
+    "genericName": "morphine",
+    "dosageForm": "Injection",
+    "strength": ": 10 mg (sulfate or hydrochloride) in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 263,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "ibuprofen",
+    "dosageForm": "Oral liquid",
+    "strength": ": 200 mg/5 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 265,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "paracetamol",
+    "dosageForm": "Oral liquid",
+    "strength": ": 120 mg/5 mL in 60 mL bottle."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 270,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "diclofenac",
+    "dosageForm": "Injection",
+    "strength": ": 25mg/mL in 3 mL ampule.              N"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 273,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "fentanyl",
+    "dosageForm": "Transdermal patch",
+    "strength": ": 50 micrograms/hr; 75"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 288,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "methadone",
+    "dosageForm": "Tablet",
+    "strength": ": 5 mg; 10 mg (as hydrochloride)"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 296,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "diazepam",
+    "dosageForm": "Injection",
+    "strength": ": 5 mg/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 300,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "hyoscine",
+    "dosageForm": "Injection",
+    "strength": ": 20 mg/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 303,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "lactulose",
+    "dosageForm": "Oral liquid",
+    "strength": ": 3.1–3.7 g/5 mL.                      2"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 304,
+    "category": "MEDICINES FOR PAIN AND PALLIATIVE CARE",
+    "genericName": "loperamide",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 2 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 307,
+    "category": "ANTIALLERGICS AND MEDICINES USED IN ANAPHYLAXIS",
+    "genericName": "mine",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": Eq 4 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 310,
+    "category": "ANTIALLERGICS AND MEDICINES USED IN ANAPHYLAXIS",
+    "genericName": "epinephrine",
+    "dosageForm": "Injection",
+    "strength": ": 1 mg (as hydrochloride or"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 321,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "charcoal,",
+    "dosageForm": "Powder",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 325,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "atropine",
+    "dosageForm": "Injection",
+    "strength": ": 1 mg (sulfate) in 1- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 326,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "calcium",
+    "dosageForm": "Injection",
+    "strength": ": 100 mg/ mL in 10- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 334,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "naloxone",
+    "dosageForm": "Injection",
+    "strength": ": 400 micrograms (hydrochloride) in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 337,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "sodium",
+    "dosageForm": "Injection",
+    "strength": ": 30 mg/ mL in 10- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 339,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "sodium",
+    "dosageForm": "Injection",
+    "strength": ": 250 mg/ mL in 50- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 353,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "flumazenil",
+    "dosageForm": "Injection",
+    "strength": ": 100 mcg/mL, amp. 5 mL               V"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 355,
+    "category": "ANTIDOTES AND OTHER SUBSTANCES USED IN",
+    "genericName": "sodium",
+    "dosageForm": "Injection",
+    "strength": ": 200 mg/ mL in 5- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 362,
+    "category": "ANTICONVULSANTS/ANTIEPILEPTICS",
+    "genericName": "clonazepam",
+    "dosageForm": "Oral liquid",
+    "strength": ": 2.5 mg/1 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 364,
+    "category": "ANTICONVULSANTS/ANTIEPILEPTICS",
+    "genericName": "diazepam",
+    "dosageForm": "Gel",
+    "strength": "or rectal solution: 5 mg/ mL in 0.5 mL;"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 366,
+    "category": "ANTICONVULSANTS/ANTIEPILEPTICS",
+    "genericName": "lamotrigine",
+    "dosageForm": "Tablet",
+    "strength": ": 25 mg; 50 mg; 100 mg; 200 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 369,
+    "category": "ANTICONVULSANTS/ANTIEPILEPTICS",
+    "genericName": "magnesium",
+    "dosageForm": "Injection",
+    "strength": ": 0.5g/ mL in 2- mL ampoule"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 379,
+    "category": "ANTICONVULSANTS/ANTIEPILEPTICS",
+    "genericName": "phenytoin",
+    "dosageForm": "Injection",
+    "strength": ": 50 mg/ mL in 5- mL vial (sodium"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 390,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "albendazole",
+    "dosageForm": "Tablet",
+    "strength": "(chewable): 400 mg, suspension 100"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 394,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ivermectin",
+    "dosageForm": "Tablet",
+    "strength": "(scored): 3 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 397,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "niclosamide",
+    "dosageForm": "Tablet",
+    "strength": "(chewable): 500 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 398,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "praziquantel",
+    "dosageForm": "Tablet",
+    "strength": ": 150 mg; 600 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 399,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "pyrantel (as",
+    "dosageForm": "Tablet",
+    "strength": "(chewable): 250 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 400,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "embonate)",
+    "dosageForm": "Oral liquid",
+    "strength": ": 50 mg/mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 402,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ivermectin",
+    "dosageForm": "Tablet",
+    "strength": "(scored): 3 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 403,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "albendazole",
+    "dosageForm": "Tablet",
+    "strength": "(chewable): 400 mg, suspension 100"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 406,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "praziquantel",
+    "dosageForm": "Tablet",
+    "strength": ": 500 mg & 600 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 409,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "amoxicillin",
+    "dosageForm": "Oral liquid",
+    "strength": ": 125 mg (as trihydrate)/5 mL; 250"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 415,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "amoxicillin +",
+    "dosageForm": "Oral liquid",
+    "strength": ": 125 mg amoxicillin + 31.25 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 425,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ampicillin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 500 mg & 1000 mg in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 427,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "benzathine",
+    "dosageForm": "Powder for injection",
+    "strength": ": 900 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 435,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "cefazolin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 1 g (as sodium salt) in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 440,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "cefuroxime",
+    "dosageForm": "Tablet",
+    "strength": "(as axetil): 500 mg;."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 444,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "cefixime",
+    "dosageForm": "Capsule",
+    "strength": "or tablet: 200 mg; 400 mg (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 447,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "cefotaxime",
+    "dosageForm": "Powder for injection",
+    "strength": ": 250 mg per vial (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 449,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ceftriaxone",
+    "dosageForm": "Powder for injection",
+    "strength": ": 250 mg; 1 g (as sodium"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 456,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ceftazidime",
+    "dosageForm": "Powder for injection",
+    "strength": ": 250 mg or 1 g (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 458,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "procaine",
+    "dosageForm": "Powder for injection",
+    "strength": ": 1 g (=1 million IU); 3 g"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 464,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "amikacin",
+    "dosageForm": "Injection",
+    "strength": ": 250 mg (as sulfate)/mL in 2- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 469,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "hyclate).",
+    "dosageForm": "Tablet",
+    "strength": "(scored): 500 mg (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 473,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "clindamycin",
+    "dosageForm": "Capsule",
+    "strength": ": 150 mg (as hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 476,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "doxycycline",
+    "dosageForm": "Oral liquid",
+    "strength": ": 25 mg/5 mL; 50 mg/5 mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 481,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "gentamicin",
+    "dosageForm": "Injection",
+    "strength": ": 10 mg; 40 mg (as sulfate)/ mL in 2-"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 490,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "zole +",
+    "dosageForm": "ampoule",
+    "strength": "; 80 mg + 16 mg/ mL in 10- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 495,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "vancomycin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 250 mg (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 498,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "clofazimine",
+    "dosageForm": "Capsule",
+    "strength": ": 50 mg; 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 499,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "dapsone",
+    "dosageForm": "Tablet",
+    "strength": ": 25 mg; 50 mg; 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 508,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ethambutol",
+    "dosageForm": "Tablet",
+    "strength": ": 400 mg (hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 509,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ethambutol +",
+    "dosageForm": "Tablet",
+    "strength": ": 275 mg + 75 mg + 400 mg + 150 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 513,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ethambutol +",
+    "dosageForm": "Tablet",
+    "strength": ": 275 mg + 75 mg + 150 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 516,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "isoniazid",
+    "dosageForm": "Tablet",
+    "strength": ": 100 mg to 300 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 517,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "isoniazid +",
+    "dosageForm": "Tablet",
+    "strength": "(dispersible): 50 mg + 150 mg + 75"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 520,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "isoniazid +",
+    "dosageForm": "Tablet",
+    "strength": ": 75 mg + 150 mg; 150 mg + 300 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 522,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "pyrazinamide",
+    "dosageForm": "Tablet",
+    "strength": ": 400 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 524,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "amikacin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 100 mg; 500 mg; 1 g (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 526,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "capreomycin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 1 g (as sulfate) in vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 527,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "cycloserine",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 250 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 528,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ethionamide",
+    "dosageForm": "Tablet",
+    "strength": ": 250 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 530,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "aminosalicyli",
+    "dosageForm": "Tablet",
+    "strength": ": 500 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 536,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "clotrimazole",
+    "dosageForm": "Vaginal",
+    "strength": "cream: 1%; 10%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 538,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "fluconazole",
+    "dosageForm": "Capsule",
+    "strength": ": 50 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 541,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "griseofulvin",
+    "dosageForm": "Oral liquid",
+    "strength": ": 125 mg/5 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 543,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "itraconazole",
+    "dosageForm": "Capsule",
+    "strength": ": 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 559,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "abacavir",
+    "dosageForm": "Tablet",
+    "strength": ": 300 mg (as sulfate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 562,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "lamivudine",
+    "dosageForm": "Oral liquid",
+    "strength": ": 50 mg/5 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 565,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "tenofovir",
+    "dosageForm": "Tablet",
+    "strength": ": 300 mg (tenofovir disoproxil"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 569,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "zidovudine",
+    "dosageForm": "Capsule",
+    "strength": ": 250 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 580,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "efavirenz",
+    "dosageForm": "Tablet",
+    "strength": ": 200 mg (scored); 600 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 583,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "nevirapine",
+    "dosageForm": "Oral liquid",
+    "strength": ": 50 mg/5 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 588,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "atazanavir +",
+    "dosageForm": "Tablet",
+    "strength": "(heat stable): 300 mg (as sulfate) + 100"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 596,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "abacavir +",
+    "dosageForm": "Tablet",
+    "strength": "(dispersible, scored): 60 mg (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 600,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "efavirenz +",
+    "dosageForm": "Tablet",
+    "strength": ": 600 mg + 200 mg + 300 mg (disoproxil"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 603,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "efavirenz +",
+    "dosageForm": "Tablet",
+    "strength": ": 400 mg + 300 mg + 300 mg (disoproxil"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 615,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "isoniazid +",
+    "dosageForm": "Tablet",
+    "strength": "(scored): 300 mg + 25 mg + 800 mg +"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 621,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ribavirin",
+    "dosageForm": "Injection",
+    "strength": "for intravenous administration:"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 628,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "oseltamivir",
+    "dosageForm": "Capsule",
+    "strength": ": 30 mg; 45 mg; 75 mg (as phosphate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 636,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "entecavir",
+    "dosageForm": "Oral liquid",
+    "strength": ": 0.05 mg/ mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 640,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "tenofovir",
+    "dosageForm": "Tablet",
+    "strength": ": 300 mg (tenofovir disoproxil"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 648,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "ledipasvir +",
+    "dosageForm": "Tablet",
+    "strength": ": 90 mg + 400 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 650,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "sofosbovir +",
+    "dosageForm": "Tablet",
+    "strength": ": 400 mg + 100 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 652,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "sofosbovir +",
+    "dosageForm": "Tablet",
+    "strength": ": 400 mg + 200 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 656,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "diloxanide",
+    "dosageForm": "Tablet",
+    "strength": ": 500 mg (furoate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 668,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "sodium",
+    "dosageForm": "Injection",
+    "strength": ": 100 mg/ mL, 1 vial = 30 mL or"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 674,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "artemether",
+    "dosageForm": "injection",
+    "strength": ": 80 mg/ mL in 1- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 676,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "artemether +",
+    "dosageForm": "Tablet",
+    "strength": ": 20 mg + 120 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 686,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "artesunate",
+    "dosageForm": "Injection",
+    "strength": ": ampoules, containing 60 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 691,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "chloroquine",
+    "dosageForm": "Oral liquid",
+    "strength": ": 50 mg (as phosphate or"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 698,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "quinine",
+    "dosageForm": "Injection",
+    "strength": ": 300 mg quinine hydrochloride/ mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 702,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "mefloquine",
+    "dosageForm": "Tablet",
+    "strength": ": 250 mg (as hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 704,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "primaquine",
+    "dosageForm": "Tablet",
+    "strength": ": 7.5 mg; 15 mg (as diphosphate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 711,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "doxycycline",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 100 mg (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 713,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "mefloquine",
+    "dosageForm": "Tablet",
+    "strength": ": 250 mg (as hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 715,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "proguanil",
+    "dosageForm": "Tablet",
+    "strength": ": 100 mg (as hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 721,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "zole +",
+    "dosageForm": "ampoule",
+    "strength": "; 80 mg + 16 mg/ mL in 10- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 727,
+    "category": "ANTI-INFECTIVE MEDICINES",
+    "genericName": "pentamidine",
+    "dosageForm": "Tablet",
+    "strength": ": 200 mg; 300 mg (as isethionate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 731,
+    "category": "ANTIMIGRAINE MEDICINES",
+    "genericName": "ibuprofen",
+    "dosageForm": "Tablet",
+    "strength": ": 200 mg; 400 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 733,
+    "category": "ANTIMIGRAINE MEDICINES",
+    "genericName": "paracetamol",
+    "dosageForm": "Oral liquid",
+    "strength": ": 120 mg/5 mL; 125 mg/5 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 747,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "ciclosporin",
+    "dosageForm": "Capsule",
+    "strength": ": 25 mg, 50 mg, 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 751,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "mycophenola",
+    "dosageForm": "Capsule",
+    "strength": ": 500 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 764,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "calcium",
+    "dosageForm": "Injection",
+    "strength": ": 3 mg/ mL in 10- mL ampoule; 5mg/"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 765,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "folinate",
+    "dosageForm": "ampoule",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 767,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "capecitabin",
+    "dosageForm": "Tablet",
+    "strength": ": 150 mg; 500 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 773,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "cisplatin",
+    "dosageForm": "Injection",
+    "strength": ": 50 mg/50 mL; 100 mg/100 mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 779,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "cytarabine",
+    "dosageForm": "Powder for injection",
+    "strength": ": 1000 mg in vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 781,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "dacarbazin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 100 mg in vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 783,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "dactinomy",
+    "dosageForm": "Powder for injection",
+    "strength": ": 500 micrograms in vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 785,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "dasatinib",
+    "dosageForm": "Tablet",
+    "strength": ": 20 mg; 50 mg; 70 mg; 80 mg; 100 mg;"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 787,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "daunorubi",
+    "dosageForm": "Powder for injection",
+    "strength": ": 50 mg (hydrochloride) in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 789,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "docetaxel",
+    "dosageForm": "Injection",
+    "strength": ": 20 mg/ mL; 40 mg/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 791,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "doxorubici",
+    "dosageForm": "Powder for injection",
+    "strength": ": 10 mg; 50 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 795,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "etoposide",
+    "dosageForm": "Capsule",
+    "strength": ": 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 799,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "filgrastim",
+    "dosageForm": "Injection",
+    "strength": ": 120 micrograms/0.2 mL; 300"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 803,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "fludarabin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 50 mg (phosphate) in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 807,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "fluorouraci",
+    "dosageForm": "Injection",
+    "strength": ": 50 mg/ mL in 5- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 809,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "gemcitabin",
+    "dosageForm": "Powder for injection",
+    "strength": ": 200 mg in vial, 1 g in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 811,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "hydroxycar",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 200 mg; 250 mg; 300"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 817,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "ifosfamide",
+    "dosageForm": "Powder for injection",
+    "strength": ": 500 mg vial; 1-g vial; 2-g"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 819,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "imatinib",
+    "dosageForm": "Tablet",
+    "strength": ": 100 mg; 400 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 821,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "irinotecan",
+    "dosageForm": "Injection",
+    "strength": ": 40 mg/2 mL in 2- mL vial; 100 mg/5"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 823,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "mercaptop",
+    "dosageForm": "Tablet",
+    "strength": ": 50 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 825,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "mesna",
+    "dosageForm": "Injection",
+    "strength": ": 100 mg/ mL in 4- mL and 10- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 833,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "nilotinib",
+    "dosageForm": "Capsule",
+    "strength": ": 150 mg; 200 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 835,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "oxaliplatin",
+    "dosageForm": "Injection",
+    "strength": ": 50 mg/10 mL in 10- mL vial; 100"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 840,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "paclitaxel",
+    "dosageForm": "Powder for injection",
+    "strength": ": 6 mg/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 844,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "procarbazi",
+    "dosageForm": "Capsule",
+    "strength": ": 50 mg (as hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 846,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "rituximab",
+    "dosageForm": "Injection",
+    "strength": ": 100 mg/10 mL in 10- mL vial; 500"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 852,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "vincristine",
+    "dosageForm": "Powder for injection",
+    "strength": ": 1 mg; 5 mg (sulfate) in"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 864,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "dexamethaso",
+    "dosageForm": "Injection",
+    "strength": ": 4 mg/ mL in 1- mL ampoule (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 868,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "hydrocortison",
+    "dosageForm": "Powder for injection",
+    "strength": ": 100 mg (as sodium"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 870,
+    "category": "ANTINEOPLASTICS AND IMMUNOSUPPRESSIVES",
+    "genericName": "methylpredni",
+    "dosageForm": "Injection",
+    "strength": ": 40 mg/ mL (as sodium succinate)"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 891,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "ferrous salt",
+    "dosageForm": "Oral liquid",
+    "strength": ": equivalent to 25 mg iron (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 895,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "ferrous salt +",
+    "dosageForm": "Tablet",
+    "strength": ": equivalent to 60 mg iron + 400"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 902,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "folic acid",
+    "dosageForm": "Tablet",
+    "strength": ": 400 micrograms; 1 mg; 5 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 905,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "amin",
+    "dosageForm": "ampoule",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 911,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "heparin",
+    "dosageForm": "Injection",
+    "strength": ": 1000 IU/ mL; 5000 IU/ mL; 20 000"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 912,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "sodium",
+    "dosageForm": "ampoule",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 914,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "one",
+    "dosageForm": "ampoule",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 917,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "protamine",
+    "dosageForm": "Injection",
+    "strength": ": 10 mg/ mL in 5- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 919,
+    "category": "MEDICINES AFFECTING THE BLOOD",
+    "genericName": "tranexamic",
+    "dosageForm": "Injection",
+    "strength": ": 100 mg/ mL in 10- mL ampoule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 940,
+    "category": "BLOOD PRODUCTS OF HUMAN ORIGIN AND PLASMA",
+    "genericName": "coagulation",
+    "dosageForm": "Powder for injection",
+    "strength": ": 500 IU/vial, 1000"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 942,
+    "category": "BLOOD PRODUCTS OF HUMAN ORIGIN AND PLASMA",
+    "genericName": "coagulation",
+    "dosageForm": "Powder for injection",
+    "strength": ": 500 IU/vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 953,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "glyceryl",
+    "dosageForm": "Tablet",
+    "strength": "(sublingual): 500 micrograms"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 955,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "glyceryl",
+    "dosageForm": "Injection",
+    "strength": "for IV infusion: 1 mg/mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 957,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "glyceryl",
+    "dosageForm": "Capsule",
+    "strength": "(XR): 2.5 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 961,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "verapamil",
+    "dosageForm": "Tablet",
+    "strength": ": 40 mg; 80 mg (hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 970,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "digoxin",
+    "dosageForm": "Injection",
+    "strength": ": 250 micrograms/ mL in 2- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 976,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "epinephrine",
+    "dosageForm": "Injection",
+    "strength": ": 100 micrograms/ mL (as acid"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 979,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "lidocaine",
+    "dosageForm": "Injection",
+    "strength": ": 20 mg (hydrochloride)/ mL in 5-"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 983,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "verapamil",
+    "dosageForm": "Injection",
+    "strength": ": 2.5 mg (hydrochloride)/ mL in 2-"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 987,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "adenosine",
+    "dosageForm": "Injection",
+    "strength": ": 6 mg/2ml ampule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 989,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "propafenone",
+    "dosageForm": "Tablet",
+    "strength": ": 150 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 991,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "flecainide",
+    "dosageForm": "Tablet",
+    "strength": ": 50 mg & 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1000,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "captopril",
+    "dosageForm": "Tablet",
+    "strength": "(scored): 25 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1001,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "magnesium",
+    "dosageForm": "Injection",
+    "strength": ": 500 mg/mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1003,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "hydralazine",
+    "dosageForm": "Powder for injection",
+    "strength": ": 20 mg (hydrochloride)"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1008,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "hiazide",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 12.5 mg; 25 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1010,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "methyldopa",
+    "dosageForm": "Tablet",
+    "strength": ": 250 mg & 500 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1011,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "losartan",
+    "dosageForm": "Tablet",
+    "strength": ": 25 mg, 50 mg & 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1016,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "propranolol",
+    "dosageForm": "Tablet",
+    "strength": ": 10 mg & Tablet (scored): 40 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1019,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "spironolactone",
+    "dosageForm": "Tablet",
+    "strength": ": 25 mg & 100mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1021,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "sodium",
+    "dosageForm": "Powder",
+    "strength": "for infusion: 50 mg in ampule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1026,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "digoxin",
+    "dosageForm": "Injection",
+    "strength": ": 250 micrograms/ mL in 2- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1044,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "hiazide",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 25 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1047,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "spironolacton",
+    "dosageForm": "Tablet",
+    "strength": ": 25 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1049,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "dopamine",
+    "dosageForm": "Injection",
+    "strength": ": 40 mg/ mL (hydrochloride) in 5-"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1051,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "dobutamine",
+    "dosageForm": "Injection",
+    "strength": ": 2 mg/ml."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1053,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "epinephrine",
+    "dosageForm": "Injection",
+    "strength": ": 1 mg/mL in 1 mL ampule."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1059,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "clopidogrel",
+    "dosageForm": "Tablet",
+    "strength": ": 75 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1082,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "selenium",
+    "dosageForm": "suspension",
+    "strength": ": 2%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1087,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "fusidic acid",
+    "dosageForm": "cream",
+    "strength": "2% in 15-30 gram tube."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1089,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "potassium",
+    "dosageForm": "solution",
+    "strength": ": 1:10 000."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1092,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "silver",
+    "dosageForm": "Cream",
+    "strength": ": 1%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1098,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "clobetasone",
+    "dosageForm": "ointment",
+    "strength": "0.5%"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1106,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "benzoyl",
+    "dosageForm": "Cream",
+    "strength": "or lotion: 5%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1108,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "coal tar",
+    "dosageForm": "Solution",
+    "strength": ": 5%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1110,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "fluorouracil",
+    "dosageForm": "Ointment",
+    "strength": ": 5%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1114,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "salicylic acid",
+    "dosageForm": "Solution",
+    "strength": ": 5%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1120,
+    "category": "CARDIOVASCULAR MEDICINES",
+    "genericName": "permethrin",
+    "dosageForm": "Cream",
+    "strength": ": 5% & Lotion: 1%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1126,
+    "category": "DIAGNOSTIC AGENTS",
+    "genericName": "fluorescein",
+    "dosageForm": "Eye drops",
+    "strength": ": 1% (sodium salt)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1133,
+    "category": "DIAGNOSTIC AGENTS",
+    "genericName": "barium",
+    "dosageForm": "suspension",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1153,
+    "category": "DISINFECTANTS AND ANTISEPTICS",
+    "genericName": "base",
+    "dosageForm": "solution",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1172,
+    "category": "DIURETICS",
+    "genericName": "mannitol",
+    "dosageForm": "solution",
+    "strength": ": 10%; 20%."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1197,
+    "category": "GASTROINTESTINAL MEDICINES",
+    "genericName": "ondansetron",
+    "dosageForm": "Injection",
+    "strength": ": 2 mg base/ mL in 2- mL ampoule"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1204,
+    "category": "GASTROINTESTINAL MEDICINES",
+    "genericName": "mesalazine",
+    "dosageForm": "Suppository",
+    "strength": ": 1000 mg; Tablet: 800 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1215,
+    "category": "GASTROINTESTINAL MEDICINES",
+    "genericName": "bisacodyl",
+    "dosageForm": "Tablet",
+    "strength": "(enteric coated): 10 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1224,
+    "category": "GASTROINTESTINAL MEDICINES",
+    "genericName": "oral rehydration",
+    "dosageForm": "Powder",
+    "strength": "for dilution in 200 mL; 500 mL;"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1241,
+    "category": "GASTROINTESTINAL MEDICINES",
+    "genericName": "zinc sulfate",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 20 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1245,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "fludrocortisone",
+    "dosageForm": "Tablet",
+    "strength": ": 100 micrograms (acetate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1247,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "hydrocortisone",
+    "dosageForm": "Tablet",
+    "strength": ": 5 mg; 10 mg; 20 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1257,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "levonorgestrel",
+    "dosageForm": "Tablet",
+    "strength": ": 750 micrograms (pack of two)"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1260,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "estradiol",
+    "dosageForm": "Injection",
+    "strength": ": 5 mg + 25 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1269,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "norethisterone",
+    "dosageForm": "solution",
+    "strength": ": 200 mg/ mL in 1- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1270,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "enantate",
+    "dosageForm": "ampoule",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1286,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "progesterone",
+    "dosageForm": "vaginal",
+    "strength": "ring"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1293,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "glucagon",
+    "dosageForm": "Injection",
+    "strength": ": 1 mg/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1295,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "insulin injection",
+    "dosageForm": "Injection",
+    "strength": ": 40 IU/ mL in 10- mL vial; 100"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1299,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "intermediate-",
+    "dosageForm": "Injection",
+    "strength": ": 40 IU/ mL in 10- mL vial; 100"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1305,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "metformin",
+    "dosageForm": "Tablet",
+    "strength": ": 500 mg (hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1308,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "clomifene",
+    "dosageForm": "Tablet",
+    "strength": ": 50 mg (citrate)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1317,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "levothyroxine",
+    "dosageForm": "Tablet",
+    "strength": ": 25 micrograms; 50 micrograms;"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1319,
+    "category": "HORMONES, OTHER ENDOCRINE MEDICINES AND CONTRACEPTIVES",
+    "genericName": "potassium iodide",
+    "dosageForm": "Tablet",
+    "strength": ": 60 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1326,
+    "category": "IMMUNOLOGICALS",
+    "genericName": "tuberculin,",
+    "dosageForm": "Injection",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1334,
+    "category": "IMMUNOLOGICALS",
+    "genericName": "diphtheria",
+    "dosageForm": "Injection",
+    "strength": ": 10 000 IU; 20 000 IU in vial."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1380,
+    "category": "MUSCLE RELAXANTS (PERIPHERALLY-ACTING) AND CHOLINESTERASE INHIBITORS",
+    "genericName": "suxamethonium",
+    "dosageForm": "Injection",
+    "strength": ": 50 mg (chloride)/ mL in 2- mL"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1389,
+    "category": "OPHTHALMOLOGICAL PREPARATIONS",
+    "genericName": "aciclovir",
+    "dosageForm": "Ointment",
+    "strength": ": 3% W/W."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1403,
+    "category": "OPHTHALMOLOGICAL PREPARATIONS",
+    "genericName": "acetazolamide",
+    "dosageForm": "Tablet",
+    "strength": ": 250 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1405,
+    "category": "OPHTHALMOLOGICAL PREPARATIONS",
+    "genericName": "latanoprost",
+    "dosageForm": "Solution",
+    "strength": "(eye drops): latanoprost 50"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1419,
+    "category": "OXYTOCICS AND ANTIOXYTOCICS",
+    "genericName": "misoprostol",
+    "dosageForm": "Tablet",
+    "strength": ": 200 micrograms."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1423,
+    "category": "OXYTOCICS AND ANTIOXYTOCICS",
+    "genericName": "oxytocin",
+    "dosageForm": "Injection",
+    "strength": ": 10 IU in 1- mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1429,
+    "category": "PERITONEAL DIALYSIS SOLUTION",
+    "genericName": "intraperitoneal",
+    "dosageForm": "solution",
+    "strength": "."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1444,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "risperidone",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 2 mg; 3 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1446,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "clozapine",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 25 mg; 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1452,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "fluoxetine",
+    "dosageForm": "Solid oral dosage form",
+    "strength": ": 20 mg (as"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1458,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "carbamazepine",
+    "dosageForm": "Tablet",
+    "strength": "(scored): 100 mg;"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1462,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "valproic acid",
+    "dosageForm": "Tablet",
+    "strength": "(enteric-coated): 200 mg; 500 mg"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1464,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "valproate)",
+    "dosageForm": "Oral liquid",
+    "strength": ": 250 mg/5ml."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1469,
+    "category": "MEDICINES FOR MENTAL AND BEHAVIOURAL",
+    "genericName": "clomipramine",
+    "dosageForm": "Capsule",
+    "strength": ": 10 mg; 25 mg (hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1490,
+    "category": "MEDICINES ACTING ON THE RESPIRATORY TRACT",
+    "genericName": "epinephrine",
+    "dosageForm": "Injection",
+    "strength": ": 1 mg (as hydrochloride or"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1492,
+    "category": "MEDICINES ACTING ON THE RESPIRATORY TRACT",
+    "genericName": "ipratropium",
+    "dosageForm": "Inhalation",
+    "strength": "(aerosol): 20"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1523,
+    "category": "SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES",
+    "genericName": "potassium",
+    "dosageForm": "Powder",
+    "strength": "for solution."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1526,
+    "category": "SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES",
+    "genericName": "glucose",
+    "dosageForm": "solution",
+    "strength": ": 5% (isotonic); 10%"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1528,
+    "category": "SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES",
+    "genericName": "glucose with",
+    "dosageForm": "solution",
+    "strength": ": 4% glucose, 0.18%"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1537,
+    "category": "SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES",
+    "genericName": "potassium",
+    "dosageForm": "Solution",
+    "strength": ": 11.2% in 20- mL ampoule"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1549,
+    "category": "SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES",
+    "genericName": "sodium chloride",
+    "dosageForm": "solution",
+    "strength": ": 0.9% isotonic"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1552,
+    "category": "SOLUTIONS CORRECTING WATER, ELECTROLYTE AND ACID-BASE DISTURBANCES",
+    "genericName": "sodium hydrogen",
+    "dosageForm": "solution",
+    "strength": ": 1.4% isotonic"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1564,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "ascorbic acid",
+    "dosageForm": "Tablet",
+    "strength": ": 50 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1566,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "calcium",
+    "dosageForm": "Tablet",
+    "strength": ": 500 mg (elemental)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1568,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "colecalciferol",
+    "dosageForm": "Oral liquid",
+    "strength": ": 400 IU/ mL."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1576,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "iodine",
+    "dosageForm": "Capsule",
+    "strength": ": 200 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1584,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "pyridoxine",
+    "dosageForm": "Tablet",
+    "strength": ": 25 mg (hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1586,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "retinol",
+    "dosageForm": "Capsule",
+    "strength": ": 50 000 IU; 100 000 IU; 200 000"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1598,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "riboflavin",
+    "dosageForm": "Tablet",
+    "strength": ": 5 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1602,
+    "category": "VITAMINS AND MINERALS",
+    "genericName": "thiamine",
+    "dosageForm": "Tablet",
+    "strength": ": 50 mg (hydrochloride)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1615,
+    "category": "SPECIFIC MEDICINES FOR NEONATAL CARE",
+    "genericName": "caffeine citrate",
+    "dosageForm": "Injection",
+    "strength": ": 20 mg/ mL (equivalent to 10"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1619,
+    "category": "SPECIFIC MEDICINES FOR NEONATAL CARE",
+    "genericName": "chlorhexidine",
+    "dosageForm": "Solution",
+    "strength": "or gel: 7.1% (digluconate)"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1628,
+    "category": "SPECIFIC MEDICINES FOR NEONATAL CARE",
+    "genericName": "surfactant",
+    "dosageForm": "Suspension",
+    "strength": "for intratracheal"
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1635,
+    "category": "MEDICINES FOR DISEASES OF JOINTS",
+    "genericName": "allopurinol",
+    "dosageForm": "Tablet",
+    "strength": ": 100 mg."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1640,
+    "category": "MEDICINES FOR DISEASES OF JOINTS",
+    "genericName": "methotrexate",
+    "dosageForm": "Tablet",
+    "strength": ": 2.5 mg (as sodium salt)."
+  },
+  {
+    "sourceYear": 2019,
+    "sourceLine": 1642,
+    "category": "MEDICINES FOR DISEASES OF JOINTS",
+    "genericName": "sulfasalazine",
+    "dosageForm": "Tablet",
+    "strength": ": 500 mg."
+  }
+]

@@ -42,8 +42,8 @@ export default function DrugsPage() {
   return (
     <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Drug Catalog</h1>
-        <p className="text-muted-foreground">Browse and search the official drug database</p>
+        <h1 className="text-2xl font-bold tracking-tight">National Essential Medicines Catalog</h1>
+        <p className="text-muted-foreground">Unified records from Yemen’s 2019 and 2022 National Essential Medicines Lists</p>
       </div>
 
       <div className="flex gap-4">
@@ -70,7 +70,7 @@ export default function DrugsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>{filteredDrugs.length} Drugs</CardTitle>
+          <CardTitle>{filteredDrugs.length} Medicines</CardTitle>
         </CardHeader>
         <CardContent>
           {allDrugs.isLoading ? (
@@ -85,15 +85,21 @@ export default function DrugsPage() {
                     </div>
                     <div>
                       <p className="font-medium text-sm">
-                        {drug.brandName}
+                        {drug.genericName}
                         {drug.brandNameAr && <span className="ml-2 text-muted-foreground font-normal">{drug.brandNameAr}</span>}
                       </p>
                       <p className="text-xs text-muted-foreground">
-                        {drug.genericName} · {drug.strength} · {drug.dosageForm}
+                        {[drug.strength, drug.dosageForm].filter(Boolean).join(" · ")}
                       </p>
+                      {drug.nemlCategory && (
+                        <p className="mt-1 text-xs text-muted-foreground">{drug.nemlCategory}</p>
+                      )}
                     </div>
                   </div>
-                  <Badge variant="outline" className="text-xs capitalize">{drug.category}</Badge>
+                  <div className="flex flex-wrap justify-end gap-1.5">
+                    {drug.sourceYears && <Badge variant="secondary" className="text-xs">NEML {drug.sourceYears}</Badge>}
+                    <Badge variant="outline" className="text-xs capitalize">{drug.category}</Badge>
+                  </div>
                 </div>
               ))}
             </div>

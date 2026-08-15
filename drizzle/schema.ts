@@ -124,6 +124,12 @@ export const drugs = mysqlTable("drugs", {
     "antiviral", "oncology", "dermatological", "ophthalmological",
     "vitamins", "other",
   ]).notNull(),
+  /** Stable normalization key for one essential-medicine formulation. */
+  catalogKey: varchar("catalogKey", { length: 400 }),
+  /** Verbatim therapeutic section heading from the Yemen NEML source. */
+  nemlCategory: varchar("nemlCategory", { length: 255 }),
+  /** Comma-delimited NEML editions in which this formulation appears, e.g. "2019,2022". */
+  sourceYears: varchar("sourceYears", { length: 20 }),
   isOfficial: boolean("isOfficial").default(true).notNull(),
   isActive: boolean("isActive").default(true).notNull(),
   isDeleted: boolean("isDeleted").default(false).notNull(),
@@ -134,10 +140,27 @@ export const drugs = mysqlTable("drugs", {
   index("drug_generic_idx").on(table.genericName),
   index("drug_category_idx").on(table.category),
   index("drug_official_idx").on(table.isOfficial),
+  uniqueIndex("drug_catalog_key_idx").on(table.catalogKey),
 ]);
 
 export type Drug = typeof drugs.$inferSelect;
 export type InsertDrug = typeof drugs.$inferInsert;
+
+/** Auditable provenance for each national essential-medicine record. */
+export const drugSources = mysqlTable("drug_sources", {
+  id: int("id").autoincrement().primaryKey(),
+  drugId: int("drugId").references(() => drugs.id).notNull(),
+  sourceEdition: mysqlEnum("sourceEdition", ["NEML_2019", "NEML_2022"]).notNull(),
+  sourceDocument: varchar("sourceDocument", { length: 255 }).notNull(),
+  sourceLine: int("sourceLine"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => [
+  index("drug_source_drug_idx").on(table.drugId),
+  uniqueIndex("drug_source_edition_idx").on(table.drugId, table.sourceEdition),
+]);
+
+export type DrugSource = typeof drugSources.$inferSelect;
+export type InsertDrugSource = typeof drugSources.$inferInsert;
 
 export const drugAlternatives = mysqlTable("drugAlternatives", {
   id: int("id").autoincrement().primaryKey(),
