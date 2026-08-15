@@ -44,18 +44,21 @@ async function startServer() {
       createContext,
     })
   );
-  // development mode uses Vite, production mode uses static files
-  if (process.env.NODE_ENV === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
 
   const preferredPort = parseInt(process.env.PORT || "3000");
   const port = await findAvailablePort(preferredPort);
 
   if (port !== preferredPort) {
     console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
+  }
+
+  // The hosted preview proxy does not forward Vite's HMR upgrade channel.
+  // Serve the built client by default; local engineers may explicitly opt in
+  // to the Vite middleware when they have a direct WebSocket connection.
+  if (process.env.NODE_ENV === "development" && process.env.USE_VITE_HMR === "true") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
   }
 
   server.listen(port, () => {

@@ -9,3 +9,4 @@
 - [x] Run duplicate and near-duplicate quality checks and document their resolution.
 - [x] Verify representative 2019 and 2022 records through the Drugs API and interface.
 - [x] Verify 2019-only, 2022-only, and shared medicines through the Drugs API and record the exact sample results.
+- [x] Fix Vite HMR WebSocket connection failure in the managed preview URL.
