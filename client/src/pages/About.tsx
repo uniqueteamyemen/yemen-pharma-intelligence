@@ -174,6 +174,55 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Strategic Approach - intentionally kept outside the core user journey */}
+        <div className="space-y-6">
+          <div className="text-center space-y-3">
+            <h2 className="text-2xl font-bold tracking-tight">
+              {isAr ? "منهجية التوسع والتواصل" : "Growth & Outreach Approach"}
+            </h2>
+            <p className="max-w-3xl mx-auto text-sm leading-relaxed text-muted-foreground">
+              {isAr
+                ? "هذه المنهجية تشرح كيف تنمو المنصة بصورة مسؤولة. وهي معلومات تعريفية للشركاء والجهات المهتمة، وليست جزءاً من خطوات استخدام المنصة اليومية."
+                : "This approach explains how the platform can grow responsibly. It is informational content for partners and interested entities, not part of the day-to-day product journey."}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            <Card className="border-border/70">
+              <CardHeader className="space-y-2">
+                <ShieldCheck className="h-7 w-7 text-primary" />
+                <CardTitle className="text-base">{isAr ? "1. بناء شبكة موثقة" : "1. Build a verified network"}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "تبدأ المنصة بالجهات الصحية والصيدلانية المعتمدة، مع مراجعة بيانات الجهة وصلاحيات واضحة لكل دور."
+                  : "The platform begins with verified health and pharmaceutical entities, with reviewed entity information and clear role permissions."}
+              </CardContent>
+            </Card>
+            <Card className="border-border/70">
+              <CardHeader className="space-y-2">
+                <Target className="h-7 w-7 text-primary" />
+                <CardTitle className="text-base">{isAr ? "2. رفع جودة الإشارات" : "2. Improve signal quality"}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "تتحسن فائدة مؤشرات السوق تدريجياً بزيادة العروض والطلبات الموثوقة وتحسين جودة بيانات الكتالوج والبدائل."
+                  : "Market signals become more useful as verified offers and requests grow and catalog and alternative data quality improves."}
+              </CardContent>
+            </Card>
+            <Card className="border-border/70">
+              <CardHeader className="space-y-2">
+                <Building2 className="h-7 w-7 text-primary" />
+                <CardTitle className="text-base">{isAr ? "3. تواصل مؤسسي مسؤول" : "3. Responsible institutional outreach"}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "تشمل قنوات التواصل المنصة نفسها وإشعاراتها، والتعاون المباشر مع الجهات المعتمدة، والشراكات القائمة على الموافقة وحماية البيانات؛ من دون ادعاء قنوات أو حسابات غير رسمية."
+                  : "Outreach channels include the platform and its alerts, direct collaboration with verified entities, and consent-based, privacy-respecting partnerships—without claiming unofficial channels or accounts."}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         {/* Comparison Table */}
         <div className="space-y-6">
           <h2 className="text-2xl font-bold tracking-tight text-center">
