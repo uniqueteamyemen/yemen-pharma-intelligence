@@ -216,6 +216,63 @@ export default function AboutPage() {
           </Card>
         </div>
 
+        {/* FAQ Section */}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold tracking-tight text-center">
+            {isAr ? "الأسئلة الشائعة (FAQ)" : "Frequently Asked Questions"}
+          </h2>
+          <div className="grid gap-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base font-semibold">
+                  {isAr ? "1. هل يمكنني شراء الأدوية أو بيعها عبر المنصة؟" : "1. Can I buy or sell medicines through the platform?"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "لا مطلقاً. المنصة مخصصة بالكامل لذكاء السوق واكتشاف العرض والطلب والشح والفائض والبدائل، وليست متجراً إلكترونياً ولا تستلم أي أموال."
+                  : "Absolutely not. The platform is strictly dedicated to market intelligence, discovering supply, demand, shortages, surpluses, and alternatives. It is not an e-commerce store and does not handle funds."}
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base font-semibold">
+                  {isAr ? "2. كيف يتم مطابقة العروض والطلبات للأدوية؟" : "2. How are medicine offers and requests matched?"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "تعتمد المطابقة الذكية على اسم الدواء (العلمي أو التجاري) والمنطقة، بحيث يتم ربط العرض بالطلب اسمياً بغض النظر عن تفاوت الكميات، مع إرسال إشعارات فورية للجهات المعنية."
+                  : "Smart matching relies primarily on the drug name (generic or brand) and region, matching offers and requests nominally regardless of quantity differences, with instant notifications sent to relevant entities."}
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base font-semibold">
+                  {isAr ? "3. من يمكنه التسجيل واستخدام المنصة؟" : "3. Who can register and use the platform?"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "المنصة متاحة للجهات الصيدلانية والصحية المعتمدة في اليمن حصرياً: الصيدليات، المستشفيات والمراكز الطبية، شركات التوزيع والاستيراد، والعيادات والكوادر الطبية."
+                  : "The platform is exclusively for verified pharmaceutical and health entities in Yemen: pharmacies, hospitals and medical centers, distribution and import companies, and medical clinics and practitioners."}
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base font-semibold">
+                  {isAr ? "4. من أين تأتي بيانات كتالوج الأدوية؟" : "4. Where does the medicine catalog data come from?"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground leading-relaxed">
+                {isAr
+                  ? "يعتمد الكتالوج الموحد على القوائم الوطنية الرسمية للأدوية الأساسية في اليمن (NEML 2019/2022) مع دعم إضافة الأسماء التجارية المتاحة للعامة وفق القوانين والتشريعات الناظمة."
+                  : "The unified catalog is based on Yemen's official National Essential Medicines Lists (NEML 2019/2022), supporting public trade names in compliance with governing regulations."}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         {/* Footer CTA */}
         <div className="text-center bg-card border border-border rounded-2xl p-8 space-y-4">
           <h3 className="text-xl font-bold">{isAr ? "هل تمثل جهة صحية أو صيدلانية في اليمن؟" : "Represent a health or pharma entity in Yemen?"}</h3>
