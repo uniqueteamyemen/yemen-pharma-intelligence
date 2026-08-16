@@ -82,7 +82,7 @@ export default function Home() {
                 <ArrowRight className="ms-2 h-4 w-4" />
               </Button>
             )}
-            <Link href="#features">
+            <Link href="/about">
               <Button variant="outline" size="lg" className="h-12 px-8 text-base">
                 {t("Learn More")}
               </Button>
