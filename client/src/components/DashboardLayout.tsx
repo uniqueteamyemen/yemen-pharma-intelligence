@@ -25,6 +25,7 @@ import { Activity, Building2, FileText, Handshake, LayoutDashboard, Link2, LogOu
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
+import { BrandLockup } from "./BrandLockup";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "./ui/button";
@@ -187,11 +188,7 @@ function DashboardLayoutContent({
                 <PanelLeft className="h-4 w-4 text-muted-foreground" />
               </button>
               {!isCollapsed ? (
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="font-semibold tracking-tight truncate">
-                    PharmaYemen
-                  </span>
-                </div>
+                <BrandLockup compact className="min-w-0" />
               ) : null}
             </div>
           </SidebarHeader>

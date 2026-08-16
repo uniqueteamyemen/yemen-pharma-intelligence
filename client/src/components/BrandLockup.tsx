@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const brandMarkUrl = "/manus-storage/pharmayemen-security-intelligence-mark_ae420d8f.png";
+const brandMarkUrl = "/manus-storage/pharmayemen-official-flat-mark_fa8e1dc3.png";
 
 type BrandLockupProps = {
   compact?: boolean;
