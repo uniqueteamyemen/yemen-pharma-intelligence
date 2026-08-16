@@ -37,4 +37,24 @@ describe("bilingual medicine search", () => {
     expect(medicineMatchesQuery(branded, "سبأ")).toBe(true);
     expect(medicineMatchesQuery(branded, "Panadol")).toBe(true);
   });
+
+  it("supports search through linked trade names and active ingredients without changing the canonical record", () => {
+    const canonicalParacetamol = {
+      brandName: "Paracetamol",
+      genericName: "Paracetamol",
+      genericNameAr: "باراسيتامول",
+      dosageForm: "Tablet",
+      strength: "500mg",
+      tradeNames: [{
+        tradeName: "Amol",
+        scientificName: "Paracetamol",
+        activeIngredients: "Paracetamol 500mg",
+        manufacturer: "Shaphaco",
+      }],
+    };
+
+    expect(medicineMatchesQuery(canonicalParacetamol, "Amol")).toBe(true);
+    expect(medicineMatchesQuery(canonicalParacetamol, "Paracetamol 500")).toBe(true);
+    expect(medicineSearchRank(canonicalParacetamol, "Amol")).toBeGreaterThan(0);
+  });
 });

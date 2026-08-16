@@ -162,6 +162,44 @@ export const drugSources = mysqlTable("drug_sources", {
 export type DrugSource = typeof drugSources.$inferSelect;
 export type InsertDrugSource = typeof drugSources.$inferInsert;
 
+/**
+ * Historical Yemen trade-name layer. Each record preserves the source wording
+ * while optionally linking to one canonical essential-medicine record.
+ * `scientificName` is a standardized scientific label; `activeIngredients`
+ * preserves one or more active ingredients together with their stated strengths.
+ */
+export const drugTradeNames = mysqlTable("drug_trade_names", {
+  id: int("id").autoincrement().primaryKey(),
+  drugId: int("drugId").references(() => drugs.id),
+  tradeName: varchar("tradeName", { length: 200 }).notNull(),
+  tradeNameAr: varchar("tradeNameAr", { length: 200 }),
+  scientificName: varchar("scientificName", { length: 200 }).notNull(),
+  activeIngredients: text("activeIngredients").notNull(),
+  dosageForm: varchar("dosageForm", { length: 100 }),
+  package: varchar("package", { length: 255 }),
+  manufacturer: varchar("manufacturer", { length: 200 }),
+  manufacturerCountry: varchar("manufacturerCountry", { length: 100 }),
+  sourceDocument: varchar("sourceDocument", { length: 255 }).notNull(),
+  sourcePage: int("sourcePage"),
+  sourceRow: int("sourceRow"),
+  sourceYears: varchar("sourceYears", { length: 20 }).notNull(),
+  sourceKey: varchar("sourceKey", { length: 191 }).notNull(),
+  matchStatus: mysqlEnum("matchStatus", ["linked", "ambiguous", "unlinked"])
+    .default("unlinked")
+    .notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => [
+  index("trade_name_drug_idx").on(table.drugId),
+  index("trade_name_name_idx").on(table.tradeName),
+  index("trade_name_scientific_idx").on(table.scientificName),
+  index("trade_name_status_idx").on(table.matchStatus),
+  uniqueIndex("trade_name_source_key_idx").on(table.sourceKey),
+]);
+
+export type DrugTradeName = typeof drugTradeNames.$inferSelect;
+export type InsertDrugTradeName = typeof drugTradeNames.$inferInsert;
+
 export const drugAlternatives = mysqlTable("drugAlternatives", {
   id: int("id").autoincrement().primaryKey(),
   sourceDrugId: int("sourceDrugId").references(() => drugs.id).notNull(),

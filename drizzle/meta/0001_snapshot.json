@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "94932823-7058-43b7-8a38-9456a969982c",
-  "prevId": "396b8b0c-5e9c-4a8d-9454-f90a8a221b90",
+  "id": "7e483749-f663-4389-ac6f-ecb849ff14f5",
+  "prevId": "94932823-7058-43b7-8a38-9456a969982c",
   "tables": {
     "cities": {
       "name": "cities",
@@ -410,6 +410,203 @@
       "compositePrimaryKeys": {
         "drug_sources_id": {
           "name": "drug_sources_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "drug_trade_names": {
+      "name": "drug_trade_names",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "drugId": {
+          "name": "drugId",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tradeName": {
+          "name": "tradeName",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "tradeNameAr": {
+          "name": "tradeNameAr",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "scientificName": {
+          "name": "scientificName",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "activeIngredients": {
+          "name": "activeIngredients",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "dosageForm": {
+          "name": "dosageForm",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "package": {
+          "name": "package",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "manufacturerCountry": {
+          "name": "manufacturerCountry",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sourceDocument": {
+          "name": "sourceDocument",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "sourcePage": {
+          "name": "sourcePage",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sourceRow": {
+          "name": "sourceRow",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sourceYears": {
+          "name": "sourceYears",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "sourceKey": {
+          "name": "sourceKey",
+          "type": "varchar(191)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "matchStatus": {
+          "name": "matchStatus",
+          "type": "enum('linked','ambiguous','unlinked')",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'unlinked'"
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "onUpdate": true,
+          "default": "(now())"
+        }
+      },
+      "indexes": {
+        "trade_name_drug_idx": {
+          "name": "trade_name_drug_idx",
+          "columns": [
+            "drugId"
+          ],
+          "isUnique": false
+        },
+        "trade_name_name_idx": {
+          "name": "trade_name_name_idx",
+          "columns": [
+            "tradeName"
+          ],
+          "isUnique": false
+        },
+        "trade_name_scientific_idx": {
+          "name": "trade_name_scientific_idx",
+          "columns": [
+            "scientificName"
+          ],
+          "isUnique": false
+        },
+        "trade_name_status_idx": {
+          "name": "trade_name_status_idx",
+          "columns": [
+            "matchStatus"
+          ],
+          "isUnique": false
+        },
+        "trade_name_source_key_idx": {
+          "name": "trade_name_source_key_idx",
+          "columns": [
+            "sourceKey"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "drug_trade_names_drugId_drugs_id_fk": {
+          "name": "drug_trade_names_drugId_drugs_id_fk",
+          "tableFrom": "drug_trade_names",
+          "tableTo": "drugs",
+          "columnsFrom": [
+            "drugId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "drug_trade_names_id": {
+          "name": "drug_trade_names_id",
           "columns": [
             "id"
           ]

@@ -1,4 +1,4 @@
-import { eq, and, or, like, desc, sql, gt, asc, ne } from "drizzle-orm";
+import { eq, and, or, like, desc, sql, gt, asc, ne, inArray } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser, users,
@@ -7,6 +7,7 @@ import {
   governorates, Governorate,
   cities, City,
   drugs, Drug,
+  drugTradeNames,
   drugAlternatives,
   offers, Offer,
   requests, Request,
@@ -18,6 +19,7 @@ import {
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 import { medicineMatchesQuery, medicineSearchRank, normalizeMedicineSearch } from "../shared/medicineSearch";
+import { calculateCappedMatchScore, canonicalDrugIdsMatch } from "../shared/medicineMatching";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -202,6 +204,94 @@ export async function verifyEntity(id: number, status: Entity['status']) {
 // DRUGS
 // ============================================================
 
+type TradeNameReference = {
+  tradeName: string;
+  tradeNameAr: string | null;
+  scientificName: string;
+  activeIngredients: string;
+  manufacturer: string | null;
+};
+
+type DrugWithTradeNames = Drug & { tradeNames: TradeNameReference[] };
+
+async function getLinkedTradeNameReferences(drugIds: number[]) {
+  const references = new Map<number, TradeNameReference[]>();
+  if (!drugIds.length) return references;
+
+  const db = await getDb();
+  if (!db) return references;
+  const rows = await db.select({
+    drugId: drugTradeNames.drugId,
+    tradeName: drugTradeNames.tradeName,
+    tradeNameAr: drugTradeNames.tradeNameAr,
+    scientificName: drugTradeNames.scientificName,
+    activeIngredients: drugTradeNames.activeIngredients,
+    manufacturer: drugTradeNames.manufacturer,
+  }).from(drugTradeNames).where(and(
+    eq(drugTradeNames.matchStatus, "linked"),
+    inArray(drugTradeNames.drugId, drugIds),
+  ));
+
+  for (const row of rows) {
+    if (!row.drugId) continue;
+    const entries = references.get(row.drugId) ?? [];
+    entries.push({
+      tradeName: row.tradeName,
+      tradeNameAr: row.tradeNameAr,
+      scientificName: row.scientificName,
+      activeIngredients: row.activeIngredients,
+      manufacturer: row.manufacturer,
+    });
+    references.set(row.drugId, entries);
+  }
+  return references;
+}
+
+async function withTradeNameReferences(records: Drug[]): Promise<DrugWithTradeNames[]> {
+  const references = await getLinkedTradeNameReferences(records.map((record) => record.id));
+  return records.map((record) => ({
+    ...record,
+    tradeNames: references.get(record.id) ?? [],
+  }));
+}
+
+/** Resolves an exact typed name to canonical IDs through the scientific catalog and linked trade-name layer. */
+export async function resolveCanonicalDrugIdsByName(name: string): Promise<number[]> {
+  const normalizedName = normalizeMedicineSearch(name);
+  if (!normalizedName) return [];
+  const db = await getDb();
+  if (!db) return [];
+
+  const [catalogRows, tradeRows] = await Promise.all([
+    db.select({
+      id: drugs.id,
+      brandName: drugs.brandName,
+      brandNameAr: drugs.brandNameAr,
+      genericName: drugs.genericName,
+      genericNameAr: drugs.genericNameAr,
+    }).from(drugs).where(and(eq(drugs.isDeleted, false), eq(drugs.isActive, true))),
+    db.select({
+      drugId: drugTradeNames.drugId,
+      tradeName: drugTradeNames.tradeName,
+      tradeNameAr: drugTradeNames.tradeNameAr,
+      scientificName: drugTradeNames.scientificName,
+      activeIngredients: drugTradeNames.activeIngredients,
+    }).from(drugTradeNames).where(eq(drugTradeNames.matchStatus, "linked")),
+  ]);
+
+  const ids = new Set<number>();
+  for (const record of catalogRows) {
+    const fields = [record.brandName, record.brandNameAr, record.genericName, record.genericNameAr];
+    if (fields.some((field) => normalizeMedicineSearch(field) === normalizedName)) ids.add(record.id);
+  }
+  for (const reference of tradeRows) {
+    if (!reference.drugId) continue;
+    const fields = [reference.tradeName, reference.tradeNameAr, reference.scientificName, reference.activeIngredients];
+    if (fields.some((field) => normalizeMedicineSearch(field) === normalizedName)) ids.add(reference.drugId);
+  }
+  return Array.from(ids);
+}
+
 export async function searchDrugs(query: string, limit = 20) {
   const db = await getDb();
   if (!db) return [];
@@ -215,8 +305,9 @@ export async function searchDrugs(query: string, limit = 20) {
   const records = await db.select().from(drugs)
     .where(and(eq(drugs.isDeleted, false), eq(drugs.isActive, true)))
     .orderBy(desc(drugs.id));
+  const recordsWithTradeNames = await withTradeNameReferences(records);
 
-  return records
+  return recordsWithTradeNames
     .map((record) => ({ record, rank: medicineSearchRank(record, normalizedQuery) }))
     .filter(({ rank }) => rank > 0)
     .sort((a, b) => b.rank - a.rank || b.record.id - a.record.id)
@@ -227,17 +318,19 @@ export async function searchDrugs(query: string, limit = 20) {
 export async function getDrugsByCategory(category: string) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(drugs)
+  const records = await db.select().from(drugs)
     .where(and(eq(drugs.category, category as any), eq(drugs.isDeleted, false), eq(drugs.isActive, true)))
     .orderBy(asc(drugs.brandName));
+  return withTradeNameReferences(records);
 }
 
 export async function getAllDrugs() {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(drugs)
+  const records = await db.select().from(drugs)
     .where(and(eq(drugs.isDeleted, false), eq(drugs.isActive, true)))
     .orderBy(asc(drugs.brandName));
+  return withTradeNameReferences(records);
 }
 
 export async function getDrugById(id: number) {
@@ -496,6 +589,16 @@ export async function runMatching(offerId: number) {
   console.log(`[MATCHING] ✓ Step 4: Offer entity found - id=${offerEntity.id}, cityId=${offerEntity.cityId}`);
   
   const matchesToCreate = [];
+  const resolvedNameCache = new Map<string, Promise<number[]>>();
+  const resolveName = (name: string | null | undefined) => {
+    const normalized = normalizeMedicineSearch(name);
+    if (!normalized) return Promise.resolve([] as number[]);
+    const cached = resolvedNameCache.get(normalized);
+    if (cached) return cached;
+    const resolution = resolveCanonicalDrugIdsByName(name ?? "");
+    resolvedNameCache.set(normalized, resolution);
+    return resolution;
+  };
   
   for (const req of openRequests) {
     console.log(`\n[MATCHING]   Checking request id=${req.id}, drugId=${req.drugId}, isFreeText=${req.isFreeText}, freeTextName=${req.freeTextName}`);
@@ -521,16 +624,28 @@ export async function runMatching(offerId: number) {
       const reqName = normalizeMedicineSearch(req.freeTextName);
       const offerName = normalizeMedicineSearch(offer.freeTextName);
       console.log(`[MATCHING]     → Free-text match: "${reqName}" vs "${offerName}"`);
-      // Exact or partial match on drug name
-      if (reqName === offerName || reqName.includes(offerName) || offerName.includes(reqName)) {
+      const rawNamesMatch = Boolean(reqName && offerName && (
+        reqName === offerName || reqName.includes(offerName) || offerName.includes(reqName)
+      ));
+      const [requestDrugIds, offerDrugIds] = await Promise.all([
+        resolveName(req.freeTextName),
+        resolveName(offer.freeTextName),
+      ]);
+      const canonicalNamesMatch = canonicalDrugIdsMatch(requestDrugIds, offerDrugIds);
+      if (rawNamesMatch || canonicalNamesMatch) {
         drugMatch = 100;
-        console.log(`[MATCHING]     → Free-text match SUCCESS`);
+        console.log(`[MATCHING]     → Free-text name match SUCCESS (raw=${rawNamesMatch}, canonical=${canonicalNamesMatch})`);
       }
     } else if ((req.drugId && offer.isFreeText) || (req.isFreeText && offer.drugId)) {
-      // Mixed: one has drugId, other has freeText - try to match
-      // This is a weaker match but still valid
-      drugMatch = 50;
-      console.log(`[MATCHING]     → Mixed type match (drugId + freeText): drugMatch=50`);
+      const catalogDrugId = req.drugId ?? offer.drugId;
+      const freeTextName = req.isFreeText ? req.freeTextName : offer.freeTextName;
+      const resolvedIds = await resolveName(freeTextName);
+      if (catalogDrugId && resolvedIds.includes(catalogDrugId)) {
+        drugMatch = 100;
+        console.log(`[MATCHING]     → Mixed type canonical-name match: ${freeTextName} → drugId=${catalogDrugId}`);
+      } else {
+        console.log(`[MATCHING]     → Mixed type name could not be resolved to catalog drugId=${catalogDrugId}`);
+      }
     }
     
     console.log(`[MATCHING]     → drugMatch=${drugMatch}`);
@@ -556,9 +671,8 @@ export async function runMatching(offerId: number) {
     const urgScore = (urgencyMap[req.urgency] / 4) * 100;
     console.log(`[MATCHING]     → urgency="${req.urgency}", urgScore=${urgScore}`);
     
-    // NEW: Simplified scoring - drug match is primary, others are bonuses
-    // Base score is 100 for drug match, then add bonuses for location and urgency
-    const totalScore = drugMatch + (locationMatch * 0.1) + (urgScore * 0.05);
+    // Drug name remains decisive. Context is informative but must never push a score above 100%.
+    const totalScore = calculateCappedMatchScore(drugMatch, locationMatch, urgScore);
     
     console.log(`[MATCHING]     → totalScore = ${drugMatch} + (${locationMatch} * 0.1) + (${urgScore} * 0.05) = ${totalScore}`);
     
