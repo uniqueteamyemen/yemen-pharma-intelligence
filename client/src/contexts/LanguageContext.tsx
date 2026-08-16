@@ -157,6 +157,7 @@ const translations: Record<string, { ar: string; en: string }> = {
   Ampoules: { ar: "أمبولات", en: "Ampoules" },
   Packs: { ar: "عبوات", en: "Packs" },
   "Create Offer": { ar: "إنشاء العرض", en: "Create Offer" },
+  "Quantity must be at least 1": { ar: "يجب أن تكون الكمية واحداً على الأقل", en: "Quantity must be at least 1" },
   "Offer created successfully": { ar: "تم إنشاء العرض بنجاح", en: "Offer created successfully" },
   "Unable to create offer": { ar: "تعذر إنشاء العرض", en: "Unable to create offer" },
   "Unable to load offers. Please retry.": { ar: "تعذر تحميل العروض. يرجى إعادة المحاولة.", en: "Unable to load offers. Please retry." },

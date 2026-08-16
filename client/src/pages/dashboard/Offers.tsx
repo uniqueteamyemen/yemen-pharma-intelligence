@@ -51,15 +51,23 @@ export default function OffersPage() {
     },
   });
 
+  const numericQuantity = Number(quantity);
+  const isValidQuantity = Number.isInteger(numericQuantity) && numericQuantity >= 1;
+  const canSubmit = Boolean(entity.data) && (isFreeText ? freeTextName.trim().length > 0 : Boolean(selectedDrugId)) && isValidQuantity && !createOffer.isPending;
+
   const handleSubmit = () => {
     if (!entity.data) return;
-    const drugId = isFreeText ? undefined : (selectedDrugId ? parseInt(selectedDrugId) : undefined);
+    if (!isValidQuantity) {
+      toast.error(t("Quantity must be at least 1"));
+      return;
+    }
+    const drugId = isFreeText ? undefined : (selectedDrugId ? parseInt(selectedDrugId, 10) : undefined);
     createOffer.mutate({
       entityId: entity.data.id,
       drugId,
       isFreeText,
-      freeTextName: isFreeText ? freeTextName : undefined,
-      quantity: parseInt(quantity) || 1,
+      freeTextName: isFreeText ? freeTextName.trim() : undefined,
+      quantity: numericQuantity,
       unit,
     });
   };
@@ -152,10 +160,17 @@ export default function OffersPage() {
                   <Label>{t("Quantity")}</Label>
                   <Input
                     type="number"
+                    min={1}
+                    step={1}
+                    inputMode="numeric"
                     placeholder={t("Quantity")}
                     value={quantity}
+                    aria-invalid={quantity.length > 0 && !isValidQuantity}
                     onChange={(e) => setQuantity(e.target.value)}
                   />
+                  {quantity.length > 0 && !isValidQuantity && (
+                    <p className="text-xs text-destructive">{t("Quantity must be at least 1")}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label>{t("Unit")}</Label>
@@ -176,7 +191,7 @@ export default function OffersPage() {
               <Button
                 className="w-full"
                 onClick={handleSubmit}
-                disabled={!entity.data || (isFreeText ? !freeTextName : !selectedDrugId) || !quantity}
+                disabled={!canSubmit}
               >
                 {t("Create Offer")}
               </Button>
