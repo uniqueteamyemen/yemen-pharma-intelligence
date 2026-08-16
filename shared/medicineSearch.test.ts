@@ -23,4 +23,18 @@ describe("bilingual medicine search", () => {
   it("continues to support English partial-name matching", () => {
     expect(medicineMatchesQuery(amoxicillin, "amox")).toBe(true);
   });
+
+  it("supports searching by manufacturer / company name", () => {
+    const branded = {
+      brandName: "Panadol",
+      genericName: "Paracetamol",
+      genericNameAr: "باراسيتامول",
+      manufacturer: "Shiba Pharma (سبأ فارما)",
+      dosageForm: "Tablet",
+      strength: "500mg",
+    };
+    expect(medicineMatchesQuery(branded, "Shiba")).toBe(true);
+    expect(medicineMatchesQuery(branded, "سبأ")).toBe(true);
+    expect(medicineMatchesQuery(branded, "Panadol")).toBe(true);
+  });
 });

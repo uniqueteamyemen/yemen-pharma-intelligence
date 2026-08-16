@@ -25,6 +25,7 @@ export function medicineSearchFields(record: {
   brandNameAr?: string | null;
   genericName?: string | null;
   genericNameAr?: string | null;
+  manufacturer?: string | null;
   dosageForm?: string | null;
   strength?: string | null;
 }): string {
@@ -33,6 +34,7 @@ export function medicineSearchFields(record: {
     record.brandNameAr,
     record.genericName,
     record.genericNameAr,
+    record.manufacturer,
     record.dosageForm,
     record.strength,
   ]
@@ -47,6 +49,7 @@ function normalizedMedicineSearchFieldValues(record: Parameters<typeof medicineS
     record.brandNameAr,
     record.genericName,
     record.genericNameAr,
+    record.manufacturer,
     record.dosageForm,
     record.strength,
   ]

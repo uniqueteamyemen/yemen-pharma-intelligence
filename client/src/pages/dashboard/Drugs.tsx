@@ -90,6 +90,9 @@ export default function DrugsPage() {
                       <p className="text-xs text-muted-foreground">
                         <span className="ltr-value">{[drug.strength, drug.dosageForm].filter(Boolean).join(" · ")}</span>
                       </p>
+                      {drug.manufacturer && (
+                        <p className="text-xs font-medium text-primary mt-0.5">{drug.manufacturer}</p>
+                      )}
                       {drug.nemlCategory && (
                         <p className="mt-1 text-xs text-muted-foreground">{drug.nemlCategory}</p>
                       )}
