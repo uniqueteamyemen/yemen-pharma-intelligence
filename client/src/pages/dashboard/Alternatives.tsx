@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Search, Link2, Unlink, X } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { medicineMatchesQuery } from "@shared/medicineSearch";
+import { rankMedicinesBySearch } from "@shared/medicineSearch";
 
 export default function AlternativesPage() {
   const { language, t } = useLanguage();
@@ -45,17 +45,10 @@ export default function AlternativesPage() {
     if (selectedDrugId) utils.drugs.alternatives.invalidate({ drugId: selectedDrugId });
   };
 
-  const filteredSourceDrugs = allDrugs.data?.filter((d) =>
-    searchSource === "" || medicineMatchesQuery(d, searchSource)
-  ) || [];
-
-  const filteredAltDrugs = allDrugs.data?.filter((d) =>
-    searchAlt === "" || medicineMatchesQuery(d, searchAlt)
-  ) || [];
-
-  const viewableDrugs = allDrugs.data?.filter((d) =>
-    searchForView === "" || medicineMatchesQuery(d, searchForView)
-  ) || [];
+  const catalogDrugs = allDrugs.data || [];
+  const filteredSourceDrugs = searchSource.trim() ? rankMedicinesBySearch(catalogDrugs, searchSource) : catalogDrugs;
+  const filteredAltDrugs = searchAlt.trim() ? rankMedicinesBySearch(catalogDrugs, searchAlt) : catalogDrugs;
+  const viewableDrugs = searchForView.trim() ? rankMedicinesBySearch(catalogDrugs, searchForView) : catalogDrugs;
 
   const getDrugLabel = (drugId: number) => {
     const drug = allDrugs.data?.find(d => d.id === drugId);

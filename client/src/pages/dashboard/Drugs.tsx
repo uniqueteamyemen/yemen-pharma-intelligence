@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/select";
 import { Search, Pill } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { medicineMatchesQuery } from "@shared/medicineSearch";
+import { rankMedicinesBySearch } from "@shared/medicineSearch";
 
 export default function DrugsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,11 +17,11 @@ export default function DrugsPage() {
 
   const allDrugs = trpc.drugs.all.useQuery();
 
-  const filteredDrugs = (allDrugs.data || []).filter((drug) => {
-    const matchSearch = searchQuery === "" || medicineMatchesQuery(drug, searchQuery);
-    const matchCategory = category === "all" || drug.category === category;
-    return matchSearch && matchCategory;
-  });
+  const searchableDrugs = searchQuery.trim()
+    ? rankMedicinesBySearch(allDrugs.data || [], searchQuery)
+    : (allDrugs.data || []);
+  const filteredDrugs = searchableDrugs.filter((drug) => category === "all" || drug.category === category);
+  const hasSearch = searchQuery.trim().length > 0;
 
   const categories = [
     { value: "all", label: t("All Categories") },
@@ -49,7 +49,7 @@ export default function DrugsPage() {
         <div className="relative flex-1">
             <Search className="absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder={language === "ar" ? "ابحث بالعربية أو الإنجليزية أو بالتركيز..." : "Search in Arabic, English, or by strength..."}
+            placeholder={language === "ar" ? "ابحث بالاسم العلمي أو التجاري أو بالتركيز…" : "Search by scientific name, trade name, or strength…"}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="ps-9"
@@ -66,6 +66,16 @@ export default function DrugsPage() {
           </SelectContent>
         </Select>
       </div>
+
+      {hasSearch && !allDrugs.isLoading && (
+        <p className="text-sm text-muted-foreground" aria-live="polite">
+          {filteredDrugs.length > 1
+            ? (language === "ar" ? "هذه خيارات متقاربة من الكتالوج؛ اختر الشكل والتركيز المناسبين." : "These are close catalog options; choose the appropriate formulation and strength.")
+            : filteredDrugs.length === 0
+              ? (language === "ar" ? "لم يُعثر على اسم قريب في البيانات الحالية." : "No close name was found in the current data.")
+              : (language === "ar" ? "تم العثور على خيار قريب من الاسم المدخل." : "A close catalog option was found.")}
+        </p>
+      )}
 
       <Card>
         <CardHeader>

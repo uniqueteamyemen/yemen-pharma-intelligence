@@ -72,10 +72,16 @@ export default function OffersPage() {
     });
   };
 
+  const recognitionQuery = isFreeText ? freeTextName : searchQuery;
   const drugSearchResults = trpc.drugs.search.useQuery(
-    { query: searchQuery },
-    { enabled: !isFreeText && searchQuery.length >= 1 }
+    { query: recognitionQuery },
+    { enabled: recognitionQuery.trim().length >= 2 }
   );
+  const selectCatalogSuggestion = (drug: { id: number }) => {
+    setSelectedDrugId(String(drug.id));
+    setSearchQuery("");
+    setIsFreeText(false);
+  };
 
   return (
     <div className="space-y-6 p-6">
@@ -129,8 +135,7 @@ export default function OffersPage() {
                             selectedDrugId === String(drug.id) ? "bg-accent" : ""
                           }`}
                           onClick={() => {
-                            setSelectedDrugId(String(drug.id));
-                            setSearchQuery("");
+                            selectCatalogSuggestion(drug);
                           }}
                         >
                           {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
@@ -148,10 +153,34 @@ export default function OffersPage() {
                 <div className="space-y-2">
                   <Label>{t("Drug Name")}</Label>
                   <Input
-                    placeholder={t("Enter drug name (will not be added to official catalog)")}
+                    placeholder={language === "ar" ? "اكتب الاسم العلمي أو التجاري؛ سنعرض الخيارات القريبة" : "Type a scientific or trade name; close options will appear"}
                     value={freeTextName}
                     onChange={(e) => setFreeTextName(e.target.value)}
                   />
+                  {freeTextName.trim().length >= 2 && !drugSearchResults.isLoading && (
+                    <div className="rounded border border-border bg-muted/20 p-2">
+                      <p className="mb-1 text-xs text-muted-foreground">
+                        {language === "ar" ? "خيارات من الكتالوج — اختر خياراً فقط إذا كان هو المقصود:" : "Catalog suggestions — choose one only if it is the intended medicine:"}
+                      </p>
+                      {drugSearchResults.data && drugSearchResults.data.length > 0 ? (
+                        <div className="max-h-28 space-y-1 overflow-y-auto">
+                          {drugSearchResults.data.map((drug) => (
+                            <button
+                              key={drug.id}
+                              className="w-full rounded px-2 py-1.5 text-start text-sm hover:bg-accent"
+                              onClick={() => selectCatalogSuggestion(drug)}
+                            >
+                              {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-xs text-muted-foreground">
+                          {language === "ar" ? "لا توجد مطابقة قريبة؛ سيبقى الإدخال نصاً حراً دون اختراع اسم دواء." : "No close catalog match; the entry remains free text and no medicine is invented."}
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
 

@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { medicineMatchesQuery, medicineSearchRank, normalizeMedicineSearch } from "./medicineSearch";
+import {
+  getMedicineSearchMatch,
+  medicineMatchesQuery,
+  medicineSearchRank,
+  normalizeMedicineSearch,
+  rankMedicinesBySearch,
+} from "./medicineSearch";
 
 const amoxicillin = {
   brandName: "Amoxicillin",
@@ -9,52 +15,60 @@ const amoxicillin = {
   strength: "500mg",
 };
 
-describe("bilingual medicine search", () => {
+const paradol = {
+  brandName: "Paracetamol",
+  genericName: "Paracetamol",
+  genericNameAr: "باراسيتامول",
+  dosageForm: "Tablet",
+  strength: "500mg",
+  tradeNames: [{
+    tradeName: "Paradol",
+    scientificName: "Paracetamol",
+    activeIngredients: "Paracetamol 500mg",
+    manufacturer: "Shaphaco",
+  }],
+};
+
+describe("unified bilingual medicine recognition", () => {
   it("normalizes Arabic Alef variants for type-ahead queries", () => {
     expect(normalizeMedicineSearch("أمو")).toBe("امو");
     expect(medicineMatchesQuery(amoxicillin, "امو")).toBe(true);
   });
 
-  it("ranks an Arabic name prefix above an incidental substring", () => {
-    const incidental = { ...amoxicillin, genericNameAr: "سالبوتامول" };
-    expect(medicineSearchRank(amoxicillin, "امو")).toBeGreaterThan(medicineSearchRank(incidental, "امو"));
+  it("recognizes complete and incomplete scientific names", () => {
+    expect(medicineMatchesQuery(amoxicillin, "Amoxicillin")).toBe(true);
+    expect(medicineMatchesQuery(amoxicillin, "Amoxi")).toBe(true);
+    expect(medicineMatchesQuery(amoxicillin, "اموكس")).toBe(true);
   });
 
-  it("continues to support English partial-name matching", () => {
-    expect(medicineMatchesQuery(amoxicillin, "amox")).toBe(true);
+  it("recognizes a conservative typo in a scientific name but rejects unrelated text", () => {
+    expect(getMedicineSearchMatch(amoxicillin, "Amoxcillin").kind).toBe("typo");
+    expect(medicineMatchesQuery(amoxicillin, "CompletelyUnknownMedicine")).toBe(false);
   });
 
-  it("supports searching by manufacturer / company name", () => {
-    const branded = {
-      brandName: "Panadol",
-      genericName: "Paracetamol",
-      genericNameAr: "باراسيتامول",
-      manufacturer: "Shiba Pharma (سبأ فارما)",
-      dosageForm: "Tablet",
-      strength: "500mg",
-    };
-    expect(medicineMatchesQuery(branded, "Shiba")).toBe(true);
-    expect(medicineMatchesQuery(branded, "سبأ")).toBe(true);
-    expect(medicineMatchesQuery(branded, "Panadol")).toBe(true);
+  it("recognizes complete, incomplete, and slightly misspelled trade names", () => {
+    expect(getMedicineSearchMatch(paradol, "Paradol").kind).toBe("exact");
+    expect(medicineMatchesQuery(paradol, "Para")).toBe(true);
+    expect(getMedicineSearchMatch(paradol, "Paradlo").kind).toBe("typo");
   });
 
-  it("supports search through linked trade names and active ingredients without changing the canonical record", () => {
-    const canonicalParacetamol = {
-      brandName: "Paracetamol",
-      genericName: "Paracetamol",
-      genericNameAr: "باراسيتامول",
-      dosageForm: "Tablet",
-      strength: "500mg",
-      tradeNames: [{
-        tradeName: "Amol",
-        scientificName: "Paracetamol",
-        activeIngredients: "Paracetamol 500mg",
-        manufacturer: "Shaphaco",
-      }],
-    };
+  it("uses strength as a ranking bonus rather than a requirement for trade-name recognition", () => {
+    const withoutStrength = medicineSearchRank(paradol, "Paradol");
+    const withStrength = medicineSearchRank(paradol, "Paradol 500");
+    expect(withStrength).toBeGreaterThan(withoutStrength);
+    expect(medicineMatchesQuery(paradol, "Paradol 250")).toBe(true);
+  });
 
-    expect(medicineMatchesQuery(canonicalParacetamol, "Amol")).toBe(true);
-    expect(medicineMatchesQuery(canonicalParacetamol, "Paracetamol 500")).toBe(true);
-    expect(medicineSearchRank(canonicalParacetamol, "Amol")).toBeGreaterThan(0);
+  it("ranks direct name recognition above incidental manufacturer context", () => {
+    const incidental = { ...amoxicillin, manufacturer: "Amoxicillin Supplies" };
+    expect(medicineSearchRank(amoxicillin, "Amoxi")).toBeGreaterThan(medicineSearchRank(incidental, "Supplies"));
+  });
+
+  it("keeps potentially ambiguous formulation records as separate ordered options", () => {
+    const suppository = { ...paradol, dosageForm: "Suppository", strength: "250mg" };
+    const ranked = rankMedicinesBySearch([suppository, paradol], "Paradol");
+    expect(ranked).toHaveLength(2);
+    expect(ranked.map((record) => record.dosageForm)).toContain("Tablet");
+    expect(ranked.map((record) => record.dosageForm)).toContain("Suppository");
   });
 });
