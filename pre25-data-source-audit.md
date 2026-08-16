@@ -16,9 +16,16 @@
 
 لا يتم استيراد الأسماء التجارية أو الأشخاص أو إنشاء مستخدمين حالياً. المسار القانوني والعملي هو طلب ترخيص من مالك الدليل الدوائي للأسماء التجارية، وإعداد استيراد تجريبي صغير لمرافق مؤسسية فقط من HDX/OSM إلى دليل غير موثّق، بعد اعتماد نموذج البيانات وسياسة النسب والمطالبة بالصفحة.
 
+## مسار بديل: قوائم المنتجين
+
+توجد كتالوجات علنية لبعض المنتجين المحليين؛ فعلى سبيل المثال تعرض Global Pharma قائمة بأسماء مجموعات دوائية بالعربية، كما تعرض Shiba Pharma منتجات مميزة، وتعرض YE Pharma بعض الشركاء والمنتجات.[5][6][7] هذا يثبت قابلية بناء تغطية تدريجية من المصدر الأولي. لكن عرض المحتوى على موقع لا يعني تلقائياً حق النسخ الجماعي أو إعادة النشر؛ لذلك يظل المسار الصحيح هو طلب موافقة كل مصنع، ثم استلام ملف منتجات رسمي يتضمن الاسم التجاري والمادة الفعالة والشكل والتركيز ومعرّف التحديث.
+
 ## روابط التحقق
 
 - https://play.google.com/store/apps/details?id=net.tecseo.pharmadirectory&hl=ar
 - https://pmc.ncbi.nlm.nih.gov/articles/PMC3920470/
 - https://haiweb.org/wp-content/uploads/2015/07/Yemen-Report-Pricing-Surveys.pdf
 - https://data.humdata.org/dataset/hotosm_yem_health_facilities
+- https://www.globalpharmaye.com/ar/products/drugs
+- https://shibapharma.com/
+- https://yepharma.com/ar.aspx
