@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, Building2, Hospital, ShieldCheck, Stethoscope, Store, Target, Eye, AlertCircle, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
+import { BrandLockup } from "@/components/BrandLockup";
 
 export default function AboutPage() {
   const { language, setLanguage, t } = useLanguage();
@@ -13,12 +14,9 @@ export default function AboutPage() {
       {/* Top Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Link href="/" className="font-bold text-lg text-primary flex items-center gap-2">
-              <span>PharmaYemen</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary">Intelligence</span>
-            </Link>
-          </div>
+          <Link href="/" aria-label={isAr ? "العودة إلى الرئيسية" : "Back to home"}>
+            <BrandLockup compact />
+          </Link>
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
@@ -44,10 +42,10 @@ export default function AboutPage() {
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
             <Target className="h-4 w-4" />
-            {isAr ? "منصة ذكاء وسلاسل إمداد دوائي" : "Pharma Market Intelligence & Supply Chain Platform"}
+            {isAr ? "الأمن الدوائي عبر ذكاء السوق" : "Pharmaceutical Security through Market Intelligence"}
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-            {isAr ? "ما هي منصة Yemen Pharma Intelligence؟" : "What is Yemen Pharma Intelligence?"}
+            {isAr ? "ما هي منصة PharmaYemen؟" : "What is Yemen Pharma Intelligence?"}
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {isAr

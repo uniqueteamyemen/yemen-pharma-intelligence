@@ -20,6 +20,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Link } from "wouter";
+import { BrandLockup } from "@/components/BrandLockup";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -113,11 +114,8 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground" dir={isAr ? "rtl" : "ltr"}>
       <nav className="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary shadow-sm shadow-primary/25">
-              <Pill className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className="text-lg font-semibold tracking-tight">PharmaYemen</span>
+          <div className="flex items-center gap-3">
+            <BrandLockup compact />
             <LanguageSwitcher compact />
           </div>
           {!loading && (
@@ -131,14 +129,14 @@ export default function Home() {
       </nav>
 
       <main>
-        <section className="relative isolate overflow-hidden px-6 py-16 md:py-24 lg:py-28">
+        <section className="brand-network relative isolate overflow-hidden px-6 py-16 md:py-24 lg:py-28">
           <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_85%_15%,hsl(var(--primary)/0.16),transparent_28%),radial-gradient(circle_at_10%_95%,hsl(var(--primary)/0.1),transparent_35%)]" />
           <div className="absolute -end-24 top-8 -z-10 h-72 w-72 rounded-full border border-primary/10 bg-primary/5 blur-3xl" />
           <div className="container grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="max-w-3xl">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
                 <Activity className="h-4 w-4" />
-                {isAr ? "منصة ذكاء سوقي للدواء" : "Pharmaceutical market intelligence"}
+                {isAr ? "الأمن الدوائي عبر ذكاء السوق" : "Pharmaceutical security through market intelligence"}
               </div>
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
                 {t("Connecting Yemen's")} <span className="text-primary">{t("Pharmaceutical")}</span>
@@ -170,7 +168,7 @@ export default function Home() {
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6 flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-sm font-medium text-primary">{isAr ? "من الرؤية إلى الاستجابة" : "From visibility to response"}</p>
+                    <p className="text-sm font-medium text-primary">{isAr ? "من الرؤية إلى الأمن الدوائي" : "From visibility to pharmaceutical security"}</p>
                     <h2 className="mt-1 text-2xl font-bold">{isAr ? "معلومات سوقية قابلة للتنفيذ" : "Actionable market insight"}</h2>
                   </div>
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10"><TrendingUp className="h-6 w-6 text-primary" /></div>
@@ -308,7 +306,7 @@ export default function Home() {
 
       <footer className="border-t border-border/50 py-12">
         <div className="container text-center">
-          <div className="mb-4 flex items-center justify-center gap-2"><div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary"><Pill className="h-4 w-4 text-primary-foreground" /></div><span className="font-semibold">PharmaYemen</span></div>
+          <div className="mb-4 flex items-center justify-center"><BrandLockup /></div>
           <p className="text-sm text-muted-foreground">{t("Yemen Pharmaceutical Market Intelligence Platform")}</p>
           <p className="mt-2 text-xs text-muted-foreground/60">{t("Connecting supply and demand across Yemen's pharmaceutical market")}</p>
         </div>
