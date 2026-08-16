@@ -108,6 +108,9 @@ export default function OffersPage() {
                 <p className="text-xs text-muted-foreground">
                   {language === "ar" ? "اكتب الاسم العلمي أو التجاري، ثم اختر اقتراحاً مطابقاً إذا كان هو الدواء المقصود." : "Type a scientific or trade name, then select a suggestion only if it is the intended medicine."}
                 </p>
+                <p className="text-xs text-muted-foreground">
+                  {language === "ar" ? "الاقتراحات تساعد على التعرّف فقط ولا تعني أن الدواء متوفر لدى المنصة." : "Suggestions support identification only; they do not indicate platform availability."}
+                </p>
                 <Input
                   placeholder={language === "ar" ? "مثال: Paradol أو Paracetamol 500" : "Example: Paradol or Paracetamol 500"}
                   value={drugInput}
