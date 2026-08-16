@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { Plus } from "lucide-react";
+import { Loader2, Plus } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildMedicineEntryPayload } from "@shared/medicineEntry";
@@ -31,8 +31,10 @@ export default function RequestsPage() {
   const [createOpen, setCreateOpen] = useState(false);
 
   const createRequest = trpc.requests.create.useMutation({
-    onSuccess: () => {
-      toast.success(t("Request created successfully"));
+    onSuccess: (_, variables) => {
+      toast.success(variables.isFreeText
+        ? (language === "ar" ? "تم حفظ اسم الدواء كنص حر لأنك لم تختر اقتراحاً من القائمة." : "The medicine name was saved as free text because no suggestion was selected.")
+        : t("Request created successfully"));
       setCreateOpen(false);
       utils.requests.list.invalidate();
       setSelectedDrugId("");
@@ -118,7 +120,13 @@ export default function RequestsPage() {
                     setSelectedDrugLabel("");
                   }}
                 />
-                {drugInput.trim().length >= 2 && !drugSearchResults.isLoading && (
+                {drugInput.trim().length >= 2 && drugSearchResults.isFetching && (
+                  <div className="flex items-center gap-2 rounded border border-border bg-muted/20 p-2 text-xs text-muted-foreground" role="status">
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    {language === "ar" ? "جارٍ جلب الاقتراحات…" : "Loading suggestions…"}
+                  </div>
+                )}
+                {drugInput.trim().length >= 2 && !drugSearchResults.isFetching && (
                   <div className="rounded border border-border bg-muted/20 p-2">
                     {drugSearchResults.data && drugSearchResults.data.length > 0 ? (
                       <div className="max-h-32 space-y-1 overflow-y-auto">

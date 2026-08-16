@@ -71,4 +71,13 @@ describe("unified bilingual medicine recognition", () => {
     expect(ranked.map((record) => record.dosageForm)).toContain("Tablet");
     expect(ranked.map((record) => record.dosageForm)).toContain("Suppository");
   });
+
+  it("orders exact matches before partial and conservative typo suggestions", () => {
+    const exact = { brandName: "Paradol", genericName: "Paradol", dosageForm: "Tablet", strength: "500mg" };
+    const partial = { brandName: "Paradol Forte", genericName: "Paradol Forte", dosageForm: "Tablet", strength: "500mg" };
+    const typo = { brandName: "Paradlo", genericName: "Paradlo", dosageForm: "Tablet", strength: "500mg" };
+
+    const ranked = rankMedicinesBySearch([typo, partial, exact], "Paradol");
+    expect(ranked.map((record) => record.brandName)).toEqual(["Paradol", "Paradol Forte", "Paradlo"]);
+  });
 });
