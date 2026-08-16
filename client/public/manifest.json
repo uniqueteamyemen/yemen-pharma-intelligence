@@ -1,0 +1,15 @@
+{
+  "name": "PharmaYemen — Yemen Pharma Intelligence",
+  "short_name": "PharmaYemen",
+  "icons": [
+    {
+      "src": "/manus-storage/pharmayemen-compact-icon_f700859f.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#087b80",
+  "background_color": "#fbfaf7",
+  "display": "standalone"
+}

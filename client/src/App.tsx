@@ -8,6 +8,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
+import { RouteTransitionLoader } from "./components/RouteTransitionLoader";
 
 function Router() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <LanguageProvider>
           <TooltipProvider>
             <Toaster />
+            <RouteTransitionLoader />
             <Router />
           </TooltipProvider>
         </LanguageProvider>

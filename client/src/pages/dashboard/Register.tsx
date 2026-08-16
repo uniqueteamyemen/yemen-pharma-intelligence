@@ -7,11 +7,10 @@ import { Label } from "@/components/ui/label";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import {
-  Building2, CheckCircle, Clock,
-} from "lucide-react";
+import { CheckCircle, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { CompactBrandIcon } from "@/components/CompactBrandIcon";
 
 export default function RegisterPage() {
   const { t } = useLanguage();
@@ -55,7 +54,10 @@ export default function RegisterPage() {
   if (entity.data) {
     return (
       <div className="space-y-6 p-6">
-        <h1 className="text-2xl font-bold tracking-tight">{t("Entity Registration")}</h1>
+        <div className="flex items-center gap-3">
+          <CompactBrandIcon size="md" />
+          <h1 className="text-2xl font-bold tracking-tight">{t("Entity Registration")}</h1>
+        </div>
         <Card>
           <CardContent className="p-8 text-center">
             {entity.data.status === "verified" ? (
@@ -93,14 +95,17 @@ export default function RegisterPage() {
   return (
     <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">{t("Entity Registration")}</h1>
+        <div className="flex items-center gap-3">
+          <CompactBrandIcon size="md" />
+          <h1 className="text-2xl font-bold tracking-tight">{t("Entity Registration")}</h1>
+        </div>
         <p className="text-muted-foreground">{t("Register your pharmacy, hospital, distributor, or clinic")}</p>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-primary" />
+            <CompactBrandIcon size="sm" />
             {t("Registration Form")}
           </CardTitle>
         </CardHeader>

@@ -19,13 +19,13 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
 import { Activity, Building2, FileText, Handshake, LayoutDashboard, Link2, LogOut, MessageCircle, PanelLeft, Pill, TrendingUp, UserCircle } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
-import { BrandLockup } from "./BrandLockup";
+import { AuthAccessPanel } from "./AuthAccessPanel";
+import { CompactBrandIcon } from "./CompactBrandIcon";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "./ui/button";
@@ -76,27 +76,7 @@ export default function DashboardLayout({
   }
 
   if (!user) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="flex flex-col items-center gap-8 p-8 max-w-md w-full">
-          <div className="flex flex-col items-center gap-6">
-            <h1 className="text-2xl font-semibold tracking-tight text-center">
-              {t("Sign in to continue")}
-            </h1>
-            <p className="text-sm text-muted-foreground text-center max-w-sm">
-              {t("Access to this dashboard requires authentication. Continue to launch the login flow.")}
-            </p>
-          </div>
-          <Button
-            onClick={() => startLogin()}
-            size="lg"
-            className="w-full shadow-lg hover:shadow-xl transition-all"
-          >
-            {t("Sign in")}
-          </Button>
-        </div>
-      </div>
-    );
+    return <AuthAccessPanel />;
   }
 
   return (
@@ -188,8 +168,11 @@ function DashboardLayoutContent({
                 <PanelLeft className="h-4 w-4 text-muted-foreground" />
               </button>
               {!isCollapsed ? (
-                <BrandLockup compact className="min-w-0" />
-              ) : null}
+                <div className="flex items-center gap-2 min-w-0">
+                  <CompactBrandIcon size="sm" />
+                  <span className="brand-wordmark whitespace-nowrap">Pharma<span>Yemen</span></span>
+                </div>
+              ) : <CompactBrandIcon size="sm" className="ms-auto me-1" />}
             </div>
           </SidebarHeader>
 

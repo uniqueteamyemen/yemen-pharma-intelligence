@@ -16,8 +16,7 @@ import AlternativesPage from "./dashboard/Alternatives";
 import ProfilePage from "./dashboard/Profile";
 import MatchesPage from "./dashboard/Matches";
 import RegisterPage from "./dashboard/Register";
-import { startLogin } from "@/const";
-import { Button } from "@/components/ui/button";
+import { AuthAccessPanel } from "@/components/AuthAccessPanel";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 function DashboardRouter() {
@@ -59,11 +58,7 @@ function DashboardRouter() {
   }
 
   if (!isAuthenticated) {
-    return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <Button onClick={() => startLogin()}>{t("Sign In")}</Button>
-      </div>
-    );
+    return <AuthAccessPanel />;
   }
 
   return (
