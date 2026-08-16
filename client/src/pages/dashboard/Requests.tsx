@@ -15,16 +15,16 @@ import {
 import { Plus } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildMedicineEntryPayload } from "@shared/medicineEntry";
 
 export default function RequestsPage() {
   const { language, t } = useLanguage();
   const entity = trpc.entity.getByUserId.useQuery();
   const requests = trpc.requests.list.useQuery({ status: "open", limit: 50 });
   const utils = trpc.useUtils();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [drugInput, setDrugInput] = useState("");
   const [selectedDrugId, setSelectedDrugId] = useState<string>("");
-  const [isFreeText, setIsFreeText] = useState(false);
-  const [freeTextName, setFreeTextName] = useState("");
+  const [selectedDrugLabel, setSelectedDrugLabel] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("boxes");
   const [urgency, setUrgency] = useState<string>("medium");
@@ -36,7 +36,8 @@ export default function RequestsPage() {
       setCreateOpen(false);
       utils.requests.list.invalidate();
       setSelectedDrugId("");
-      setFreeTextName("");
+      setSelectedDrugLabel("");
+      setDrugInput("");
       setQuantity("");
     },
     onError: (err) => toast.error(err.message || t("Unable to create request")),
@@ -51,27 +52,28 @@ export default function RequestsPage() {
 
   const handleSubmit = () => {
     if (!entity.data) return;
-    const drugId = isFreeText ? undefined : (selectedDrugId ? parseInt(selectedDrugId) : undefined);
+    const medicineEntry = buildMedicineEntryPayload(drugInput, selectedDrugId);
+    if (!medicineEntry) return;
     createRequest.mutate({
       entityId: entity.data.id,
-      drugId,
-      isFreeText,
-      freeTextName: isFreeText ? freeTextName : undefined,
+      ...medicineEntry,
       quantity: parseInt(quantity) || 1,
       unit,
       urgency: urgency as any,
     });
   };
 
-  const recognitionQuery = isFreeText ? freeTextName : searchQuery;
+  const recognitionQuery = drugInput;
   const drugSearchResults = trpc.drugs.search.useQuery(
     { query: recognitionQuery },
     { enabled: recognitionQuery.trim().length >= 2 }
   );
-  const selectCatalogSuggestion = (drug: { id: number }) => {
+  const selectCatalogSuggestion = (drug: { id: number; brandName?: string | null; genericName?: string | null; genericNameAr?: string | null; strength?: string | null }) => {
+    const name = language === "ar" && drug.genericNameAr ? drug.genericNameAr : (drug.brandName || drug.genericName || "");
+    const label = [name, drug.strength].filter(Boolean).join(" · ");
     setSelectedDrugId(String(drug.id));
-    setSearchQuery("");
-    setIsFreeText(false);
+    setSelectedDrugLabel(label);
+    setDrugInput(label);
   };
 
   const urgencyColors: Record<string, string> = {
@@ -99,88 +101,47 @@ export default function RequestsPage() {
               <DialogTitle>{t("Create New Request")}</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
-              <div className="flex gap-4">
-                <Button
-                  variant={isFreeText ? "outline" : "default"}
-                  size="sm"
-                  onClick={() => setIsFreeText(false)}
-                >
-                  {t("Official Catalog")}
-                </Button>
-                <Button
-                  variant={isFreeText ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setIsFreeText(true)}
-                >
-                  {t("Free Text")}
-                </Button>
-              </div>
-
-              {!isFreeText ? (
-                <div className="space-y-2">
-                  <Label>{t("Select Drug")}</Label>
-                  <Input
-                    placeholder={t("Search drugs...")}
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                  {drugSearchResults.data && drugSearchResults.data.length > 0 && (
-                    <div className="max-h-32 overflow-y-auto rounded border border-border p-2 space-y-1">
-                      {drugSearchResults.data.map((drug) => (
-                        <button
-                          key={drug.id}
-                          className={`w-full text-start rounded px-2 py-1.5 text-sm hover:bg-accent ${
-                            selectedDrugId === String(drug.id) ? "bg-accent" : ""
-                          }`}
-                          onClick={() => {
-                            selectCatalogSuggestion(drug);
-                          }}
-                        >
-                          {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                  {selectedDrugId && (
-                    <p className="text-xs text-muted-foreground">
-                      {t("Selected drug")}: <span className="ltr-value">#{selectedDrugId}</span>
-                    </p>
-                  )}
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  <Label>{t("Drug Name")}</Label>
-                  <Input
-                    placeholder={language === "ar" ? "اكتب الاسم العلمي أو التجاري؛ سنعرض الخيارات القريبة" : "Type a scientific or trade name; close options will appear"}
-                    value={freeTextName}
-                    onChange={(e) => setFreeTextName(e.target.value)}
-                  />
-                  {freeTextName.trim().length >= 2 && !drugSearchResults.isLoading && (
-                    <div className="rounded border border-border bg-muted/20 p-2">
-                      <p className="mb-1 text-xs text-muted-foreground">
-                        {language === "ar" ? "خيارات من الكتالوج — اختر خياراً فقط إذا كان هو المقصود:" : "Catalog suggestions — choose one only if it is the intended medicine:"}
+              <div className="space-y-2">
+                <Label>{language === "ar" ? "اسم الدواء" : "Medicine name"}</Label>
+                <p className="text-xs text-muted-foreground">
+                  {language === "ar" ? "اكتب الاسم العلمي أو التجاري، ثم اختر اقتراحاً مطابقاً إذا كان هو الدواء المقصود." : "Type a scientific or trade name, then select a suggestion only if it is the intended medicine."}
+                </p>
+                <Input
+                  placeholder={language === "ar" ? "مثال: Paradol أو Paracetamol 500" : "Example: Paradol or Paracetamol 500"}
+                  value={drugInput}
+                  onChange={(e) => {
+                    setDrugInput(e.target.value);
+                    setSelectedDrugId("");
+                    setSelectedDrugLabel("");
+                  }}
+                />
+                {drugInput.trim().length >= 2 && !drugSearchResults.isLoading && (
+                  <div className="rounded border border-border bg-muted/20 p-2">
+                    {drugSearchResults.data && drugSearchResults.data.length > 0 ? (
+                      <div className="max-h-32 space-y-1 overflow-y-auto">
+                        {drugSearchResults.data.map((drug) => (
+                          <button
+                            key={drug.id}
+                            className="w-full rounded px-2 py-1.5 text-start text-sm hover:bg-accent"
+                            onClick={() => selectCatalogSuggestion(drug)}
+                          >
+                            {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-xs text-muted-foreground">
+                        {language === "ar" ? "لا توجد مطابقة قريبة؛ يمكنك إرسال الاسم كما كتبته." : "No close match was found; you may submit the name as entered."}
                       </p>
-                      {drugSearchResults.data && drugSearchResults.data.length > 0 ? (
-                        <div className="max-h-28 space-y-1 overflow-y-auto">
-                          {drugSearchResults.data.map((drug) => (
-                            <button
-                              key={drug.id}
-                              className="w-full rounded px-2 py-1.5 text-start text-sm hover:bg-accent"
-                              onClick={() => selectCatalogSuggestion(drug)}
-                            >
-                              {drug.brandName} ({language === "ar" && drug.genericNameAr ? drug.genericNameAr : drug.genericName}) - {drug.strength}
-                            </button>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-xs text-muted-foreground">
-                          {language === "ar" ? "لا توجد مطابقة قريبة؛ سيبقى الإدخال نصاً حراً دون اختراع اسم دواء." : "No close catalog match; the entry remains free text and no medicine is invented."}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
+                    )}
+                  </div>
+                )}
+                {selectedDrugId && (
+                  <p className="text-xs text-muted-foreground">
+                    {language === "ar" ? `تم اختيار مرجع الاسم: ${selectedDrugLabel}. هذا لا يعني توفر الدواء لدى المنصة.` : `Selected name reference: ${selectedDrugLabel}. This does not indicate platform availability.`}
+                  </p>
+                )}
+              </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -224,7 +185,7 @@ export default function RequestsPage() {
               <Button
                 className="w-full"
                 onClick={handleSubmit}
-                disabled={!entity.data || (isFreeText ? !freeTextName : !selectedDrugId) || !quantity}
+                disabled={!entity.data || !drugInput.trim() || !quantity}
               >
                 {t("Create Request")}
               </Button>

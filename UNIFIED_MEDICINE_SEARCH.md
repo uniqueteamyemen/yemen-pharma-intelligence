@@ -41,3 +41,7 @@ The public `drugs.search` API and shared search utility were tested against actu
 | Completely unrelated text | `Xylopharmzz` | Returned zero results. |
 
 The full test suite passed with **15 unit tests**, TypeScript validation, a production build, API scenario verification, and a visual review of the authenticated catalog, offer, and request pages.
+
+## Contextual entry verification
+
+Offer and Request now use one medicine-name field. The shared `buildMedicineEntryPayload` decision is covered by three unit tests: an explicitly selected suggestion produces a canonical `drugId`; an unselected typed value remains free text; and an empty input is rejected. Therefore, an internal suggestion never implies availability and never changes a typed name into a catalog record without the user's explicit choice.

@@ -19,7 +19,7 @@ export default function DrugsPage() {
 
   const searchableDrugs = searchQuery.trim()
     ? rankMedicinesBySearch(allDrugs.data || [], searchQuery)
-    : (allDrugs.data || []);
+    : [];
   const filteredDrugs = searchableDrugs.filter((drug) => category === "all" || drug.category === category);
   const hasSearch = searchQuery.trim().length > 0;
 
@@ -79,11 +79,21 @@ export default function DrugsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>{filteredDrugs.length} {t("Medicines") }</CardTitle>
+          <CardTitle>
+            {hasSearch
+              ? `${filteredDrugs.length} ${t("Medicines")}`
+              : (language === "ar" ? "ابحث عن اسم الدواء" : "Search for a medicine name")}
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {allDrugs.isLoading ? (
             <p className="text-muted-foreground">{t("Loading...")}</p>
+          ) : !hasSearch ? (
+            <p className="text-sm text-muted-foreground">
+              {language === "ar"
+                ? "تُستخدم القائمة الدوائية داخلياً للتعرّف. اكتب اسماً علمياً أو تجارياً أو تركيزاً لرؤية الاقتراحات المناسبة فقط."
+                : "The medicine list is used internally for recognition. Enter a scientific name, trade name, or strength to see only relevant suggestions."}
+            </p>
           ) : (
             <div className="space-y-2">
               {filteredDrugs.map((drug) => (
