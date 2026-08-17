@@ -27,3 +27,12 @@ The following concerns remain specific to this platform and were intentionally n
 ## Verification boundary
 
 The standalone project has equivalent unit coverage for pressure aggregation, review-status counting, source ordering, and reversible automatic acceptance. PharmaYemen is separately verified through its existing test suite, TypeScript check, and production build so the extraction remains non-invasive.
+
+## Verified repository state
+
+| Repository | Branch and commit | Verification |
+|---|---|---|
+| [PharmaYemen](https://github.com/uniqueteamyemen/yemen-pharma-intelligence/tree/feature/trade-name-integration-v2) | `feature/trade-name-integration-v2` at `3623ea6` | 21 unit tests passed, TypeScript check passed, and the production build passed. |
+| [Market Intelligence Engine](https://github.com/uniqueteamyemen/market-intelligence-engine) | `master` at `a06a8c1` | 3 unit tests passed, TypeScript check passed, and the library build passed. |
+
+Both repositories are private. The generic engine contains no PharmaYemen runtime import, no pharmaceutical record, and no hard-coded domain terminology in its analytical API.
