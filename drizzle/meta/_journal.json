@@ -15,6 +15,13 @@
       "when": 1786916979437,
       "tag": "0001_striped_wilson_fisk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786924038796,
+      "tag": "0002_brief_vin_gonzales",
+      "breakpoints": true
     }
   ]
 }

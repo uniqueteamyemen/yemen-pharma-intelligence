@@ -439,7 +439,10 @@ export const appRouter = router({
   // MARKET INTELLIGENCE
   // ============================================================
   intelligence: router({
-    signals: publicProcedure
+    dashboard: adminProcedure.query(async () => {
+      return db.getMarketIntelligenceDashboard();
+    }),
+    signals: adminProcedure
       .input(z.object({
         signalType: z.enum(["shortage", "surplus", "invisible_inventory", "price_anomaly", "trend_shift"]).optional(),
         severity: z.enum(["low", "medium", "high", "critical"]).optional(),
@@ -463,6 +466,54 @@ export const appRouter = router({
       }))
       .mutation(async ({ input }) => {
         return db.createMarketSignal(input);
+      }),
+    externalSources: adminProcedure.query(async () => {
+      return db.getExternalMarketSources();
+    }),
+    addExternalSource: adminProcedure
+      .input(z.object({
+        name: z.string().min(2).max(200),
+        platform: z.enum(["telegram", "facebook", "website", "other"]),
+        sourceUrl: z.string().url().max(500),
+        autoApproveSignals: z.boolean().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        return db.createExternalMarketSource({
+          ...input,
+          createdByUserId: ctx.user!.id,
+        });
+      }),
+    updateExternalSource: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        isActive: z.boolean().optional(),
+        autoApproveSignals: z.boolean().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...data } = input;
+        await db.updateExternalMarketSource(id, data);
+        return { success: true };
+      }),
+    externalSignals: adminProcedure
+      .input(z.object({
+        reviewStatus: z.enum(["pending", "approved", "rejected", "auto_approved"]).optional(),
+        limit: z.number().min(1).max(100).optional(),
+      }).optional())
+      .query(async ({ input }) => {
+        return db.getExternalMarketSignals(input);
+      }),
+    reviewExternalSignal: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        reviewStatus: z.enum(["approved", "rejected"]),
+        reviewNote: z.string().max(1000).optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        await db.reviewExternalMarketSignal({
+          ...input,
+          reviewedByUserId: ctx.user!.id,
+        });
+        return { success: true };
       }),
   }),
 

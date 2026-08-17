@@ -16,10 +16,13 @@ import {
   messages, Message,
   notifications, Notification,
   marketSignals, MarketSignal,
+  externalMarketSources, ExternalMarketSource,
+  externalMarketSignals, ExternalMarketSignal,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 import { medicineMatchesQuery, medicineSearchRank, normalizeMedicineSearch } from "../shared/medicineSearch";
 import { calculateCappedMatchScore, canonicalDrugIdsMatch } from "../shared/medicineMatching";
+import { determineExternalSignalReviewStatus } from "../shared/externalSignalGovernance";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -931,4 +934,245 @@ export async function createMarketSignal(data: {
     confidence: data.confidence || 0,
   });
   return { id: result.insertId };
+}
+
+// ============================================================
+// INTERNAL MARKET ANALYTICS & EXTERNAL SIGNAL GOVERNANCE
+// ============================================================
+
+export async function getMarketIntelligenceDashboard() {
+  const db = await getDb();
+  if (!db) {
+    return {
+      generatedAt: new Date(),
+      totals: { activeOffers: 0, openRequests: 0, governoratesWithDemand: 0, pendingExternalReviews: 0 },
+      governorates: [],
+      topMedicines: [],
+      external: { sources: [], reviewCounts: { pending: 0, approved: 0, rejected: 0, autoApproved: 0 } },
+    };
+  }
+
+  const [governorateRows, offerRows, requestRows, sourceRows, externalReviewRows] = await Promise.all([
+    db.select({ id: governorates.id, name: governorates.name, nameAr: governorates.nameAr }).from(governorates),
+    db.select({
+      governorateId: entities.governorateId,
+      drugId: offers.drugId,
+      count: sql<number>`count(*)`,
+    })
+      .from(offers)
+      .innerJoin(entities, eq(offers.entityId, entities.id))
+      .where(and(eq(offers.status, "active"), eq(offers.isDeleted, false)))
+      .groupBy(entities.governorateId, offers.drugId),
+    db.select({
+      governorateId: entities.governorateId,
+      drugId: requests.drugId,
+      count: sql<number>`count(*)`,
+    })
+      .from(requests)
+      .innerJoin(entities, eq(requests.entityId, entities.id))
+      .where(and(eq(requests.status, "open"), eq(requests.isDeleted, false)))
+      .groupBy(entities.governorateId, requests.drugId),
+    db.select().from(externalMarketSources).orderBy(desc(externalMarketSources.updatedAt)),
+    db.select({ reviewStatus: externalMarketSignals.reviewStatus, count: sql<number>`count(*)` })
+      .from(externalMarketSignals)
+      .groupBy(externalMarketSignals.reviewStatus),
+  ]);
+
+  const governorateStats = new Map<number, { supplyCount: number; demandCount: number }>();
+  const medicineStats = new Map<number, { supplyCount: number; demandCount: number }>();
+  const activeOfferCount = offerRows.reduce((total, row) => total + Number(row.count), 0);
+  const openRequestCount = requestRows.reduce((total, row) => total + Number(row.count), 0);
+
+  for (const row of offerRows) {
+    if (row.governorateId) {
+      const current = governorateStats.get(row.governorateId) ?? { supplyCount: 0, demandCount: 0 };
+      current.supplyCount += Number(row.count);
+      governorateStats.set(row.governorateId, current);
+    }
+    if (row.drugId) {
+      const current = medicineStats.get(row.drugId) ?? { supplyCount: 0, demandCount: 0 };
+      current.supplyCount += Number(row.count);
+      medicineStats.set(row.drugId, current);
+    }
+  }
+
+  for (const row of requestRows) {
+    if (row.governorateId) {
+      const current = governorateStats.get(row.governorateId) ?? { supplyCount: 0, demandCount: 0 };
+      current.demandCount += Number(row.count);
+      governorateStats.set(row.governorateId, current);
+    }
+    if (row.drugId) {
+      const current = medicineStats.get(row.drugId) ?? { supplyCount: 0, demandCount: 0 };
+      current.demandCount += Number(row.count);
+      medicineStats.set(row.drugId, current);
+    }
+  }
+
+  const drugIds = Array.from(medicineStats.keys());
+  const drugRows = drugIds.length
+    ? await db.select({ id: drugs.id, genericName: drugs.genericName, genericNameAr: drugs.genericNameAr, strength: drugs.strength })
+      .from(drugs)
+      .where(inArray(drugs.id, drugIds))
+    : [];
+  const drugById = new Map(drugRows.map((drug) => [drug.id, drug]));
+
+  const reviewCounts = { pending: 0, approved: 0, rejected: 0, autoApproved: 0 };
+  for (const row of externalReviewRows) {
+    const count = Number(row.count);
+    if (row.reviewStatus === "pending") reviewCounts.pending = count;
+    if (row.reviewStatus === "approved") reviewCounts.approved = count;
+    if (row.reviewStatus === "rejected") reviewCounts.rejected = count;
+    if (row.reviewStatus === "auto_approved") reviewCounts.autoApproved = count;
+  }
+
+  return {
+    generatedAt: new Date(),
+    totals: {
+      activeOffers: activeOfferCount,
+      openRequests: openRequestCount,
+      governoratesWithDemand: Array.from(governorateStats.values()).filter((item) => item.demandCount > 0).length,
+      pendingExternalReviews: reviewCounts.pending,
+    },
+    governorates: governorateRows
+      .map((governorate) => {
+        const stats = governorateStats.get(governorate.id) ?? { supplyCount: 0, demandCount: 0 };
+        return {
+          ...governorate,
+          ...stats,
+          pressure: Math.max(0, stats.demandCount - stats.supplyCount),
+        };
+      })
+      .filter((item) => item.supplyCount > 0 || item.demandCount > 0)
+      .sort((a, b) => b.pressure - a.pressure || b.demandCount - a.demandCount),
+    topMedicines: Array.from(medicineStats.entries())
+      .map(([drugId, stats]) => ({
+        drugId,
+        ...drugById.get(drugId),
+        ...stats,
+        pressure: Math.max(0, stats.demandCount - stats.supplyCount),
+      }))
+      .sort((a, b) => b.pressure - a.pressure || b.demandCount - a.demandCount)
+      .slice(0, 8),
+    external: { sources: sourceRows, reviewCounts },
+  };
+}
+
+export async function getExternalMarketSources(): Promise<ExternalMarketSource[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(externalMarketSources).orderBy(desc(externalMarketSources.updatedAt));
+}
+
+export async function createExternalMarketSource(data: {
+  name: string;
+  platform: ExternalMarketSource["platform"];
+  sourceUrl: string;
+  autoApproveSignals?: boolean;
+  createdByUserId: number;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const [result] = await db.insert(externalMarketSources).values({
+    ...data,
+    autoApproveSignals: data.autoApproveSignals ?? false,
+  });
+  return { id: result.insertId };
+}
+
+export async function updateExternalMarketSource(id: number, data: {
+  isActive?: boolean;
+  autoApproveSignals?: boolean;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(externalMarketSources).set(data).where(eq(externalMarketSources.id, id));
+}
+
+export async function getExternalMarketSignals(filters?: {
+  reviewStatus?: ExternalMarketSignal["reviewStatus"];
+  limit?: number;
+}) {
+  const db = await getDb();
+  if (!db) return [];
+  const query = db.select({
+    signal: externalMarketSignals,
+    source: externalMarketSources,
+    drug: drugs,
+    governorate: governorates,
+  })
+    .from(externalMarketSignals)
+    .innerJoin(externalMarketSources, eq(externalMarketSignals.sourceId, externalMarketSources.id))
+    .leftJoin(drugs, eq(externalMarketSignals.drugId, drugs.id))
+    .leftJoin(governorates, eq(externalMarketSignals.governorateId, governorates.id));
+
+  const rows = filters?.reviewStatus
+    ? await query.where(eq(externalMarketSignals.reviewStatus, filters.reviewStatus)).orderBy(desc(externalMarketSignals.observedAt))
+    : await query.orderBy(desc(externalMarketSignals.observedAt));
+  return filters?.limit ? rows.slice(0, filters.limit) : rows;
+}
+
+export async function ingestExternalMarketSignal(input: {
+  sourceId: number;
+  externalReference: string;
+  evidenceUrl?: string;
+  signalType: "shortage" | "rare_medicine" | "demand";
+  drugId?: number;
+  freeTextName?: string;
+  governorateId?: number;
+  severity?: "low" | "medium" | "high" | "critical";
+  confidence?: number;
+  summary: string;
+  observedAt: Date;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const [source] = await db.select().from(externalMarketSources)
+    .where(eq(externalMarketSources.id, input.sourceId))
+    .limit(1);
+  if (!source || !source.isActive) {
+    throw new Error("External source is unavailable or paused");
+  }
+
+  const reviewStatus = determineExternalSignalReviewStatus(source.autoApproveSignals);
+  const [result] = await db.insert(externalMarketSignals).values({
+    ...input,
+    severity: input.severity ?? "medium",
+    confidence: input.confidence ?? 0,
+    reviewStatus,
+    reviewedAt: reviewStatus === "auto_approved" ? new Date() : undefined,
+  });
+
+  if (reviewStatus === "pending") {
+    const admins = await db.select({ id: users.id }).from(users).where(eq(users.role, "admin"));
+    if (admins.length) {
+      await db.insert(notifications).values(admins.map((admin) => ({
+        userId: admin.id,
+        type: "signal_alert" as const,
+        title: "External market signal awaiting review",
+        body: `${source.name}: ${input.summary}`,
+        relatedEntityId: result.insertId,
+        relatedType: "external_market_signal",
+      })));
+    }
+  }
+
+  return { id: result.insertId, reviewStatus };
+}
+
+export async function reviewExternalMarketSignal(input: {
+  id: number;
+  reviewedByUserId: number;
+  reviewStatus: "approved" | "rejected";
+  reviewNote?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(externalMarketSignals).set({
+    reviewStatus: input.reviewStatus,
+    reviewedByUserId: input.reviewedByUserId,
+    reviewNote: input.reviewNote,
+    reviewedAt: new Date(),
+  }).where(and(eq(externalMarketSignals.id, input.id), eq(externalMarketSignals.reviewStatus, "pending")));
 }

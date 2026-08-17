@@ -81,9 +81,11 @@ export default function DashboardLayout({
 
   return (
     <SidebarProvider
+      dir="ltr"
       style={
         {
           "--sidebar-width": `${sidebarWidth}px`,
+          direction: "ltr",
         } as CSSProperties
       }
     >
@@ -109,7 +111,7 @@ function DashboardLayoutContent({
   const isCollapsed = state === "collapsed";
   const [isResizing, setIsResizing] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const menuItems = getMenuItems(user, t);
   const activeMenuItem = menuItems.find((item: any) => item.path === location);
   const isMobile = useIsMobile();
@@ -156,6 +158,7 @@ function DashboardLayoutContent({
         <Sidebar
           collapsible="icon"
           className="border-r-0"
+          dir={language === "ar" ? "rtl" : "ltr"}
           disableTransition={isResizing}
         >
           <SidebarHeader className="h-16 justify-center">
@@ -241,7 +244,7 @@ function DashboardLayoutContent({
         />
       </div>
 
-      <SidebarInset>
+      <SidebarInset className="min-w-0 w-auto" dir={language === "ar" ? "rtl" : "ltr"}>
         {isMobile && (
           <div className="flex border-b h-14 items-center justify-between bg-background/95 px-2 backdrop-blur supports-[backdrop-filter]:backdrop-blur sticky top-0 z-40">
             <div className="flex items-center gap-2">

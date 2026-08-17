@@ -388,6 +388,72 @@ export const marketSignals = mysqlTable("marketSignals", {
 
 export type MarketSignal = typeof marketSignals.$inferSelect;
 export type InsertMarketSignal = typeof marketSignals.$inferInsert;
+
+// ============================================================
+// EXTERNAL MARKET SIGNAL GOVERNANCE
+// ============================================================
+
+/**
+ * Admin-managed sources for external market observations. `autoApproveSignals`
+ * is an explicit, reversible operational setting—not a permanent trust claim.
+ */
+export const externalMarketSources = mysqlTable("external_market_sources", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 200 }).notNull(),
+  platform: mysqlEnum("platform", ["telegram", "facebook", "website", "other"]).notNull(),
+  sourceUrl: varchar("sourceUrl", { length: 500 }).notNull(),
+  isActive: boolean("isActive").default(true).notNull(),
+  autoApproveSignals: boolean("autoApproveSignals").default(false).notNull(),
+  createdByUserId: int("createdByUserId").references(() => users.id).notNull(),
+  lastCheckedAt: timestamp("lastCheckedAt"),
+  lastSucceededAt: timestamp("lastSucceededAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => [
+  uniqueIndex("external_source_url_idx").on(table.sourceUrl),
+  index("external_source_active_idx").on(table.isActive),
+  index("external_source_platform_idx").on(table.platform),
+]);
+
+export type ExternalMarketSource = typeof externalMarketSources.$inferSelect;
+export type InsertExternalMarketSource = typeof externalMarketSources.$inferInsert;
+
+/**
+ * Evidence-level external observations. They remain separate from internal
+ * offers/requests until the admin approves them or enables reversible
+ * auto-approval for that source.
+ */
+export const externalMarketSignals = mysqlTable("external_market_signals", {
+  id: int("id").autoincrement().primaryKey(),
+  sourceId: int("sourceId").references(() => externalMarketSources.id).notNull(),
+  externalReference: varchar("externalReference", { length: 255 }).notNull(),
+  evidenceUrl: varchar("evidenceUrl", { length: 500 }),
+  signalType: mysqlEnum("signalType", ["shortage", "rare_medicine", "demand"]).notNull(),
+  drugId: int("drugId").references(() => drugs.id),
+  freeTextName: varchar("freeTextName", { length: 200 }),
+  governorateId: int("governorateId").references(() => governorates.id),
+  severity: mysqlEnum("severity", ["low", "medium", "high", "critical"]).default("medium").notNull(),
+  confidence: int("confidence").default(0).notNull(),
+  summary: text("summary").notNull(),
+  observedAt: timestamp("observedAt").notNull(),
+  reviewStatus: mysqlEnum("reviewStatus", ["pending", "approved", "rejected", "auto_approved"])
+    .default("pending")
+    .notNull(),
+  reviewedByUserId: int("reviewedByUserId").references(() => users.id),
+  reviewNote: text("reviewNote"),
+  reviewedAt: timestamp("reviewedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => [
+  uniqueIndex("external_signal_reference_idx").on(table.sourceId, table.externalReference),
+  index("external_signal_review_idx").on(table.reviewStatus),
+  index("external_signal_source_idx").on(table.sourceId),
+  index("external_signal_governorate_idx").on(table.governorateId),
+  index("external_signal_observed_idx").on(table.observedAt),
+]);
+
+export type ExternalMarketSignal = typeof externalMarketSignals.$inferSelect;
+export type InsertExternalMarketSignal = typeof externalMarketSignals.$inferInsert;
 // ============================================================
 // REFERENCE DRUGS (Official Drug Catalog - seeded from national data)
 // ============================================================
