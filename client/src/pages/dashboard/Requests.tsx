@@ -16,6 +16,7 @@ import { Loader2, Plus } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildMedicineEntryPayload } from "@shared/medicineEntry";
+import { therapeuticCategories, therapeuticCategoryLabel } from "@/lib/medicineCategories";
 
 export default function RequestsPage() {
   const { language, t } = useLanguage();
@@ -25,6 +26,7 @@ export default function RequestsPage() {
   const [drugInput, setDrugInput] = useState("");
   const [selectedDrugId, setSelectedDrugId] = useState<string>("");
   const [selectedDrugLabel, setSelectedDrugLabel] = useState("");
+  const [therapeuticCategory, setTherapeuticCategory] = useState("all");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("boxes");
   const [urgency, setUrgency] = useState<string>("medium");
@@ -70,6 +72,9 @@ export default function RequestsPage() {
     { query: recognitionQuery },
     { enabled: recognitionQuery.trim().length >= 2 }
   );
+  const filteredSuggestions = (drugSearchResults.data || []).filter(
+    (drug) => therapeuticCategory === "all" || drug.category === therapeuticCategory,
+  );
   const selectCatalogSuggestion = (drug: { id: number; brandName?: string | null; genericName?: string | null; genericNameAr?: string | null; strength?: string | null }) => {
     const name = language === "ar" && drug.genericNameAr ? drug.genericNameAr : (drug.brandName || drug.genericName || "");
     const label = [name, drug.strength].filter(Boolean).join(" · ");
@@ -111,6 +116,10 @@ export default function RequestsPage() {
                 <p className="text-xs text-muted-foreground">
                   {language === "ar" ? "الاقتراحات تساعد على التعرّف فقط ولا تعني أن الدواء متوفر لدى المنصة." : "Suggestions support identification only; they do not indicate platform availability."}
                 </p>
+                <Select value={therapeuticCategory} onValueChange={(value) => { setTherapeuticCategory(value); setSelectedDrugId(""); setSelectedDrugLabel(""); }}>
+                  <SelectTrigger aria-label={language === "ar" ? "تصفية حسب الفئة العلاجية" : "Filter by therapeutic category"}><SelectValue /></SelectTrigger>
+                  <SelectContent>{therapeuticCategories.map((item) => <SelectItem key={item.value} value={item.value}>{therapeuticCategoryLabel(item.value, language)}</SelectItem>)}</SelectContent>
+                </Select>
                 <Input
                   placeholder={language === "ar" ? "مثال: Paradol أو Paracetamol 500" : "Example: Paradol or Paracetamol 500"}
                   value={drugInput}
@@ -128,9 +137,9 @@ export default function RequestsPage() {
                 )}
                 {drugInput.trim().length >= 2 && !drugSearchResults.isFetching && (
                   <div className="rounded border border-border bg-muted/20 p-2">
-                    {drugSearchResults.data && drugSearchResults.data.length > 0 ? (
+                    {filteredSuggestions.length > 0 ? (
                       <div className="max-h-32 space-y-1 overflow-y-auto">
-                        {drugSearchResults.data.map((drug) => (
+                        {filteredSuggestions.map((drug) => (
                           <button
                             key={drug.id}
                             className="w-full rounded px-2 py-1.5 text-start text-sm hover:bg-accent"
@@ -142,7 +151,7 @@ export default function RequestsPage() {
                       </div>
                     ) : (
                       <p className="text-xs text-muted-foreground">
-                        {language === "ar" ? "لا توجد مطابقة قريبة؛ يمكنك إرسال الاسم كما كتبته." : "No close match was found; you may submit the name as entered."}
+                        {therapeuticCategory !== "all" ? (language === "ar" ? "لا توجد اقتراحات ضمن الفئة المختارة؛ غيّر الفئة أو أرسل الاسم كنص حر." : "No suggestions match the selected category; change the category or submit the name as free text.") : (language === "ar" ? "لا توجد مطابقة قريبة؛ يمكنك إرسال الاسم كما كتبته." : "No close match was found; you may submit the name as entered.")}
                       </p>
                     )}
                   </div>

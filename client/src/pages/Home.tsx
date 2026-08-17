@@ -23,6 +23,9 @@ import { Link } from "wouter";
 import { BrandLockup } from "@/components/BrandLockup";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AlertCircle } from "lucide-react";
+import { useState } from "react";
 
 type FeaturePoint = {
   icon: typeof Pill;
@@ -34,6 +37,22 @@ export default function Home() {
   const { isAuthenticated, loading } = useAuth();
   const { language, t } = useLanguage();
   const isAr = language === "ar";
+  const [loginError, setLoginError] = useState(false);
+  const beginLogin = () => {
+    try {
+      setLoginError(false);
+      startLogin();
+    } catch {
+      setLoginError(true);
+    }
+  };
+
+  const faqs = [
+    { q: isAr ? "هل تبيع PharmaYemen الأدوية أو تستقبل مدفوعات؟" : "Does PharmaYemen sell medicines or accept payments?", a: isAr ? "لا. المنصة تعرض معلومات العرض والطلب وفرص التنسيق فقط، بينما البيع والشراء والتوريد تتم خارج المنصة وبمسؤولية الأطراف." : "No. The platform surfaces supply, demand, and coordination opportunities only. Sales, purchasing, and delivery happen outside the platform under the parties’ responsibility." },
+    { q: isAr ? "هل أحتاج إلى اختيار دواء من القائمة دائماً؟" : "Must I always select a medicine from the list?", a: isAr ? "لا. الاقتراحات تساعد على التعرف على الاسم، ويمكن حفظ الاسم كنص حر إذا لم يكن أي اقتراح مناسباً." : "No. Suggestions help identify the name, and an entered name can be saved as free text when no suggestion is appropriate." },
+    { q: isAr ? "هل يعني ظهور تطابق أن الدواء متوفر أو أن الصفقة تمت؟" : "Does a match mean the medicine is available or a deal is complete?", a: isAr ? "لا. التطابق يعني وجود فرصة تنسيق عند تشابه الاسم، ثم تتواصل الجهات المعنية وتتفق خارج المنصة." : "No. A match indicates a coordination opportunity when names align; the relevant entities then communicate and agree outside the platform." },
+    { q: isAr ? "كيف تحمي المنصة البيانات؟" : "How does the platform protect data?", a: isAr ? "يتم الدخول عبر مزود هوية آمن، وتظهر البيانات بحسب المستخدم والجهة والصلاحيات. لا تطلب المنصة كلمة مرور داخل واجهتها." : "Access uses a secure identity provider, and data is shown according to the user, entity, and permissions. The platform does not collect passwords directly." },
+  ];
 
   const userJourney = [
     {
@@ -122,7 +141,7 @@ export default function Home() {
             isAuthenticated ? (
               <Link href="/dashboard"><Button size="sm">{t("Dashboard")}</Button></Link>
             ) : (
-              <Button onClick={() => startLogin()} size="sm">{t("Sign in")}</Button>
+              <Button onClick={beginLogin} size="sm">{t("Sign in")}</Button>
             )
           )}
         </div>
@@ -156,12 +175,18 @@ export default function Home() {
                     </Button>
                   </Link>
                 ) : (
-                  <Button onClick={() => startLogin()} size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/20">
+                  <Button onClick={beginLogin} size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/20">
                     {t("Get Started")}<ArrowRight className="ms-2 h-4 w-4" />
                   </Button>
                 )}
                 <Link href="/about"><Button variant="outline" size="lg" className="h-12 px-8 text-base">{t("Learn More")}</Button></Link>
               </div>
+              {loginError && (
+                <p className="mt-4 flex items-center gap-2 text-sm text-destructive" role="alert">
+                  <AlertCircle className="h-4 w-4" />
+                  {isAr ? "تعذّر بدء تسجيل الدخول. حدّث الصفحة وتأكد من السماح بملفات تعريف الارتباط ثم أعد المحاولة." : "We could not start sign-in. Refresh the page, allow cookies, then try again."}
+                </p>
+              )}
             </div>
 
             <Card className="overflow-hidden border-primary/15 bg-card/85 shadow-xl shadow-primary/5 backdrop-blur-sm">
@@ -286,6 +311,24 @@ export default function Home() {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 md:py-24" aria-labelledby="faq-title">
+          <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold text-primary">{isAr ? "أسئلة شائعة" : "Frequently asked questions"}</p>
+              <h2 id="faq-title" className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">{isAr ? "إجابات واضحة قبل أن تبدأ" : "Clear answers before you begin"}</h2>
+              <p className="leading-relaxed text-muted-foreground">{isAr ? "نوضح حدود المنصة وطريقة المطابقة والدخول الآمن حتى تبدأ الجهة من معلومات صحيحة." : "We clarify platform boundaries, matching, and secure access so each entity starts with the right information."}</p>
+            </div>
+            <Accordion type="single" collapsible className="rounded-2xl border border-border/70 bg-card px-6">
+              {faqs.map((item, index) => (
+                <AccordionItem key={item.q} value={`faq-${index}`}>
+                  <AccordionTrigger className="text-start text-base">{item.q}</AccordionTrigger>
+                  <AccordionContent className="leading-relaxed text-muted-foreground">{item.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </section>
 

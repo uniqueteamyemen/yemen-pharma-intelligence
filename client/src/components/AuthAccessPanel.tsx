@@ -1,4 +1,5 @@
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { AlertCircle, ArrowRight, Loader2, ShieldCheck } from "lucide-react";
+import { useState } from "react";
 import { startLogin } from "@/const";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BrandLockup } from "./BrandLockup";
@@ -8,6 +9,7 @@ import { Button } from "./ui/button";
 export function AuthAccessPanel() {
   const { language } = useLanguage();
   const isAr = language === "ar";
+  const [loginState, setLoginState] = useState<"idle" | "redirecting" | "error">("idle");
 
   const copy = isAr
     ? {
@@ -16,6 +18,8 @@ export function AuthAccessPanel() {
         body: "سجّل الدخول بحسابك الآمن. بعد الدخول يمكنك تسجيل جهتك ومتابعة العروض والطلبات والمطابقات وفق صلاحياتها.",
         action: "المتابعة إلى تسجيل الدخول",
         note: "لا نطلب كلمة مرور داخل المنصة ولا نعالج أي مدفوعات.",
+        loading: "جارٍ تحويلك إلى صفحة الدخول الآمن… إذا لم تفتح الصفحة خلال ثوانٍ، أعد المحاولة.",
+        error: "تعذّر بدء تسجيل الدخول. حدّث الصفحة وتأكد من السماح بملفات تعريف الارتباط، ثم أعد المحاولة.",
       }
     : {
         eyebrow: "Secure access for verified entities",
@@ -23,6 +27,8 @@ export function AuthAccessPanel() {
         body: "Sign in with your secure account. After access, register your entity and work with offers, requests, and matches according to its permissions.",
         action: "Continue to sign in",
         note: "The platform never collects passwords directly or processes payments.",
+        loading: "Taking you to secure sign-in… If the page does not open shortly, please try again.",
+        error: "We could not start sign-in. Refresh the page, allow cookies, then try again.",
       };
 
   return (
@@ -42,7 +48,8 @@ export function AuthAccessPanel() {
             <ShieldCheck aria-hidden="true" />
             <span>{copy.note}</span>
           </div>
-          <Button onClick={() => startLogin()} size="lg" className="auth-access-card__button">
+          {loginState !== "idle" && <p className={loginState === "error" ? "auth-access-card__error" : "auth-access-card__status"} role={loginState === "error" ? "alert" : "status"}>{loginState === "error" ? <AlertCircle aria-hidden="true" /> : <Loader2 className="animate-spin" aria-hidden="true" />}<span>{loginState === "error" ? copy.error : copy.loading}</span></p>}
+          <Button onClick={() => { try { setLoginState("redirecting"); startLogin(); } catch { setLoginState("error"); } }} size="lg" className="auth-access-card__button" disabled={loginState === "redirecting"}>
             {copy.action}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Button>

@@ -9,6 +9,7 @@ import {
 import { Search, Pill } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { rankMedicinesBySearch } from "@shared/medicineSearch";
+import { therapeuticCategories, therapeuticCategoryLabel } from "@/lib/medicineCategories";
 
 export default function DrugsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,23 +21,10 @@ export default function DrugsPage() {
   const searchableDrugs = searchQuery.trim()
     ? rankMedicinesBySearch(allDrugs.data || [], searchQuery)
     : [];
-  const filteredDrugs = searchableDrugs.filter((drug) => category === "all" || drug.category === category);
+  const categoryDrugs = (allDrugs.data || []).filter((drug) => category === "all" || drug.category === category);
+  const filteredDrugs = searchQuery.trim() ? searchableDrugs.filter((drug) => category === "all" || drug.category === category) : categoryDrugs;
   const hasSearch = searchQuery.trim().length > 0;
-
-  const categories = [
-    { value: "all", label: t("All Categories") },
-    { value: "antibiotics", label: t("Antibiotics") },
-    { value: "analgesics", label: t("Analgesics") },
-    { value: "cardiovascular", label: t("Cardiovascular") },
-    { value: "endocrine", label: t("Endocrine") },
-    { value: "gastrointestinal", label: t("Gastrointestinal") },
-    { value: "respiratory", label: t("Respiratory") },
-    { value: "antifungal", label: t("Antifungal") },
-    { value: "antiviral", label: t("Antiviral") },
-    { value: "vitamins", label: t("Vitamins") },
-    { value: "neurological", label: t("Neurological") },
-    { value: "other", label: t("Other") },
-  ];
+  const hasFilter = category !== "all";
 
   return (
     <div className="space-y-6 p-6">
@@ -60,17 +48,17 @@ export default function DrugsPage() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            {categories.map((cat) => (
-              <SelectItem key={cat.value} value={cat.value}>{cat.label}</SelectItem>
+            {therapeuticCategories.map((cat) => (
+              <SelectItem key={cat.value} value={cat.value}>{therapeuticCategoryLabel(cat.value, language)}</SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
 
-      {hasSearch && !allDrugs.isLoading && (
+      {(hasSearch || hasFilter) && !allDrugs.isLoading && (
         <p className="text-sm text-muted-foreground" aria-live="polite">
           {filteredDrugs.length > 1
-            ? (language === "ar" ? "هذه خيارات متقاربة من الكتالوج؛ اختر الشكل والتركيز المناسبين." : "These are close catalog options; choose the appropriate formulation and strength.")
+            ? (language === "ar" ? `تظهر ${filteredDrugs.length} خيارات ضمن ${therapeuticCategoryLabel(category, "ar")}. اختر الشكل والتركيز المناسبين.` : `${filteredDrugs.length} catalog options are shown within ${therapeuticCategoryLabel(category, "en")}. Choose the appropriate formulation and strength.`)
             : filteredDrugs.length === 0
               ? (language === "ar" ? "لم يُعثر على اسم قريب في البيانات الحالية." : "No close name was found in the current data.")
               : (language === "ar" ? "تم العثور على خيار قريب من الاسم المدخل." : "A close catalog option was found.")}
@@ -80,7 +68,7 @@ export default function DrugsPage() {
       <Card>
         <CardHeader>
           <CardTitle>
-            {hasSearch
+            {hasSearch || hasFilter
               ? `${filteredDrugs.length} ${t("Medicines")}`
               : (language === "ar" ? "ابحث عن اسم الدواء" : "Search for a medicine name")}
           </CardTitle>
@@ -88,7 +76,7 @@ export default function DrugsPage() {
         <CardContent>
           {allDrugs.isLoading ? (
             <p className="text-muted-foreground">{t("Loading...")}</p>
-          ) : !hasSearch ? (
+          ) : !hasSearch && !hasFilter ? (
             <p className="text-sm text-muted-foreground">
               {language === "ar"
                 ? "تُستخدم القائمة الدوائية داخلياً للتعرّف. اكتب اسماً علمياً أو تجارياً أو تركيزاً لرؤية الاقتراحات المناسبة فقط."
@@ -119,7 +107,7 @@ export default function DrugsPage() {
                     </div>
                   </div>
                   <div className="flex flex-wrap justify-end gap-1.5">
-                    <Badge variant="outline" className="text-xs capitalize">{t(drug.category, drug.category)}</Badge>
+                    <Badge variant="outline" className="text-xs">{therapeuticCategoryLabel(drug.category, language)}</Badge>
                   </div>
                 </div>
               ))}
