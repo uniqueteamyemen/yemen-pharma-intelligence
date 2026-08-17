@@ -4,6 +4,8 @@
 
 The reusable analytical core of the administrative market-intelligence dashboard has been extracted into a separate project. The extraction does **not** remove, replace, or modify the working PharmaYemen dashboard. This platform remains the domain integration that supplies pharmaceutical offers, requests, drug labels, governorates, user identities, database persistence, and the authenticated administrative interface.
 
+The private standalone repository is available at [uniqueteamyemen/market-intelligence-engine](https://github.com/uniqueteamyemen/market-intelligence-engine).
+
 ## Extracted responsibilities
 
 | Capability | Generic engine representation |
