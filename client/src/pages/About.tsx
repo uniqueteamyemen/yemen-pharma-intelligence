@@ -341,6 +341,7 @@ export default function AboutPage() {
       {/* Footer */}
       <footer className="border-t border-border bg-card/30 mt-20 py-8 text-center text-xs text-muted-foreground">
         <p>© 2026 Yemen Pharma Intelligence (PharmaYemen). {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}</p>
+        <a href="mailto:baker@deterministicsolutionsdesign.com" dir="ltr" className="mt-3 inline-flex max-w-full break-all rounded-md text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">baker@deterministicsolutionsdesign.com</a>
       </footer>
     </div>
   );

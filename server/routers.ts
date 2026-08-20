@@ -5,6 +5,7 @@ import { publicProcedure, protectedProcedure, adminProcedure, router } from "./_
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import * as db from "./db";
+import { therapeuticSearchCategories, therapeuticSearchContexts } from "../shared/therapeuticSearchAnalytics";
 
 export const appRouter = router({
   system: systemRouter,
@@ -442,6 +443,14 @@ export const appRouter = router({
     dashboard: adminProcedure.query(async () => {
       return db.getMarketIntelligenceDashboard();
     }),
+    recordTherapeuticSearch: publicProcedure
+      .input(z.object({
+        category: z.enum(therapeuticSearchCategories),
+        context: z.enum(therapeuticSearchContexts),
+      }))
+      .mutation(async ({ input }) => {
+        return db.recordTherapeuticCategorySearch(input);
+      }),
     signals: adminProcedure
       .input(z.object({
         signalType: z.enum(["shortage", "surplus", "invisible_inventory", "price_anomaly", "trend_shift"]).optional(),

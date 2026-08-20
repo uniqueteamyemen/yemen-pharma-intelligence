@@ -18,11 +18,13 @@ import {
   marketSignals, MarketSignal,
   externalMarketSources, ExternalMarketSource,
   externalMarketSignals, ExternalMarketSignal,
+  therapeuticSearchEvents,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 import { medicineMatchesQuery, medicineSearchRank, normalizeMedicineSearch } from "../shared/medicineSearch";
 import { calculateCappedMatchScore, canonicalDrugIdsMatch } from "../shared/medicineMatching";
 import { determineExternalSignalReviewStatus } from "../shared/externalSignalGovernance";
+import type { TherapeuticSearchCategory, TherapeuticSearchContext } from "../shared/therapeuticSearchAnalytics";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -948,11 +950,12 @@ export async function getMarketIntelligenceDashboard() {
       totals: { activeOffers: 0, openRequests: 0, governoratesWithDemand: 0, pendingExternalReviews: 0 },
       governorates: [],
       topMedicines: [],
+      searchAnalytics: { windowDays: 30, totalTrackedSearches: 0, topCategories: [] },
       external: { sources: [], reviewCounts: { pending: 0, approved: 0, rejected: 0, autoApproved: 0 } },
     };
   }
 
-  const [governorateRows, offerRows, requestRows, sourceRows, externalReviewRows] = await Promise.all([
+  const [governorateRows, offerRows, requestRows, sourceRows, externalReviewRows, categorySearchRows] = await Promise.all([
     db.select({ id: governorates.id, name: governorates.name, nameAr: governorates.nameAr }).from(governorates),
     db.select({
       governorateId: entities.governorateId,
@@ -976,6 +979,14 @@ export async function getMarketIntelligenceDashboard() {
     db.select({ reviewStatus: externalMarketSignals.reviewStatus, count: sql<number>`count(*)` })
       .from(externalMarketSignals)
       .groupBy(externalMarketSignals.reviewStatus),
+    db.select({
+      category: therapeuticSearchEvents.category,
+      count: sql<number>`count(*)`,
+    })
+      .from(therapeuticSearchEvents)
+      .where(sql`${therapeuticSearchEvents.createdAt} >= date_sub(now(), interval 30 day)`)
+      .groupBy(therapeuticSearchEvents.category)
+      .orderBy(desc(sql`count(*)`)),
   ]);
 
   const governorateStats = new Map<number, { supplyCount: number; demandCount: number }>();
@@ -1054,8 +1065,23 @@ export async function getMarketIntelligenceDashboard() {
       }))
       .sort((a, b) => b.pressure - a.pressure || b.demandCount - a.demandCount)
       .slice(0, 8),
+    searchAnalytics: {
+      windowDays: 30,
+      totalTrackedSearches: categorySearchRows.reduce((total, row) => total + Number(row.count), 0),
+      topCategories: categorySearchRows.slice(0, 6).map((row) => ({ category: row.category, count: Number(row.count) })),
+    },
     external: { sources: sourceRows, reviewCounts },
   };
+}
+
+export async function recordTherapeuticCategorySearch(input: {
+  category: TherapeuticSearchCategory;
+  context: TherapeuticSearchContext;
+}) {
+  const db = await getDb();
+  if (!db) return { recorded: false };
+  await db.insert(therapeuticSearchEvents).values(input);
+  return { recorded: true };
 }
 
 export async function getExternalMarketSources(): Promise<ExternalMarketSource[]> {

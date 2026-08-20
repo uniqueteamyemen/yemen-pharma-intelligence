@@ -352,6 +352,7 @@ export default function Home() {
           <div className="mb-4 flex items-center justify-center"><BrandLockup /></div>
           <p className="text-sm text-muted-foreground">{t("Yemen Pharmaceutical Market Intelligence Platform")}</p>
           <p className="mt-2 text-xs text-muted-foreground/60">{t("Connecting supply and demand across Yemen's pharmaceutical market")}</p>
+          <a href="mailto:baker@deterministicsolutionsdesign.com" dir="ltr" className="mt-4 inline-flex max-w-full break-all rounded-md text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">baker@deterministicsolutionsdesign.com</a>
         </div>
       </footer>
     </div>

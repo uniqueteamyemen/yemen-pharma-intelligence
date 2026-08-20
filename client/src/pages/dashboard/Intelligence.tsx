@@ -9,8 +9,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
-import { Activity, AlertTriangle, ArrowDownUp, Check, Clock3, DatabaseZap, MapPinned, Plus, RadioTower, ShieldCheck, X } from "lucide-react";
+import { Activity, AlertTriangle, ArrowDownUp, Check, Clock3, DatabaseZap, MapPinned, Plus, RadioTower, Search, ShieldCheck, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { therapeuticCategoryLabel } from "@/lib/medicineCategories";
 
 type Platform = "telegram" | "facebook" | "website" | "other";
 
@@ -104,6 +105,30 @@ export default function IntelligencePage() {
         </Card>
       </section>
 
+      <section className="grid gap-6 xl:grid-cols-[1.05fr_1fr]">
+        <Card className="border-border/70 shadow-sm">
+          <CardHeader className="flex flex-row items-start justify-between gap-3 space-y-0">
+            <div>
+              <CardTitle>{language === "ar" ? "الفئات العلاجية الأكثر بحثاً" : "Most searched therapeutic categories"}</CardTitle>
+              <CardDescription>{language === "ar" ? `اختيارات الفئة خلال آخر ${data.searchAnalytics.windowDays} يوماً؛ لا نحفظ اسم المستخدم أو نص البحث.` : `Category selections in the last ${data.searchAnalytics.windowDays} days; no user identity or raw search text is stored.`}</CardDescription>
+            </div>
+            <div className="rounded-xl bg-indigo-50 p-3 text-indigo-700"><Search className="h-5 w-5" /></div>
+          </CardHeader>
+          <CardContent>
+            {data.searchAnalytics.totalTrackedSearches ? (
+              <div className="space-y-3">
+                <div className="flex items-end justify-between rounded-xl border border-indigo-100 bg-indigo-50/50 p-3"><div><p className="text-xs text-indigo-700">{language === "ar" ? "إجمالي اختيارات الفئات" : "Total category selections"}</p><p className="mt-1 text-2xl font-bold tabular-nums text-indigo-950">{data.searchAnalytics.totalTrackedSearches}</p></div><Badge variant="outline" className="border-indigo-200 bg-white text-indigo-700">{language === "ar" ? "مقياس مجهول" : "Anonymous metric"}</Badge></div>
+                {data.searchAnalytics.topCategories.map((item, index) => <div key={item.category} className="flex items-center gap-3"><span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-700">{index + 1}</span><p className="min-w-0 flex-1 truncate text-sm font-medium">{therapeuticCategoryLabel(item.category, language)}</p><Badge variant="secondary" className="tabular-nums">{item.count}</Badge></div>)}
+              </div>
+            ) : <SearchAnalyticsEmpty language={language} />}
+          </CardContent>
+        </Card>
+        <Card className="border-border/70 shadow-sm">
+          <CardHeader><CardTitle>{language === "ar" ? "كيف نقرأ هذا المؤشر؟" : "How to read this metric"}</CardTitle><CardDescription>{language === "ar" ? "مؤشر اهتمام بالتصنيف وليس دليلاً على التوفر أو حجم الطلب الوطني." : "An interest signal, not evidence of availability or national demand volume."}</CardDescription></CardHeader>
+          <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground"><p>{language === "ar" ? "يسجل النظام اختيار المستخدم لفئة علاجية في الكتالوج أو أثناء إدخال عرض أو طلب." : "The system records a therapeutic-category selection in the catalog or while entering an offer or request."}</p><p>{language === "ar" ? "لا يسجل النص الذي كتبه المستخدم ولا هويته ولا الجهة التي ينتمي إليها، ويجب تفسير النتيجة بجانب العروض والطلبات الفعلية." : "It stores neither the typed name nor a user or entity identity. Interpret it alongside actual offers and requests."}</p></CardContent>
+        </Card>
+      </section>
+
       <section className="grid gap-6 xl:grid-cols-[1.2fr_1fr]">
         <Card className="border-border/70 shadow-sm">
           <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div><div className="flex items-center gap-2"><CardTitle>{language === "ar" ? "إشارات السوق الخارجية" : "External market signals"}</CardTitle><Badge variant="outline">{language === "ar" ? "مراجعة إدارية" : "Admin governed"}</Badge></div><CardDescription>{language === "ar" ? "لا تدخل الإشارات الخارجية في المؤشرات الداخلية قبل الاعتماد." : "External signals never affect internal metrics until approved."}</CardDescription></div><SourceDialog language={language} open={sourceOpen} onOpenChange={setSourceOpen} sourceName={sourceName} sourceUrl={sourceUrl} platform={platform} autoApprove={autoApprove} onSourceNameChange={setSourceName} onSourceUrlChange={setSourceUrl} onPlatformChange={setPlatform} onAutoApproveChange={setAutoApprove} onSubmit={submitSource} saving={addSource.isPending} /></CardHeader>
@@ -134,6 +159,7 @@ function GovernorateRow({ name, demand, supply, pressure, max, language }: { nam
 
 function MiniBar({ label, value, max, color }: { label: string; value: number; max: number; color: string }) { return <div className="mb-1.5 grid grid-cols-[3.5rem_1fr_2rem] items-center gap-2"><span className="text-[11px] text-muted-foreground">{label}</span><div className="h-1.5 overflow-hidden rounded-full bg-slate-100"><div className={`h-full rounded-full ${color}`} style={{ width: `${Math.min(100, (value / max) * 100)}%` }} /></div><span className="text-end text-[11px] font-medium tabular-nums">{value}</span></div>; }
 function ReviewStat({ label, value }: { label: string; value: number }) { return <div className="rounded-lg border border-slate-200 bg-slate-50 px-2 py-2 text-center"><p className="text-base font-bold tabular-nums">{value}</p><p className="text-[10px] text-muted-foreground">{label}</p></div>; }
+function SearchAnalyticsEmpty({ language }: { language: string }) { return <div className="flex flex-col items-center justify-center py-10 text-center"><Search className="mb-3 h-9 w-9 text-indigo-500/55" /><p className="text-sm font-medium">{language === "ar" ? "لا توجد اختيارات فئات مسجلة بعد" : "No category selections recorded yet"}</p><p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">{language === "ar" ? "سيظهر المؤشر عندما يختار المستخدمون فئة علاجية أثناء البحث أو إنشاء عرض أو طلب." : "This metric appears when users select a therapeutic category while searching or creating an offer or request."}</p></div>; }
 function InternalEmpty({ language, compact = false }: { language: string; compact?: boolean }) { return <div className={`flex flex-col items-center justify-center text-center ${compact ? "py-8" : "py-12"}`}><DatabaseZap className="mb-3 h-9 w-9 text-teal-600/50" /><p className="text-sm font-medium">{language === "ar" ? "لا توجد إشارات تشغيلية كافية بعد" : "No operational signals yet"}</p><p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">{language === "ar" ? "ستظهر المؤشرات تلقائياً عند وجود عروض وطلبات موثقة مرتبطة بجهات ومواقع." : "Metrics appear automatically once verified offers and requests include entity locations."}</p></div>; }
 function ExternalEmpty({ language }: { language: string }) { return <div className="flex flex-col items-center justify-center py-10 text-center"><RadioTower className="mb-3 h-9 w-9 text-slate-400" /><p className="text-sm font-medium">{language === "ar" ? "لم يُضف مصدر خارجي بعد" : "No external source added"}</p><p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">{language === "ar" ? "أضف قناة أو صفحة مصرحاً بها؛ ستبقى إشاراتها بانتظار الاعتماد ما لم يُفعّل القبول الآلي القابل للإلغاء." : "Add an approved channel or page. Observations remain pending unless reversible auto-approval is enabled."}</p></div>; }
 function ReviewEmpty({ language }: { language: string }) { return <div className="flex flex-col items-center justify-center py-12 text-center"><AlertTriangle className="mb-3 h-9 w-9 text-amber-500/60" /><p className="text-sm font-medium">{language === "ar" ? "لا توجد إشارات معلّقة" : "No pending signals"}</p><p className="mt-1 text-xs text-muted-foreground">{language === "ar" ? "لا يوجد حالياً شيء يحتاج قراراً من الإدارة." : "There is currently nothing awaiting an administrative decision."}</p></div>; }

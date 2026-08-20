@@ -146,6 +146,27 @@ export const drugs = mysqlTable("drugs", {
 export type Drug = typeof drugs.$inferSelect;
 export type InsertDrug = typeof drugs.$inferInsert;
 
+/**
+ * Anonymous category-filter activity for aggregate product analytics.
+ * No user ID, entity ID, IP address, or raw medicine query is persisted.
+ */
+export const therapeuticSearchEvents = mysqlTable("therapeutic_search_events", {
+  id: int("id").autoincrement().primaryKey(),
+  category: mysqlEnum("category", [
+    "antibiotics", "analgesics", "cardiovascular", "respiratory",
+    "gastrointestinal", "neurological", "endocrine", "antifungal",
+    "antiviral", "oncology", "dermatological", "ophthalmological",
+    "vitamins", "other",
+  ]).notNull(),
+  context: mysqlEnum("context", ["catalog", "offer", "request"]).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => [
+  index("therapeutic_search_category_created_idx").on(table.category, table.createdAt),
+  index("therapeutic_search_created_idx").on(table.createdAt),
+]);
+
+export type TherapeuticSearchEvent = typeof therapeuticSearchEvents.$inferSelect;
+
 /** Auditable provenance for each national essential-medicine record. */
 export const drugSources = mysqlTable("drug_sources", {
   id: int("id").autoincrement().primaryKey(),

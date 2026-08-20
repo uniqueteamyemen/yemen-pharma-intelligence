@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildMedicineEntryPayload } from "@shared/medicineEntry";
 import { therapeuticCategories, therapeuticCategoryLabel } from "@/lib/medicineCategories";
+import { isTrackedTherapeuticSearchCategory } from "@shared/therapeuticSearchAnalytics";
 
 export default function OffersPage() {
   const { language, t } = useLanguage();
@@ -25,6 +26,7 @@ export default function OffersPage() {
   const offers = trpc.offers.list.useQuery({ status: "active", limit: 50 });
   const drugs = trpc.drugs.search.useQuery({ query: "" }, { enabled: false });
   const utils = trpc.useUtils();
+  const recordCategorySearch = trpc.intelligence.recordTherapeuticSearch.useMutation();
   const [drugInput, setDrugInput] = useState("");
   const [selectedDrugId, setSelectedDrugId] = useState<string>("");
   const [selectedDrugLabel, setSelectedDrugLabel] = useState("");
@@ -118,7 +120,7 @@ export default function OffersPage() {
                 <p className="text-xs text-muted-foreground">
                   {language === "ar" ? "الاقتراحات تساعد على التعرّف فقط ولا تعني أن الدواء متوفر لدى المنصة." : "Suggestions support identification only; they do not indicate platform availability."}
                 </p>
-                <Select value={therapeuticCategory} onValueChange={(value) => { setTherapeuticCategory(value); setSelectedDrugId(""); setSelectedDrugLabel(""); }}>
+                <Select value={therapeuticCategory} onValueChange={(value) => { setTherapeuticCategory(value); setSelectedDrugId(""); setSelectedDrugLabel(""); if (isTrackedTherapeuticSearchCategory(value)) recordCategorySearch.mutate({ category: value, context: "offer" }); }}>
                   <SelectTrigger aria-label={language === "ar" ? "تصفية حسب الفئة العلاجية" : "Filter by therapeutic category"}><SelectValue /></SelectTrigger>
                   <SelectContent>{therapeuticCategories.map((item) => <SelectItem key={item.value} value={item.value}>{therapeuticCategoryLabel(item.value, language)}</SelectItem>)}</SelectContent>
                 </Select>

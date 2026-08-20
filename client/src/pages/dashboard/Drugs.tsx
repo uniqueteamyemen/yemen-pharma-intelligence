@@ -10,6 +10,7 @@ import { Search, Pill } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { rankMedicinesBySearch } from "@shared/medicineSearch";
 import { therapeuticCategories, therapeuticCategoryLabel } from "@/lib/medicineCategories";
+import { isTrackedTherapeuticSearchCategory } from "@shared/therapeuticSearchAnalytics";
 
 export default function DrugsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,6 +18,7 @@ export default function DrugsPage() {
   const { language, t } = useLanguage();
 
   const allDrugs = trpc.drugs.all.useQuery();
+  const recordCategorySearch = trpc.intelligence.recordTherapeuticSearch.useMutation();
 
   const searchableDrugs = searchQuery.trim()
     ? rankMedicinesBySearch(allDrugs.data || [], searchQuery)
@@ -43,7 +45,10 @@ export default function DrugsPage() {
             className="ps-9"
           />
         </div>
-        <Select value={category} onValueChange={setCategory}>
+        <Select value={category} onValueChange={(value) => {
+          setCategory(value);
+          if (isTrackedTherapeuticSearchCategory(value)) recordCategorySearch.mutate({ category: value, context: "catalog" });
+        }}>
           <SelectTrigger className="w-[200px]">
             <SelectValue />
           </SelectTrigger>
